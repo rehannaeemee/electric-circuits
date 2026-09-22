@@ -29,6 +29,20 @@
 @media(max-width:700px){.page-pager{flex-direction:column}.page-pager a,.page-pager a:last-child{width:100%;margin:0;text-align:left}}
 
 .institution-bar{display:flex;align-items:center;gap:13px;margin:0 0 14px;padding:10px 14px;border:3px solid var(--line);border-radius:18px;background:var(--paper);box-shadow:4px 5px 0 rgba(22,33,59,.1)}.institution-bar img{width:64px;height:64px;object-fit:contain}.institution-bar strong,.institution-bar span{display:block}.institution-bar strong{color:var(--blue);font-size:1.02rem}.institution-bar span{margin-top:2px;color:var(--muted);font-size:.88rem;font-weight:800}.header-tools{display:grid;justify-items:center;gap:12px}.print-button{min-height:43px;padding:9px 15px;border:3px solid var(--line);border-radius:13px;background:var(--blue);color:#fff;font-weight:900;cursor:pointer;box-shadow:3px 4px 0 var(--yellow)}.print-button:hover{transform:translateY(-1px)}.write-line{min-height:42px;border-bottom:2px solid var(--line)}.write-cell{height:48px;min-width:92px;background:#fff}.answer-space{min-height:100px;border:2px dashed #8d9db4;border-radius:12px;background:repeating-linear-gradient(to bottom,#fff 0,#fff 31px,#d9e1ec 32px)}@media(max-width:700px){.institution-bar img{width:52px;height:52px}.institution-bar strong{font-size:.91rem}.institution-bar span{font-size:.76rem}}@media print{.institution-bar{box-shadow:none}.print-button{display:none!important}}
+
+.image-placeholder {
+  min-height: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px dashed #aebbd0;
+  border-radius: 14px;
+  background: #f4f9fd;
+  color: #52627a;
+  font-weight: 800;
+  text-align: center;
+}
+
 </style>
 </head>
 <body>
@@ -177,6 +191,77 @@
       <p>The electrical power absorbed by a resistor is the product of the voltage across it and the current through it. By combining this definition with Ohm’s law, power may be calculated in three equivalent forms:</p>
       <div class="formula-grid"><div class="formula-card"><h3>Measured V and I</h3><p>P = VI</p></div><div class="formula-card"><h3>Known I and R</h3><p>P = I²R</p></div><div class="formula-card"><h3>Known V and R</h3><p>P = V²/R</p></div><div class="formula-card"><h3>Units</h3><p>P in watts, V in volts, I in amperes, and R in ohms.</p></div></div>
       <p>The absorbed power appears mainly as heat. A resistor’s power rating is the maximum power it can dissipate safely under specified conditions. Select a resistor whose rating is comfortably higher than the calculated dissipation; exceeding the rating can overheat the component, alter its resistance, or cause permanent damage.</p>
+      <h5>Approximate Resistor Size and Power Rating</h5>
+
+      <div class="manual-figure-grid">
+  <figure class="manual-figure">
+    <img src="resistors.png"
+     alt="Comparison of resistors with different power ratings">
+    <figcaption>
+      Comparison of resistors with different power ratings.
+    </figcaption>
+  </figure>
+
+  <figure class="manual-figure">
+    <img src="resistortypes.png"
+     alt="Comparison of resistors with different power ratings">
+    <figcaption>
+      Different forms of resistors
+    </figcaption>
+  </figure>
+</div>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Typical Rating</th>
+        <th>Body Length</th>
+        <th>Body Diameter</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>0.125 W</td>
+        <td>3–4 mm</td>
+        <td>1.5–2 mm</td>
+      </tr>
+      <tr>
+        <td>0.25 W</td>
+        <td>6–7 mm</td>
+        <td>2–2.5 mm</td>
+      </tr>
+      <tr>
+        <td>0.5 W</td>
+        <td>8–10 mm</td>
+        <td>3–3.5 mm</td>
+      </tr>
+      <tr>
+        <td>1 W</td>
+        <td>11–12 mm</td>
+        <td>4–5 mm</td>
+      </tr>
+      <tr>
+        <td>2 W</td>
+        <td>15–16 mm</td>
+        <td>5–6 mm</td>
+      </tr>
+      <tr>
+        <td>3 W</td>
+        <td>17–18 mm</td>
+        <td>6–7 mm</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p class="manual-formula">
+  Measure only the resistor body. Do not include the wire leads.
+  These dimensions are approximate and may vary with resistor type
+  and manufacturer.
+</p> 
+
 
       <h4 id="bg-equivalent">1.2.9 Equivalent Resistance</h4>
       <p>An equivalent resistance is a single resistance that presents the same terminal behavior as a network of resistors when viewed from two selected terminals, such as A and B.</p>
