@@ -53,6 +53,7 @@
       <h4 id="bg-dmm">1.2.2 Digital Multimeter (DMM)</h4>
       <p>The two types of measuring instruments in common use are analog and digital meters. In this lab, we will be using only digital meters. Meters having a single-function are called panel meters e.g., voltmeter, which can measure only the voltage where as the meters with multiple functions are called multimeters which have the ability to measure a variety of electrical quantities such as voltage, current and resistance.</p>
       <p>A digital multi meter is used to measure voltage, current and resistance. It has the feature to measure these three quantities at different settings of the function knob. The function knob is also used to set the ranges for measurements.</p>
+      <div class="manual-figure-grid"><figure class="manual-figure wide"><img src="dmm.jpg" alt="Digital multimeter showing its display, function selector and input terminals"><figcaption>Digital multimeter with display, rotary function selector and measurement terminals.</figcaption></figure></div>
       <p>The meter is fairly accurate when it is used to measure dc voltages and currents. However, the ac measurements may or may not be accurate depending on the quality of the meter. The meter is usually calibrated to measure sinusoidal ac RMS values. When measuring RMS values of other waveforms, the readings may not be correct. When DMM is used as a voltmeter it is connected in parallel. Since the DMM has two leads “BLACK” and “RED”, with black always connected to “COM” terminal, a positive value indicated by the voltmeter shows that the point where the red lead is touching is positive with respect to the point where the black lead is touching and vice versa.</p>
       <p>When DMM is used as an ammeter it is connected in series. If an ammeter indicates a positive value this means the direction of the current is into its positive terminal and out of its COM terminal and vice versa. When measuring resistance, make sure that the resistor is not connected to any other component or power supply.</p>
       <p class="caution"><strong>CAUTION:</strong> Make sure that the function knob is on the appropriate scale when you are measuring any electrical quantity. Never measure voltage with current settings or current with voltmeter. It is also advisable that currents may be measured indirectly by measuring voltages across known value of resistors. OR else pay a fine of Rs. 3000/- in case the DMM is damaged.</p>
@@ -70,7 +71,90 @@
       <ol><li>Break the path of the current to be measured.</li><li>Set the knob correctly to ammeter.</li><li>Insert ammeter in the broken path to complete it. Ammeter is connected in series.</li><li>After measurement, remove ammeter and join the broken path.</li></ol>
 
       <h4 id="bg-instruments">1.2.3 DC Power Supply</h4>
-      <p>The basic power source available in the lab is analog/digital dual DC power supply. Such supplies are primarily voltage sources because variable voltage regulated power supply can be manually adjusted to deliver any required voltage within its range of operation. They provide the voltages required to make circuits function. It can be set to obtain any voltage from 0-30V.</p>
+      <p>A laboratory DC power supply provides a stable and adjustable DC voltage for operating electronic circuits. It normally displays both the output voltage and the current being drawn by the connected circuit. A single-output supply provides one adjustable output, while a dual-output supply provides two independently adjustable outputs.</p>
+
+      <div class="manual-figure-grid">
+        <figure class="manual-figure">
+          <img src="ps1.png" alt="Single-output laboratory DC power supply">
+          <figcaption>Single-output DC power supply with coarse and fine voltage and current controls.</figcaption>
+        </figure>
+        <figure class="manual-figure">
+          <img src="ps2.jpg" alt="Dual-output laboratory DC power supply">
+          <figcaption>Dual-output DC power supply with independent and tracking controls.</figcaption>
+        </figure>
+      </div>
+
+      <h5>Main Controls and Terminals</h5>
+      <ul>
+        <li><strong>Voltage control:</strong> Adjusts the output voltage. Some supplies provide coarse and fine controls for faster and more accurate adjustment.</li>
+        <li><strong>Current control:</strong> Sets the maximum current that the supply is allowed to provide. This protects the circuit if it draws excessive current.</li>
+        <li><strong>Voltage display:</strong> Shows the voltage available at the output terminals.</li>
+        <li><strong>Current display:</strong> Shows the current being drawn by the connected circuit.</li>
+        <li><strong>Positive terminal:</strong> Usually red and connected to the positive supply rail.</li>
+        <li><strong>Negative terminal:</strong> Usually black and connected to the circuit’s return or negative rail.</li>
+        <li><strong>Ground terminal:</strong> Usually green and connected only when an earth-ground reference is required.</li>
+        <li><strong>Output control:</strong> Enables or disables the voltage at the output terminals without switching off the complete instrument.</li>
+      </ul>
+
+      <h5>Basic Operating Procedure</h5>
+
+      <p><strong>1. Prepare the Power Supply</strong></p>
+      <ol>
+        <li>Make sure that the circuit is not connected to the output terminals.</li>
+        <li>Check that the <strong>OUTPUT</strong> switch is off. If the supply does not have a separate output switch, keep its main <strong>POWER</strong> switch off.</li>
+        <li>Turn the <strong>VOLTAGE</strong> and <strong>CURRENT</strong> controls anticlockwise to their minimum positions.</li>
+        <li>For a dual-output supply, select the required channel. Keep the supply in <strong>independent mode</strong> unless series, parallel, or tracking operation is specifically required.</li>
+      </ol>
+
+      <p><strong>2. Turn On the Power Supply</strong></p>
+      <p>Press the main <strong>POWER</strong> button. The voltage and current displays should illuminate. Do not connect the circuit yet.</p>
+
+      <p><strong>3. Set the Current Limit</strong></p>
+      <p>The current limit must be set before applying voltage to the circuit because it protects the components from excessive current.</p>
+      <p>Both supplies shown use <strong>CURRENT</strong> control knobs rather than a current-set button. Set the current limit using the appropriate current-control knob as follows:</p>
+      <ol>
+        <li>Keep the voltage control at a low setting.</li>
+        <li>Temporarily connect the positive and negative output terminals using a suitable shorting lead.</li>
+        <li>Enable the output by pressing the <strong>OUTPUT ON/OFF</strong> button. The supply should enter constant-current mode, indicated by the <strong>C.C.</strong> light.</li>
+        <li>Turn the <strong>CURRENT</strong> control clockwise until the current display approaches the required limit. If separate coarse and fine controls are available, use the coarse control first and the fine control for the final adjustment.</li>
+        <li>Disable the output and remove the shorting lead.</li>
+      </ol>
+      <p class="caution"><strong>Important:</strong> A shorting lead should only be used for setting the current limit. It must be removed before connecting the circuit.</p>
+
+      <p><strong>4. Set the Output Voltage</strong></p>
+      <ol>
+        <li>Keep the circuit disconnected and the output disabled.</li>
+        <li>Turn the <strong>VOLTAGE COARSE</strong> control clockwise while observing the voltage display.</li>
+        <li>Stop when the displayed value is close to the required voltage.</li>
+        <li>Use the <strong>VOLTAGE FINE</strong> control, if available, to set the exact value.</li>
+      </ol>
+      <p>Some supplies display the set voltage while the output is disabled. If the display remains at zero, briefly enable the output without connecting a circuit, adjust the voltage, and then disable the output again.</p>
+
+      <p><strong>5. Connect the Circuit</strong></p>
+      <ol>
+        <li>Connect the red positive terminal to the positive supply rail of the circuit.</li>
+        <li>Connect the black negative terminal to the circuit’s return rail.</li>
+        <li>Use the green ground terminal only when an earth-ground reference is required.</li>
+        <li>Recheck the polarity and confirm that there are no short circuits.</li>
+      </ol>
+      <p>For a dual-output supply, use the voltage control, current control, display, and terminals belonging to the selected channel.</p>
+
+      <p><strong>6. Apply Power to the Circuit</strong></p>
+      <p>Press the <strong>OUTPUT ON/OFF</strong> button to enable the output. If there is no separate output button, switch on the main power only after completing and checking all connections.</p>
+      <p>Observe the voltage and current displays:</p>
+      <ul>
+        <li>The <strong>C.V.</strong> indicator means that the supply is maintaining the selected voltage. This is the normal operating condition.</li>
+        <li>The <strong>C.C.</strong> indicator means that the circuit has reached the selected current limit. If this happens unexpectedly, disable the output and check for an incorrect connection, excessive load, or short circuit. Do not increase the current limit without identifying the cause.</li>
+      </ul>
+
+      <p><strong>7. Switch Off Safely</strong></p>
+      <p>Disable the output before changing any connection. After completing the experiment, switch off the output, turn the voltage control back to minimum, press the main power button, and then disconnect the leads.</p>
+
+      <h5>Using a Dual-Output Supply</h5>
+      <p>A dual-output supply contains two adjustable channels. The channels may be used independently to power separate circuits. On supported supplies, they may also be configured in series to obtain a higher voltage or a positive and negative supply. Parallel operation may provide additional current, but it should only be used when the supply specifically supports this mode. The output channels must not be connected together randomly.</p>
+
+      <h5>Safety Precautions</h5>
+      <p class="caution">Always begin with a low voltage and a conservative current limit. Never exceed the voltage or current rating of the connected components. Do not short the output terminals except briefly while following the current-limit setting procedure, and always switch the output off before changing circuit connections.</p>
 
       <h4>1.2.4 Signal Generator</h4>
       <p>Signal generator is primarily a waveform generator. It provides sinusoidal waveform, square waveform and triangular waveform. The frequency and the amplitude of the signal can be set with the help of “Frequency” and “Amplitude” knobs. These waveform may be skewed by manipulating the symmetry knob. The waveform may be added with dc offset values like, for example, to convert a square waveform into a pulse train with the help of “DC offset” knob.</p>
