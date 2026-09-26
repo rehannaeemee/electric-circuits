@@ -17,17 +17,23 @@
     text-align: center;
   }
 
-  .video-container {
-  max-width: 800px;
-  margin: 20px auto;
-  aspect-ratio: 16 / 9;
+.snapshot-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 16px;
 }
 
-.video-container iframe {
-  width: 100%;
-  height: 100%;
-  border: 2px solid #1f2942;
-  border-radius: 14px;
+.snapshot-grid h5 {
+  margin: 0 0 8px;
+  color: var(--blue);
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .snapshot-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 </style>
@@ -338,6 +344,9 @@
               </div>
             </div>
           </article>
+          <h4>Frequency Measurements</h4>
+
+
           <article class="task card">
             <div class="task-head">
               <div>
@@ -351,106 +360,115 @@
             </figure>
             <ol class="task-steps">
               <li>Identify the microphone ground terminal and construct the circuit with correct polarity.</li>
-              <li>Set the source to a constant 10 V and enable the oscilloscope channel bandwidth limit if available.</li>
-              <li>Adjust the display so the silent level and the largest sound response are both visible.</li>
-              <li>Select an edge trigger and place its threshold slightly below the expected peak.</li>
-              <li>Use Normal mode to capture one clap or snap.</li>
-              <li>Repeat using rising and falling slopes and compare the captured events.</li>
+              <li>Connect a microphone as shown in figure below with Vin = 5V and R = 33kΩ. It is important that the microphone’s lead with the three lighter-green lines on it is connected to the ground or negative terminal of the power supply.</li>
+              <li>Use an oscilloscope to observe the signal across the microphone. Set voltage scale to 50mV, time scale to 2ms, coupling to AC coupling.</li>
+              <li>Set the oscilloscope such that it measures and displays the frequency on its screen.</li>
+              <li>Play this <a href = "https://www.youtube.com/watch?v=PyD9cMarVJk">video</a>, which outputs 1kHz sine wave sound, on your smartphone and place its speaker close to the microphone.</li>    
+              <li>Play the video and note down the frequency of the signal displayed on scope </li>
+              <li>Play this <a href="https://www.youtube.com/watch?v=qNf9nzvnd1k">video</a> which generates variable sine wave frequencies and compare the actual and played frequencies.</li>
+              <li>Set the scope’s trigger mode to Normal. Set voltage scale to 50mV, time scale to 2ms, coupling to DC. Observe the signal across the microphone while you snap your fingers and clap your hands. Paste the pic of both the waveforms below.</li>
             </ol>
-            <div class="table-wrap">
-              <table class="write-table">
-                <thead>
-                  <tr>
-                    <th>Trigger Mode</th>
-                    <th>Slope</th>
-                    <th>Threshold</th>
-                    <th>Peak</th>
-                    <th>Event Width</th>
-                    <th>Observation</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Auto</td>
-                    <td>Rising</td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                  </tr>
-                  <tr>
-                    <td>Normal</td>
-                    <td>Rising</td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                  </tr>
-                  <tr>
-                    <td>Normal</td>
-                    <td>Falling</td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </article>
-          <article class="task card">
-            <div class="task-head">
-              <div>
-                <h3>Task 5: Observe an Infrared Remote Signal</h3>
-                <p>Detect the optical pulses produced by a remote control and measure their timing.</p>
-              </div>
-            </div>
-            <figure class="circuit-figure">
-              <img src="assets/lab-03/ir-detector.png" alt="Infrared phototransistor detector with speaker and oscilloscope">
-              <figcaption>Infrared remote-control detector.</figcaption>
-            </figure>
-            <ol class="task-steps">
-              <li>Construct the detector with the phototransistor polarity shown.</li>
-              <li>Aim the remote directly toward the phototransistor and hold one button.</li>
-              <li>Start with a wide time view so that several bursts are visible.</li>
-              <li>Use triggering and cursors to measure the burst duration and pause.</li>
-              <li>Zoom in and measure the slower pattern inside one burst.</li>
-              <li>Zoom further to estimate the higher modulation frequency.</li>
-              <li>Repeat with another remote button and compare the patterns.</li>
-            </ol>
-            <div class="table-wrap">
-              <table class="write-table">
-                <thead>
-                  <tr>
-                    <th>Remote Button</th>
-                    <th>Burst Duration</th>
-                    <th>Pause</th>
-                    <th>Pattern Frequency</th>
-                    <th>Modulation Frequency</th>
-                    <th>Observation</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                  </tr>
-                  <tr>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </article>
+           
+
+<div class="table-wrap">
+  <table class="write-table">
+    <thead>
+      <tr>
+        <th>Test</th>
+        <th>Played Frequency</th>
+        <th>Measured Frequency</th>
+        <th>Difference</th>
+        <th>Percentage Error</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>1 kHz sound</td>
+        <td>1000</td>
+        <td class="write-cell"></td>
+        <td class="write-cell"></td>
+        <td class="write-cell"></td>
+      </tr>
+
+      <tr>
+        <td>Variable frequency 1</td>
+        <td class="write-cell"></td>
+        <td class="write-cell"></td>
+        <td class="write-cell"></td>
+        <td class="write-cell"></td>
+      </tr>
+
+      <tr>
+        <td>Variable frequency 2</td>
+        <td class="write-cell"></td>
+        <td class="write-cell"></td>
+        <td class="write-cell"></td>
+        <td class="write-cell"></td>
+      </tr>
+
+      <tr>
+        <td>Variable frequency 3</td>
+        <td class="write-cell"></td>
+        <td class="write-cell"></td>
+        <td class="write-cell"></td>
+        <td class="write-cell"></td>
+      </tr>
+
+      <tr>
+        <td>Variable frequency 4</td>
+        <td class="write-cell"></td>
+        <td class="write-cell"></td>
+        <td class="write-cell"></td>
+        <td class="write-cell"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="calculation-space">
+  <strong>Calculations:</strong>
+
+  <p>
+    Difference = |Measured frequency − Played frequency|
+  </p>
+
+  <p>
+    Percentage error =
+    (Difference ÷ Played frequency) × 100
+  </p>
+</div>
+
+<h4>Captured Waveforms</h4>
+
+<div class="snapshot-grid">
+  <div>
+    <h5>Finger-Snap Waveform</h5>
+
+    <div class="snapshot-space">
+      Paste the finger-snap waveform here
+    </div>
+  </div>
+
+  <div>
+    <h5>Hand-Clap Waveform</h5>
+
+    <div class="snapshot-space">
+      Paste the hand-clap waveform here
+    </div>
+  </div>
+</div>
+
+<div class="question-list">
+  <div class="question">
+    <label>
+      Compare the finger-snap and hand-clap waveforms.
+    </label>
+
+    <div class="answer-space"></div>
+  </div>
+</div>
+          
         </section>
         <section id="review">
           <div class="section-title">
@@ -474,10 +492,7 @@
                 <label>3. Explain the difference between Auto and Normal trigger modes.</label>
                 <div class="answer-space"></div>
               </div>
-              <div class="question">
-                <label>4. What changed when a different remote-control button was pressed?</label>
-                <div class="answer-space"></div>
-              </div>
+              
             </div>
             <p class="source-note">Submit the completed observation tables, calculations and written explanations, and demonstrate the three working sensor circuits.</p>
           </article>
