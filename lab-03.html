@@ -1,44 +1,488 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lab 3 — [Lab title]</title>
-  <meta name="description" content="Placeholder page for Lab 3 of the EE-100L Laboratory Manual.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&family=Patrick+Hand&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b4d89'/%3E%3Cpath d='M12 32h9l4-8 7 16 7-16 4 8h9' fill='none' stroke='%23ffcf4a' stroke-width='5' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
-  <style>
-    :root{--ink:#16213b;--blue:#174d86;--sky:#dff2ff;--yellow:#ffcf4a;--red:#ee6068;--green:#3fab78;--paper:#fffdf7;--line:#1f2942;--muted:#60708c;--shadow:0 10px 0 rgba(22,33,59,.1)}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:"Nunito",system-ui,sans-serif;background-color:#f6fbff;background-image:radial-gradient(#b8d8ed 1.15px,transparent 1.15px);background-size:24px 24px}button,input,select,textarea{font:inherit}button,a{touch-action:manipulation}.page{width:min(1220px,calc(100% - 28px));margin:auto;padding:22px 0 44px}
-    .lab-switcher{margin-bottom:12px;padding:11px 12px;background:var(--blue);border:3px solid var(--line);border-radius:18px;box-shadow:4px 5px 0 var(--yellow);color:#fff}.lab-switcher-label{display:block;margin:0 0 8px 3px;font-size:.76rem;font-weight:900;letter-spacing:.09em;text-transform:uppercase}.lab-tabs{display:flex;gap:8px;overflow-x:auto;padding:1px 1px 7px;scrollbar-width:thin}.lab-tab{display:inline-flex;flex-direction:column;align-items:flex-start;justify-content:center;flex:0 0 205px;min-height:67px;padding:8px 11px;border:2px solid rgba(255,255,255,.62);border-radius:11px;color:#fff;font-weight:900;text-decoration:none}.lab-tab strong{font-size:.86rem;line-height:1}.lab-tab small{display:block;margin-top:5px;font-size:.7rem;line-height:1.2;font-weight:800;white-space:normal;text-align:left}.lab-tab.active{background:var(--yellow);border-color:var(--line);color:var(--ink);box-shadow:2px 2px 0 #fff}.lab-tab.active small{color:#39445c}.lab-tab.future{opacity:.86;cursor:not-allowed}.topbar{position:sticky;top:10px;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:24px;padding:10px 13px;background:rgba(255,253,247,.95);border:3px solid var(--line);border-radius:18px;box-shadow:4px 5px 0 rgba(22,33,59,.12);backdrop-filter:blur(12px)}.brand{display:flex;align-items:center;gap:10px;font-weight:900;color:var(--blue);white-space:nowrap}.brand-mark{display:grid;place-items:center;width:38px;height:38px;border:2px solid var(--line);border-radius:12px;background:var(--yellow);font:900 1.35rem "Patrick Hand",cursive;transform:rotate(-3deg)}nav{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}nav::-webkit-scrollbar{display:none}nav a,.code-link{display:inline-flex;align-items:center;min-height:38px;padding:7px 11px;border:2px solid transparent;border-radius:12px;color:var(--ink);font-size:.9rem;font-weight:900;text-decoration:none;white-space:nowrap}nav a:hover,nav a:focus-visible{border-color:var(--line);background:var(--sky)}.code-link{background:var(--blue);color:#fff;border-color:var(--line)}
-    header{display:grid;grid-template-columns:1fr auto;gap:22px;align-items:end;margin:12px 0 26px}.eyebrow{display:inline-flex;align-items:center;gap:8px;margin:0 0 7px;font-weight:900;color:var(--blue);text-transform:uppercase;letter-spacing:.08em;font-size:.88rem}.eyebrow:before{content:"";width:34px;height:5px;background:var(--yellow);border:2px solid var(--line);border-radius:10px;transform:rotate(-2deg)}h1{font:900 clamp(2.65rem,6.5vw,5.6rem)/.9 "Patrick Hand",cursive;margin:0;color:var(--blue);text-shadow:3px 3px 0 #fff,5px 5px 0 var(--yellow)}.intro{max-width:740px;margin:15px 0 0;font-size:1.05rem;line-height:1.55;font-weight:700}.badge{background:var(--yellow);border:3px solid var(--line);border-radius:50%;width:132px;aspect-ratio:1;display:grid;place-items:center;text-align:center;font:900 1.08rem/1.1 "Patrick Hand",cursive;transform:rotate(5deg);box-shadow:5px 6px 0 var(--line)}
-    .card{background:var(--paper);border:3px solid var(--line);border-radius:24px;box-shadow:var(--shadow)}.student-card{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:18px;margin-bottom:24px}.field label{display:block;margin:0 0 6px;font-size:.82rem;font-weight:900;color:var(--blue);text-transform:uppercase;letter-spacing:.04em}.field input{width:100%;height:43px;padding:8px 11px;background:#fff;border:2px solid #aebbd0;border-radius:10px;color:var(--ink);font-weight:800}.field input:focus{outline:3px solid rgba(255,207,74,.5);border-color:var(--line)}
-    .section-title{display:flex;align-items:center;gap:12px;margin:34px 0 14px}.section-title .scribble{display:grid;place-items:center;flex:0 0 44px;height:44px;border:3px solid var(--line);border-radius:14px;background:var(--yellow);font:900 1.35rem "Patrick Hand",cursive;transform:rotate(-3deg)}.section-title h2{margin:0;font:900 clamp(2rem,4vw,3rem)/1 "Patrick Hand",cursive;color:var(--blue)}.section-title p{margin:4px 0 0;color:var(--muted);font-weight:700}.overview{display:grid;grid-template-columns:1.25fr .75fr;gap:18px}.overview .card,.content-card{padding:20px 22px}.overview h3,.content-card h3{margin:0 0 9px;font:900 1.7rem "Patrick Hand",cursive;color:var(--blue)}.overview ol,.overview ul,.content-card ol,.content-card ul{margin:0;padding-left:22px;line-height:1.65;font-weight:700}.apparatus,.safety-list{list-style:none;padding:0!important;display:grid;gap:10px}.apparatus li,.safety-list li{display:flex;gap:10px;align-items:flex-start}.apparatus li:before,.safety-list li:before{content:"✓";display:grid;place-items:center;flex:0 0 26px;width:26px;height:26px;border:2px solid var(--line);border-radius:50%;background:var(--green);color:#fff;font-weight:900}.safety-list li:before{content:"!";background:var(--red)}
-    .comic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.comic{position:relative;overflow:hidden;min-height:500px;display:flex;flex-direction:column}.comic:nth-child(1){--accent:#45a7d8;transform:rotate(-.25deg)}.comic:nth-child(2){--accent:#f0aa35;transform:rotate(.25deg)}.comic:nth-child(3){--accent:#ef6d72;transform:rotate(.18deg)}.comic:nth-child(4){--accent:#45ad7b;transform:rotate(-.18deg)}.number{position:absolute;top:14px;left:14px;z-index:2;width:48px;height:48px;border:3px solid var(--line);border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#fff;font:900 1.45rem "Patrick Hand",cursive;box-shadow:3px 3px 0 var(--line)}.art{width:100%;aspect-ratio:16/9;object-fit:cover;border-bottom:3px solid var(--line);background:#eaf6ff}.copy{padding:18px 22px 22px;display:flex;flex-direction:column;flex:1}.copy h3{font:900 clamp(1.55rem,3vw,2.05rem)/1.08 "Patrick Hand",cursive;margin:0 0 10px;color:var(--blue)}.answer{margin:0;font-size:1rem;line-height:1.55;font-weight:700}.note{display:flex;align-items:flex-start;gap:9px;margin-top:auto;padding-top:15px;font-size:.93rem;line-height:1.35;font-weight:800;color:#33415e}.note span{flex:0 0 auto;background:var(--yellow);border:2px solid var(--line);border-radius:50%;width:28px;height:28px;display:grid;place-items:center}.formula{display:inline-block;margin-top:10px;padding:8px 12px;border:2px dashed var(--line);border-radius:12px;background:#fff;font-weight:900}
-    .reference-card{padding:18px}.band-reference{margin:0 0 18px}.band-reference img{display:block;width:100%;border:3px solid var(--line);border-radius:18px;background:#fff}.band-reference figcaption{margin:9px 4px 0;color:var(--muted);font-size:.9rem;line-height:1.45;font-weight:800;text-align:center}.band-legend{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:14px 0 18px}.band-key{padding:10px;border:2px solid var(--line);border-top-width:9px;border-radius:12px;background:#fff;text-align:center;font-weight:900}.band-key small{display:block;color:var(--muted);font-size:.74rem}.band-key.b1{border-top-color:#8b4e2b}.band-key.b2{border-top-color:#151515}.band-key.b3{border-top-color:#e34545}.band-key.b4{border-top-color:#d7ad2c}.reference-table{min-width:620px}.reference-table .colour-name{text-align:left;font-weight:900}.reference-table .swatch{display:inline-block;vertical-align:middle;width:38px;height:24px;margin-right:10px;border:2px solid var(--line);border-radius:7px}.black{background:#151515}.brown{background:#8b4e2b}.red{background:#e34545}.orange{background:#f28b22}.yellow{background:#ffd744}.green{background:#3c9d55}.blue{background:#3578c8}.violet{background:#8252b5}.gray{background:#9aa1aa}.white{background:#fff}.gold{background:#d7ad2c}.silver{background:#c8ccd2}.none{background:repeating-linear-gradient(45deg,#fff,#fff 6px,#edf0f4 6px,#edf0f4 12px)}
-    .manual-background{scroll-margin-top:92px}.manual-sheet{padding:clamp(20px,4vw,38px)}.manual-sheet h3{margin:0 0 14px;font:900 clamp(2rem,4vw,2.8rem)/1 "Patrick Hand",cursive;color:var(--blue)}.manual-sheet h4{margin:28px 0 10px;font:900 clamp(1.55rem,3vw,2.05rem)/1.1 "Patrick Hand",cursive;color:var(--blue)}.manual-sheet h5{margin:22px 0 8px;font:900 1.2rem/1.2 "Nunito",sans-serif;color:var(--ink)}.manual-sheet p,.manual-sheet li{font-size:1rem;line-height:1.72;font-weight:700;text-align:justify}.manual-sheet ol,.manual-sheet ul{padding-left:24px}.manual-figure-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:20px 0}.manual-figure{margin:0;padding:12px;border:2px solid #aebbd0;border-radius:16px;background:#fff;text-align:center}.manual-figure.wide{grid-column:1/-1}.manual-figure img{display:block;width:100%;height:auto;max-height:430px;object-fit:contain;border-radius:9px}.manual-figure figcaption{margin-top:9px;color:var(--muted);font-size:.88rem;font-weight:900}.caution{margin:18px 0;padding:15px 17px;border:3px solid var(--red);border-radius:15px;background:#fff0f1;font-weight:900;line-height:1.6}.equation{margin:16px auto;width:max-content;max-width:100%;padding:10px 24px;border:2px dashed var(--line);border-radius:12px;background:var(--sky);font-size:1.3rem;font-weight:900}.symbol-list{list-style:none;padding-left:0!important}.symbol-list li{margin:5px 0;text-align:left}
-    .task{scroll-margin-top:90px;padding:20px;margin-bottom:24px}.task-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:13px}.task h3{margin:0;font:900 clamp(1.7rem,3vw,2.25rem)/1.05 "Patrick Hand",cursive;color:var(--blue)}.task p{margin:7px 0 0;max-width:920px;line-height:1.55;font-weight:700}.tag{flex:0 0 auto;padding:6px 10px;border:2px solid var(--line);border-radius:999px;background:var(--yellow);font-size:.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.04em}.table-wrap{overflow-x:auto;border:2px solid var(--line);border-radius:15px;background:#fff}table{width:100%;border-collapse:separate;border-spacing:0;min-width:850px}th{padding:11px 9px;background:linear-gradient(135deg,var(--blue),#208cb6);color:#fff;border-right:1px solid rgba(255,255,255,.28);font-size:.84rem;line-height:1.25;text-align:center}td{padding:8px;border-top:1px solid #cbd5e3;border-right:1px solid #cbd5e3;text-align:center;font-weight:800}th:last-child,td:last-child{border-right:0}tbody tr:nth-child(even){background:#f4f9fd}.row-num{width:44px;color:var(--blue)}.table-input,.table-select{width:100%;min-width:92px;height:40px;padding:6px 8px;border:2px solid #aebbd0;border-radius:9px;background:#fff;color:var(--ink);font-weight:800;text-align:center}.table-input:focus,.table-select:focus,textarea:focus{outline:3px solid rgba(255,207,74,.5);border-color:var(--line)}.calculated{min-width:120px;color:var(--blue);font-size:.91rem}.within{background:#dff7ea!important;border-color:var(--green)!important}.outside{background:#ffe8e9!important;border-color:var(--red)!important}.manual-formula{margin:11px 0 0;color:var(--muted);font-size:.9rem;font-weight:800}.formula-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.formula-card{padding:18px;border:3px solid var(--line);border-radius:18px;background:#fff;box-shadow:4px 5px 0 rgba(22,33,59,.1)}.formula-card h3{margin:0 0 7px;font:900 1.55rem "Patrick Hand",cursive;color:var(--blue)}.formula-card p{margin:0;line-height:1.55;font-weight:800}.question-list{display:grid;gap:13px}.question{padding:15px;border:2px solid #b9c6d8;border-radius:14px;background:#fff}.question label{display:block;margin-bottom:8px;font-weight:900}.question textarea{width:100%;min-height:84px;resize:vertical;padding:10px 12px;border:2px solid #aebbd0;border-radius:10px;color:var(--ink);font-weight:700}
-    .actions{position:sticky;bottom:10px;z-index:15;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:26px;padding:12px 14px;background:rgba(23,77,134,.97);border:3px solid var(--line);border-radius:18px;box-shadow:5px 6px 0 var(--yellow);color:#fff}.save-state{font-weight:900}.action-buttons{display:flex;gap:9px}.btn{min-height:42px;padding:8px 14px;border:2px solid var(--line);border-radius:11px;background:var(--yellow);color:var(--ink);font-weight:900;cursor:pointer}.btn.secondary{background:#fff}.btn:hover{transform:translateY(-1px)}footer{margin-top:28px;text-align:center;font-weight:800;color:var(--muted)}
-    @media (max-width:900px){.topbar{align-items:flex-start}.brand{display:none}.student-card{grid-template-columns:repeat(2,1fr)}.overview{grid-template-columns:1fr}}@media (max-width:700px){.page{padding-top:12px}.topbar{top:5px}.code-link{display:none}header{grid-template-columns:1fr}.badge{display:none}h1{font-size:3.25rem}.student-card{grid-template-columns:1fr}.comic-grid,.formula-grid,.manual-figure-grid{grid-template-columns:1fr}.band-legend{grid-template-columns:repeat(2,1fr)}.comic{min-height:0;transform:none!important}.task{padding:15px}.task-head{flex-direction:column}.actions{align-items:flex-start;flex-direction:column}.action-buttons{width:100%}.btn{flex:1}}@media (prefers-reduced-motion:no-preference){.comic{transition:transform .18s ease,box-shadow .18s ease}.comic:hover{transform:translateY(-4px) rotate(0);box-shadow:0 15px 0 rgba(22,33,59,.13)}}@media print{body{background:#fff}.page{width:100%;padding:0}.lab-switcher,.topbar,.actions,.code-link{display:none!important}.card,.table-wrap{box-shadow:none;break-inside:avoid}.comic-grid{grid-template-columns:repeat(2,1fr)}.task{break-before:page}input,select,textarea{border-color:#444!important;outline:0!important}header{margin-top:0}}
+  <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1"> <title>Lab 3 — Sensors and Oscilloscope Measurements</title> <meta name="description" content="Photoresistor, microphone and infrared sensing experiments using a digital multimeter and oscilloscope."> <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&amp;family=Patrick+Hand&amp;display=swap" rel="stylesheet"> <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%231b4d89'/%3E%3Cpath%20d='M12%2032h9l4-8%207%2016%207-16%204%208h9'%20fill='none'%20stroke='%23ffcf4a'%20stroke-width='5'%20stroke-linejoin='round'%20stroke-linecap='round'/%3E%3C/svg%3E"> <style> :root{--ink:#16213b;--blue:#174d86;--sky:#dff2ff;--yellow:#ffcf4a;--red:#ee6068;--green:#3fab78;--paper:#fffdf7;--line:#1f2942;--muted:#60708c;--shadow:0 10px 0 rgba(22,33,59,.1)} *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:"Nunito",system-ui,sans-serif;background-color:#f6fbff;background-image:radial-gradient(#b8d8ed 1.15px,transparent 1.15px);background-size:24px 24px}button,input,select,textarea{font:inherit}button,a{touch-action:manipulation}.page{width:min(1220px,calc(100% - 28px));margin:auto;padding:22px 0 44px} .lab-switcher{margin-bottom:12px;padding:11px 12px;background:var(--blue);border:3px solid var(--line);border-radius:18px;box-shadow:4px 5px 0 var(--yellow);color:#fff}.lab-switcher-label{display:block;margin:0 0 8px 3px;font-size:.76rem;font-weight:900;letter-spacing:.09em;text-transform:uppercase}.lab-tabs{display:flex;gap:8px;overflow-x:auto;padding:1px 1px 7px;scrollbar-width:thin}.lab-tab{display:inline-flex;flex-direction:column;align-items:flex-start;justify-content:center;flex:0 0 205px;min-height:67px;padding:8px 11px;border:2px solid rgba(255,255,255,.62);border-radius:11px;color:#fff;font-weight:900;text-decoration:none}.lab-tab strong{font-size:.86rem;line-height:1}.lab-tab small{display:block;margin-top:5px;font-size:.7rem;line-height:1.2;font-weight:800;white-space:normal;text-align:left}.lab-tab.active{background:var(--yellow);border-color:var(--line);color:var(--ink);box-shadow:2px 2px 0 #fff}.lab-tab.active small{color:#39445c}.lab-tab.future{opacity:.86;cursor:not-allowed}.topbar{position:sticky;top:10px;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:24px;padding:10px 13px;background:rgba(255,253,247,.95);border:3px solid var(--line);border-radius:18px;box-shadow:4px 5px 0 rgba(22,33,59,.12);backdrop-filter:blur(12px)}.brand{display:flex;align-items:center;gap:10px;font-weight:900;color:var(--blue);white-space:nowrap}.brand-mark{display:grid;place-items:center;width:38px;height:38px;border:2px solid var(--line);border-radius:12px;background:var(--yellow);font:900 1.35rem "Patrick Hand",cursive;transform:rotate(-3deg)}nav{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}nav::-webkit-scrollbar{display:none}nav a,.code-link{display:inline-flex;align-items:center;min-height:38px;padding:7px 11px;border:2px solid transparent;border-radius:12px;color:var(--ink);font-size:.9rem;font-weight:900;text-decoration:none;white-space:nowrap}nav a:hover,nav a:focus-visible{border-color:var(--line);background:var(--sky)}.code-link{background:var(--blue);color:#fff;border-color:var(--line)} header{display:grid;grid-template-columns:1fr auto;gap:22px;align-items:end;margin:12px 0 26px}.eyebrow{display:inline-flex;align-items:center;gap:8px;margin:0 0 7px;font-weight:900;color:var(--blue);text-transform:uppercase;letter-spacing:.08em;font-size:.88rem}.eyebrow:before{content:"";width:34px;height:5px;background:var(--yellow);border:2px solid var(--line);border-radius:10px;transform:rotate(-2deg)}h1{font:900 clamp(2.65rem,6.5vw,5.6rem)/.9 "Patrick Hand",cursive;margin:0;color:var(--blue);text-shadow:3px 3px 0 #fff,5px 5px 0 var(--yellow)}.intro{max-width:740px;margin:15px 0 0;font-size:1.05rem;line-height:1.55;font-weight:700}.badge{background:var(--yellow);border:3px solid var(--line);border-radius:50%;width:132px;aspect-ratio:1;display:grid;place-items:center;text-align:center;font:900 1.08rem/1.1 "Patrick Hand",cursive;transform:rotate(5deg);box-shadow:5px 6px 0 var(--line)} .card{background:var(--paper);border:3px solid var(--line);border-radius:24px;box-shadow:var(--shadow)}.student-card{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:18px;margin-bottom:24px}.field label{display:block;margin:0 0 6px;font-size:.82rem;font-weight:900;color:var(--blue);text-transform:uppercase;letter-spacing:.04em}.field input{width:100%;height:43px;padding:8px 11px;background:#fff;border:2px solid #aebbd0;border-radius:10px;color:var(--ink);font-weight:800}.field input:focus{outline:3px solid rgba(255,207,74,.5);border-color:var(--line)} .section-title{display:flex;align-items:center;gap:12px;margin:34px 0 14px}.section-title .scribble{display:grid;place-items:center;flex:0 0 44px;height:44px;border:3px solid var(--line);border-radius:14px;background:var(--yellow);font:900 1.35rem "Patrick Hand",cursive;transform:rotate(-3deg)}.section-title h2{margin:0;font:900 clamp(2rem,4vw,3rem)/1 "Patrick Hand",cursive;color:var(--blue)}.section-title p{margin:4px 0 0;color:var(--muted);font-weight:700}.overview{display:grid;grid-template-columns:1.25fr .75fr;gap:18px}.overview .card,.content-card{padding:20px 22px}.overview h3,.content-card h3{margin:0 0 9px;font:900 1.7rem "Patrick Hand",cursive;color:var(--blue)}.overview ol,.overview ul,.content-card ol,.content-card ul{margin:0;padding-left:22px;line-height:1.65;font-weight:700}.apparatus,.safety-list{list-style:none;padding:0!important;display:grid;gap:10px}.apparatus li,.safety-list li{display:flex;gap:10px;align-items:flex-start}.apparatus li:before,.safety-list li:before{content:"✓";display:grid;place-items:center;flex:0 0 26px;width:26px;height:26px;border:2px solid var(--line);border-radius:50%;background:var(--green);color:#fff;font-weight:900}.safety-list li:before{content:"!";background:var(--red)} .comic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.comic{position:relative;overflow:hidden;min-height:500px;display:flex;flex-direction:column}.comic:nth-child(1){--accent:#45a7d8;transform:rotate(-.25deg)}.comic:nth-child(2){--accent:#f0aa35;transform:rotate(.25deg)}.comic:nth-child(3){--accent:#ef6d72;transform:rotate(.18deg)}.comic:nth-child(4){--accent:#45ad7b;transform:rotate(-.18deg)}.number{position:absolute;top:14px;left:14px;z-index:2;width:48px;height:48px;border:3px solid var(--line);border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#fff;font:900 1.45rem "Patrick Hand",cursive;box-shadow:3px 3px 0 var(--line)}.art{width:100%;aspect-ratio:16/9;object-fit:cover;border-bottom:3px solid var(--line);background:#eaf6ff}.copy{padding:18px 22px 22px;display:flex;flex-direction:column;flex:1}.copy h3{font:900 clamp(1.55rem,3vw,2.05rem)/1.08 "Patrick Hand",cursive;margin:0 0 10px;color:var(--blue)}.answer{margin:0;font-size:1rem;line-height:1.55;font-weight:700}.note{display:flex;align-items:flex-start;gap:9px;margin-top:auto;padding-top:15px;font-size:.93rem;line-height:1.35;font-weight:800;color:#33415e}.note span{flex:0 0 auto;background:var(--yellow);border:2px solid var(--line);border-radius:50%;width:28px;height:28px;display:grid;place-items:center}.formula{display:inline-block;margin-top:10px;padding:8px 12px;border:2px dashed var(--line);border-radius:12px;background:#fff;font-weight:900} .reference-card{padding:18px}.band-reference{margin:0 0 18px}.band-reference img{display:block;width:100%;border:3px solid var(--line);border-radius:18px;background:#fff}.band-reference figcaption{margin:9px 4px 0;color:var(--muted);font-size:.9rem;line-height:1.45;font-weight:800;text-align:center}.band-legend{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:14px 0 18px}.band-key{padding:10px;border:2px solid var(--line);border-top-width:9px;border-radius:12px;background:#fff;text-align:center;font-weight:900}.band-key small{display:block;color:var(--muted);font-size:.74rem}.band-key.b1{border-top-color:#8b4e2b}.band-key.b2{border-top-color:#151515}.band-key.b3{border-top-color:#e34545}.band-key.b4{border-top-color:#d7ad2c}.reference-table{min-width:620px}.reference-table .colour-name{text-align:left;font-weight:900}.reference-table .swatch{display:inline-block;vertical-align:middle;width:38px;height:24px;margin-right:10px;border:2px solid var(--line);border-radius:7px}.black{background:#151515}.brown{background:#8b4e2b}.red{background:#e34545}.orange{background:#f28b22}.yellow{background:#ffd744}.green{background:#3c9d55}.blue{background:#3578c8}.violet{background:#8252b5}.gray{background:#9aa1aa}.white{background:#fff}.gold{background:#d7ad2c}.silver{background:#c8ccd2}.none{background:repeating-linear-gradient(45deg,#fff,#fff 6px,#edf0f4 6px,#edf0f4 12px)} .manual-background{scroll-margin-top:92px}.manual-sheet{padding:clamp(20px,4vw,38px)}.manual-sheet h3{margin:0 0 14px;font:900 clamp(2rem,4vw,2.8rem)/1 "Patrick Hand",cursive;color:var(--blue)}.manual-sheet h4{margin:28px 0 10px;font:900 clamp(1.55rem,3vw,2.05rem)/1.1 "Patrick Hand",cursive;color:var(--blue)}.manual-sheet h5{margin:22px 0 8px;font:900 1.2rem/1.2 "Nunito",sans-serif;color:var(--ink)}.manual-sheet p,.manual-sheet li{font-size:1rem;line-height:1.72;font-weight:700;text-align:justify}.manual-sheet ol,.manual-sheet ul{padding-left:24px}.manual-figure-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:20px 0}.manual-figure{margin:0;padding:12px;border:2px solid #aebbd0;border-radius:1
+    6px;background:#fff;text-align:center}.manual-figure.wide{grid-column:1/-1}.manual-figure img{display:block;width:100%;height:auto;max-height:430px;object-fit:contain;border-radius:9px}.manual-figure figcaption{margin-top:9px;color:var(--muted);font-size:.88rem;font-weight:900}.caution{margin:18px 0;padding:15px 17px;border:3px solid var(--red);border-radius:15px;background:#fff0f1;font-weight:900;line-height:1.6}.equation{margin:16px auto;width:max-content;max-width:100%;padding:10px 24px;border:2px dashed var(--line);border-radius:12px;background:var(--sky);font-size:1.3rem;font-weight:900}.symbol-list{list-style:none;padding-left:0!important}.symbol-list li{margin:5px 0;text-align:left} .task{scroll-margin-top:90px;padding:20px;margin-bottom:24px}.task-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:13px}.task h3{margin:0;font:900 clamp(1.7rem,3vw,2.25rem)/1.05 "Patrick Hand",cursive;color:var(--blue)}.task p{margin:7px 0 0;max-width:920px;line-height:1.55;font-weight:700}.tag{flex:0 0 auto;padding:6px 10px;border:2px solid var(--line);border-radius:999px;background:var(--yellow);font-size:.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.04em}.table-wrap{overflow-x:auto;border:2px solid var(--line);border-radius:15px;background:#fff}table{width:100%;border-collapse:separate;border-spacing:0;min-width:850px}th{padding:11px 9px;background:linear-gradient(135deg,var(--blue),#208cb6);color:#fff;border-right:1px solid rgba(255,255,255,.28);font-size:.84rem;line-height:1.25;text-align:center}td{padding:8px;border-top:1px solid #cbd5e3;border-right:1px solid #cbd5e3;text-align:center;font-weight:800}th:last-child,td:last-child{border-right:0}tbody tr:nth-child(even){background:#f4f9fd}.row-num{width:44px;color:var(--blue)}.table-input,.table-select{width:100%;min-width:92px;height:40px;padding:6px 8px;border:2px solid #aebbd0;border-radius:9px;background:#fff;color:var(--ink);font-weight:800;text-align:center}.table-input:focus,.table-select:focus,textarea:focus{outline:3px solid rgba(255,207,74,.5);border-color:var(--line)}.calculated{min-width:120px;color:var(--blue);font-size:.91rem}.within{background:#dff7ea!important;border-color:var(--green)!important}.outside{background:#ffe8e9!important;border-color:var(--red)!important}.manual-formula{margin:11px 0 0;color:var(--muted);font-size:.9rem;font-weight:800}.formula-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.formula-card{padding:18px;border:3px solid var(--line);border-radius:18px;background:#fff;box-shadow:4px 5px 0 rgba(22,33,59,.1)}.formula-card h3{margin:0 0 7px;font:900 1.55rem "Patrick Hand",cursive;color:var(--blue)}.formula-card p{margin:0;line-height:1.55;font-weight:800}.question-list{display:grid;gap:13px}.question{padding:15px;border:2px solid #b9c6d8;border-radius:14px;background:#fff}.question label{display:block;margin-bottom:8px;font-weight:900}.question textarea{width:100%;min-height:84px;resize:vertical;padding:10px 12px;border:2px solid #aebbd0;border-radius:10px;color:var(--ink);font-weight:700} .actions{position:sticky;bottom:10px;z-index:15;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:26px;padding:12px 14px;background:rgba(23,77,134,.97);border:3px solid var(--line);border-radius:18px;box-shadow:5px 6px 0 var(--yellow);color:#fff}.save-state{font-weight:900}.action-buttons{display:flex;gap:9px}.btn{min-height:42px;padding:8px 14px;border:2px solid var(--line);border-radius:11px;background:var(--yellow);color:var(--ink);font-weight:900;cursor:pointer}.btn.secondary{background:#fff}.btn:hover{transform:translateY(-1px)}footer{margin-top:28px;text-align:center;font-weight:800;color:var(--muted)} @media (max-width:900px){.topbar{align-items:flex-start}.brand{display:none}.student-card{grid-template-columns:repeat(2,1fr)}.overview{grid-template-columns:1fr}}@media (max-width:700px){.page{padding-top:12px}.topbar{top:5px}.code-link{display:none}header{grid-template-columns:1fr}.badge{display:none}h1{font-size:3.25rem}.student-card{grid-template-columns:1fr}.comic-grid,.formula-grid,.manual-figure-grid{grid-template-columns:1fr}.band-legend{grid-template-columns:repeat(2,1fr)}.comic{min-height:0;transform:none!important}.task{padding:15px}.task-head{flex-direction:column}.actions{align-items:flex-start;flex-direction:column}.action-buttons{width:100%}.btn{flex:1}}@media (prefers-reduced-motion:no-preference){.comic{transition:transform .18s ease,box-shadow .18s ease}.comic:hover{transform:translateY(-4px) rotate(0);box-shadow:0 15px 0 rgba(22,33,59,.13)}}@media print{body{background:#fff}.page{width:100%;padding:0}.lab-switcher,.topbar,.actions,.code-link{display:none!important}.card,.table-wrap{box-shadow:none;break-inside:avoid}.comic-grid{grid-template-columns:repeat(2,1fr)}.task{break-before:page}input,select,textarea{border-color:#444!important;outline:0!important}header{margin-top:0}} .lab-tab{opacity:1;cursor:pointer}.lab-tab:hover,.lab-tab:focus-visible{background:rgba(255,255,255,.16);outline:none}.lab-tab.active:hover,.lab-tab.active:focus-visible{background:var(--yellow)} .page-pager{display:flex;justify-content:space-between;gap:14px;margin-top:28px}.page-pager a{display:flex;flex-direction:column;min-width:190px;padding:13px 16px;border:3px solid var(--line);border-radius:16px;background:var(--paper);box-shadow:4px 5px 0 rgba(22,33,59,.1);color:var(--blue);font-weight:900;text-decoration:none}.page-pager a:last-child{text-align:right;margin-left:auto}.page-pager small{margin-top:3px;color:var(--muted)} .placeholder-card{padding:clamp(26px,6vw,62px);text-align:center}.placeholder-card .placeholder-icon{display:grid;place-items:center;width:86px;height:86px;margin:0 auto 20px;border:3px solid var(--line);border-radius:24px;background:var(--yellow);font:900 2.4rem "Patrick Hand",cursive;transform:rotate(-3deg)}.placeholder-card h2{margin:0;font:900 clamp(2.2rem,5vw,4rem)/1 "Patrick Hand",cursive;color:var(--blue)}.placeholder-card p{max-width:640px;margin:16px auto 0;font-size:1.05rem;line-height:1.65;font-weight:700;color:var(--muted)} @media(max-width:700px){.page-pager{flex-direction:column}.page-pager a,.page-pager a:last-child{width:100%;margin:0;text-align:left}} .institution-bar{display:flex;align-items:center;gap:13px;margin:0 0 14px;padding:10px 14px;border:3px solid var(--line);border-radius:18px;background:var(--paper);box-shadow:4px 5px 0 rgba(22,33,59,.1)}.institution-bar img{width:64px;height:64px;object-fit:contain}.institution-bar strong,.institution-bar span{display:block}.institution-bar strong{color:var(--blue);font-size:1.02rem}.institution-bar span{margin-top:2px;color:var(--muted);font-size:.88rem;font-weight:800}.header-tools{display:grid;justify-items:center;gap:12px}.print-button{min-height:43px;padding:9px 15px;border:3px solid var(--line);border-radius:13px;background:var(--blue);color:#fff;font-weight:900;cursor:pointer;box-shadow:3px 4px 0 var(--yellow)}.print-button:hover{transform:translateY(-1px)}.write-line{min-height:42px;border-bottom:2px solid var(--line)}.write-cell{height:48px;min-width:92px;background:#fff}.answer-space{min-height:100px;border:2px dashed #8d9db4;border-radius:12px;background:repeating-linear-gradient(to bottom,#fff 0,#fff 31px,#d9e1ec 32px)}@media(max-width:700px){.institution-bar img{width:52px;height:52px}.institution-bar strong{font-size:.91rem}.institution-bar span{font-size:.76rem}}@media print{.institution-bar{box-shadow:none}.print-button{display:none!important}} .identity-fields{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:16px;padding:18px;margin-bottom:24px}.identity-field span{display:block;margin-bottom:7px;color:var(--blue);font-size:.78rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase}.identity-field .write-line{min-height:32px}.scope-note{margin:0 0 22px;padding:13px 16px;border:2px dashed var(--blue);border-radius:14px;background:#eef8ff;font-weight:800;line-height:1.5}.task-steps{margin:12px 0 16px;padding-left:24px;line-height:1.65;font-weight:700}.circuit-figure{margin:16px 0;padding:14px;border:2px solid #aebbd0;border-radius:16px;background:#fff}.circuit-figure img{display:block;width:100%;height:auto;max-height:430px;object-fit:contain;margin:auto}.circuit-figure figcaption{margin-top:8px;color:var(--muted);font-size:.88rem;font-weight:900;text-align:center}.component-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:16px 0}.component-grid figure{margin:0;padding:12px;border:2px solid #aebbd0;border-radius:15px;background:#fff}.component-grid img{display:block;width:100%;height:220px;object-fit:contain}.component-grid figcaption{text-align:center;margin-top:8px;color:var(--muted);font-size:.86rem;font-weight:900}.write-table{min-width:720px}.write-table td{height:50px}.calculation-space{min-height:135px;margin-top:14px;padding:12px;border:2px dashed #8d9db4;border-radius:14px;background:repeating-linear-gradient(to bottom,#fff 0,#fff 31px,#d9e1ec 32px)}.calculation-space strong{display:inline-block;padding-right:8px;background:#fff;color:var(--blue)}.question-list{margin-top:14px}.source-note{margin:18px 0;padding:12px 15px;border-left:7px solid var(--yellow);background:#fff8d9;border-radius:10px;font-weight:800;line-height:1.55}@media(max-width:800px){.identity-fields{grid-template-columns:repeat(2,1fr)}.component-grid{grid-template-columns:1fr}}@media(max-width:520px){.identity-fields{grid-template-columns:1fr}}@media print{.task{break-before:auto}.circuit-figure,.component-grid figure{break-inside:avoid}table{min-width:0!important}th,td{padding:6px!important;font-size:.72rem}.scope-note{background:#fff}} 
   
-.lab-tab{opacity:1;cursor:pointer}.lab-tab:hover,.lab-tab:focus-visible{background:rgba(255,255,255,.16);outline:none}.lab-tab.active:hover,.lab-tab.active:focus-visible{background:var(--yellow)}
-.page-pager{display:flex;justify-content:space-between;gap:14px;margin-top:28px}.page-pager a{display:flex;flex-direction:column;min-width:190px;padding:13px 16px;border:3px solid var(--line);border-radius:16px;background:var(--paper);box-shadow:4px 5px 0 rgba(22,33,59,.1);color:var(--blue);font-weight:900;text-decoration:none}.page-pager a:last-child{text-align:right;margin-left:auto}.page-pager small{margin-top:3px;color:var(--muted)}
-.placeholder-card{padding:clamp(26px,6vw,62px);text-align:center}.placeholder-card .placeholder-icon{display:grid;place-items:center;width:86px;height:86px;margin:0 auto 20px;border:3px solid var(--line);border-radius:24px;background:var(--yellow);font:900 2.4rem "Patrick Hand",cursive;transform:rotate(-3deg)}.placeholder-card h2{margin:0;font:900 clamp(2.2rem,5vw,4rem)/1 "Patrick Hand",cursive;color:var(--blue)}.placeholder-card p{max-width:640px;margin:16px auto 0;font-size:1.05rem;line-height:1.65;font-weight:700;color:var(--muted)}
-@media(max-width:700px){.page-pager{flex-direction:column}.page-pager a,.page-pager a:last-child{width:100%;margin:0;text-align:left}}
+  /* Existing CSS may remain on one line */
+
+  .snapshot-space {
+    min-height: 350px;
+    margin-top: 16px;
+    padding: 16px;
+    border: 2px dashed #8d9db4;
+    border-radius: 14px;
+    background: #ffffff;
+    color: #60708c;
+    font-weight: 800;
+    text-align: center;
+  }
+
+  .video-container {
+  max-width: 800px;
+  margin: 20px auto;
+  aspect-ratio: 16 / 9;
+}
+
+.video-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 2px solid #1f2942;
+  border-radius: 14px;
+}
+
 </style>
-</head>
-<body>
-  <div class="page">
-    <div class="lab-switcher" aria-label="EE-100L lab table of contents"><span class="lab-switcher-label">EE-100L Lab Manual · Table of Contents</span><div class="lab-tabs"><a class="lab-tab" href="index.html"><strong>Background</strong><small>Topic 1.2 · Theoretical Background</small></a><a class="lab-tab" href="lab-01.html"><strong>Lab 1</strong><small>Laboratory Instruments and Resistance</small></a><a class="lab-tab" href="lab-02.html"><strong>Lab 2</strong><small>[Lab title]</small></a><a class="lab-tab active" href="lab-03.html" aria-current="page"><strong>Lab 3</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-04.html"><strong>Lab 4</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-05.html"><strong>Lab 5</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-06.html"><strong>Lab 6</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-07.html"><strong>Lab 7</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-08.html"><strong>Lab 8</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-09.html"><strong>Lab 9</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-10.html"><strong>Lab 10</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-11.html"><strong>Lab 11</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-12.html"><strong>Lab 12</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-13.html"><strong>Lab 13</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-14.html"><strong>Lab 14</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-15.html"><strong>Lab 15</strong><small>[Lab title]</small></a></div></div>
-    <div class="topbar"><div class="brand"><span class="brand-mark">Ω</span> Resistance Detectives</div><nav aria-label="Page sections"><a href="index.html">Background</a><a href="lab-01.html">Lab 1</a></nav></div>
-    <header><div><p class="eyebrow">Lab 3</p><h1 data-page-heading>[Lab title]</h1></div><div class="badge" aria-label="Lab 3 placeholder">Lab<br>3</div></header><main class="placeholder-card card"><div class="placeholder-icon">03</div><h2>[Lab title]</h2><p>This page is reserved for Lab 3. Add the lab overview, learning outcomes, required equipment, safety notes, visual learning guide, tasks and observation tables, calculations, and discussion questions here.</p></main>
-    <nav class="page-pager" aria-label="Previous and next manual pages"><a href="lab-02.html">← Lab 2<small>[Lab title]</small></a><a href="lab-04.html">Lab 4 →<small>[Lab title]</small></a></nav>
-    <footer><p>EE-100L · Electric Circuits Laboratory Manual</p><p>Website developed by <strong>Rehan Naeem</strong></p></footer>
-  </div>
-  <script>
+    </style> </head>
+  <body>
+    <div class="page">
+      <div class="institution-bar">
+        <img src="uet-icon.png" alt="UET Lahore logo">
+        <div><strong>Department of Electrical Engineering</strong><span>University of Engineering and Technology (UET), Lahore</span></div>
+      </div>
+      <div class="lab-switcher" aria-label="EE-100L lab table of contents">
+        <span class="lab-switcher-label">EE-100L Lab Manual · Table of Contents</span>
+        <div class="lab-tabs"><a class="lab-tab" href="index.html"><strong>Background</strong><small>Theoretical Background</small></a><a class="lab-tab" href="lab-01.html"><strong>Lab 1</strong><small>Laboratory Instruments and Resistance</small></a><a class="lab-tab" href="lab-02.html"><strong>Lab 2</strong><small>Ohm’s Law, Power and Equivalent Resistance</small></a><a class="lab-tab active" href="lab-03.html" aria-current="page"><strong>Lab 3</strong><small>Sensors and Oscilloscope Measurements</small></a><a class="lab-tab" href="lab-04.html"><strong>Lab 4</strong><small>Buttons, Potentiometers, Lamps and Joysticks</small></a><a class="lab-tab" href="lab-05.html"><strong>Lab 5</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-06.html"><strong>Lab 6</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-07.html"><strong>Lab 7</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-08.html"><strong>Lab 8</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-09.html"><strong>Lab 9</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-10.html"><strong>Lab 10</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-11.html"><strong>Lab 11</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-12.html"><strong>Lab 12</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-13.html"><strong>Lab 13</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-14.html"><strong>Lab 14</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-15.html"><strong>Lab 15</strong><small>[Lab title]</small></a></div>
+      </div>
+      <div class="topbar">
+        <div class="brand"><span class="brand-mark">03</span> Sense · Observe · Measure</div>
+        <nav aria-label="Page sections"><a href="#overview">Overview</a><a href="#concepts">Concepts</a><a href="#tasks">Tasks</a><a href="#review">Review</a></nav>
+      </div>
+      <header>
+        <div>
+          <p class="eyebrow">Lab 03</p>
+          <h1 data-page-heading>Sensors and Oscilloscope Measurements</h1>
+          <p class="intro">Convert changes in light, sound and infrared signals into measurable voltages, then use oscilloscope coupling and triggering to reveal details that are difficult to observe directly.</p>
+        </div>
+        <div class="header-tools">
+          <div class="badge" aria-label="Lab 03">Light · Sound<br>and IR</div>
+          <button class="print-button" type="button" onclick="window.print()">Print Worksheet</button>
+        </div>
+      </header>
+      <section class="identity-fields card" aria-label="Student information">
+        <div class="identity-field">
+          <span>Student Name</span>
+          <div class="write-line"></div>
+        </div>
+        <div class="identity-field">
+          <span>Registration Number</span>
+          <div class="write-line"></div>
+        </div>
+        <div class="identity-field">
+          <span>Section</span>
+          <div class="write-line"></div>
+        </div>
+        <div class="identity-field">
+          <span>Date</span>
+          <div class="write-line"></div>
+        </div>
+      </section>
+      <main>
+        <section id="overview">
+          <div class="section-title">
+            <span class="scribble">01</span>
+            <div>
+              <h2>Lab Overview</h2>
+              <p>Environmental sensing and time-varying signal measurement.</p>
+            </div>
+          </div>
+          <div class="overview">
+            <article class="content-card card">
+              <h3>Learning Outcomes</h3>
+              <ol>
+                <li>Explain how a sensor converts a physical condition into an electrical quantity.</li>
+                <li>Characterize a photoresistor under different lighting conditions.</li>
+                <li>Use a photoresistor in a voltage-divider circuit.</li>
+                <li>Use DC and AC coupling appropriately on an oscilloscope.</li>
+                <li>Configure edge triggering to capture short sound events.</li>
+                <li>Measure timing and frequency information from an infrared remote-control signal.</li>
+              </ol>
+            </article>
+            <article class="content-card card">
+              <h3>Required Equipment</h3>
+              <ul class="apparatus">
+                <li>Digital oscilloscope and probes</li>
+                <li>Digital multimeter</li>
+                <li>DC source or oscilloscope waveform output</li>
+                <li>Breadboard and connecting wires</li>
+                <li>Photoresistor and 1 kΩ resistor</li>
+                <li>Electret microphone and 30 kΩ resistor</li>
+                <li>Infrared phototransistor, speaker and remote control</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+        <section id="concepts">
+          <div class="section-title">
+            <span class="scribble">02</span>
+            <div>
+              <h2>Necessary Concepts</h2>
+              <p>Review these ideas before starting the practical work.</p>
+            </div>
+          </div>
+          <article class="manual-sheet card">
+            <h3>Sensors and Transduction</h3>
+            <p>A sensor responds to a physical condition such as light or sound and produces a corresponding electrical change. This conversion is called transduction. A photoresistor changes resistance with illumination, while a microphone produces a small time-varying electrical response to sound pressure.</p>
+            <h4>Photoresistor and Voltage Divider</h4>
+            <p>A photoresistor normally has a lower resistance in bright light and a higher resistance in darkness. When it is combined with a fixed resistor as a voltage divider, the resistance change becomes a measurable output voltage. The direction of the voltage change depends on whether the photoresistor is placed above or below the output node.</p>
+            <div class="equation">V<sub>out</sub> = V<sub>S</sub>R<sub>1</sub> /(R<sub>LDR</sub> + R<sub>1</sub>)</div>
+            <h4>DC and AC Coupling</h4>
+            <p>DC coupling displays the complete input signal, including its constant level and time-varying part. AC coupling blocks the constant level and displays only the changing part. AC coupling is useful when a small ripple is hidden on a much larger DC voltage.</p>
+            <h4>Triggering</h4>
+            <p>A trigger tells the oscilloscope when to capture and align a waveform. Edge triggering responds when the signal crosses a selected threshold. A rising-edge trigger responds to a low-to-high crossing; a falling-edge trigger responds to a high-to-low crossing. In Auto mode the display continues updating even if no valid event occurs. In Normal mode it updates only after the chosen event is detected.</p>
+            <div class="component-grid">
+              <figure>
+                <img src="assets/lab-03/photoresistor.jpg" alt="Photoresistor component">
+                <figcaption>Photoresistor</figcaption>
+              </figure>
+              <figure>
+                <img src="assets/lab-03/microphone-front.jpg" alt="Front of an electret microphone">
+                <figcaption>Microphone front</figcaption>
+              </figure>
+              <figure>
+                <img src="assets/lab-03/microphone-back.jpg" alt="Back of an electret microphone showing its terminals">
+                <figcaption>Microphone terminals</figcaption>
+              </figure>
+            </div>
+            <p class="caution"><strong>Safety:</strong> Connect every oscilloscope probe ground clip only to the circuit ground. Observe microphone and phototransistor polarity. Disable the source output before changing the circuit.</p>
+          </article>
+        </section>
+        <section id="tasks">
+          <div class="section-title">
+            <span class="scribble">03</span>
+            <div>
+              <h2>Practical Tasks and Worksheets</h2>
+              <p>Record every observation directly in the provided spaces.</p>
+            </div>
+          </div>
+          <article class="task card">
+            <div class="task-head">
+              <div>
+                <h3>Task 1: Characterize the Photoresistor</h3>
+                <p>Measure how the photoresistor responds to three different lighting conditions.</p>
+              </div>
+            </div>
+            <ol class="task-steps">
+              <li>Disconnect the photoresistor from all powered circuits.</li>
+              <li>Set the multimeter to resistance measurement.</li>
+              <li>Measure the resistance in ambient light.</li>
+              <li>Cover the sensing surface and repeat the measurement.</li>
+              <li>Illuminate the sensing surface with a bright nearby light and repeat.</li>
+              <li>State the relationship between illumination and resistance.</li>
+            </ol>
+            <div class="table-wrap">
+              <table class="write-table">
+                <thead>
+                  <tr>
+                    <th>Light Condition</th>
+                    <th>Resistance</th>
+                    <th>Relative Illumination (low, medium, high)</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Covered</td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                    
+                  </tr>
+                  <tr>
+                    <td>Ambient</td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                    
+                  </tr>
+                  <tr>
+                    <td>Bright light</td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                    
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="question-list">
+              <div class="question">
+                <label>Relationship between illumination and resistance</label>
+                <div class="answer-space"></div>
+              </div>
+            </div>
+          </article>
+          <article class="task card">
+            <div class="task-head">
+              <div>
+                <h3>Task 2: Light-Dependent Voltage Divider</h3>
+                <p>Convert the changing photoresistor resistance into an output voltage.</p>
+              </div>
+            </div>
+            <figure class="circuit-figure">
+              <img src="assets/lab-03/ldr-divider.png" alt="Photoresistor voltage-divider circuit">
+              <figcaption>Photoresistor voltage-divider circuit.</figcaption>
+            </figure>
+            <ol class="task-steps">
+              <li>Construct the circuit with the source output disabled.</li>
+              <li>Set the source to a constant 10 V and select a safe current limit.</li>
+              <li>Measure the output voltage across 1k&ohm;  resistor with the multimeter under the three lighting conditions.</li>
+              <li>Replace the multimeter with the oscilloscope probe and repeat the observations using DC coupling.</li>
+            </ol>
+            <div class="table-wrap">
+              <table class="write-table">
+                <thead>
+                  <tr>
+                    <th>Light Condition</th>
+                    
+                    <th>DMM Reading</th>
+                    <th>Oscilloscope Reading</th>
+                    <th>Difference</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Covered</td>
+                    <td class="write-cell"></td>
+                    
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                  </tr>
+                  <tr>
+                    <td>Ambient</td>
+                    <td class="write-cell"></td>
+                    
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                  </tr>
+                  <tr>
+                    <td>Bright light</td>
+                    <td class="write-cell"></td>
+                    
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="calculation-space"><strong>Voltage-divider calculation:</strong></div>
+          </article>
+          <article class="task card">
+            <div class="task-head">
+              <div>
+                <h3>Task 3: Detect Light Flicker</h3>
+                <p>Use AC coupling to reveal a small oscillation caused by changing room illumination.</p>
+              </div>
+            </div>
+            <div class="video-container">
+              <iframe
+                src="https://www.youtube.com/watch?v=ET_SzA5SPS4"
+                title="YouTube video"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <ol class="task-steps">
+              <li>Connect a 100W incandescent bulb to an AC voltage source of 230V and then place the bulb close to LDR (photoresistor).</li>
+              <li>Set the scope parameters as follows; Trigger Mode: Auto, Channel Coupling: DC, Voltage Scale: 2V, Time Scale: 500ms.</li>
+              <li>Use oscilloscope to observe the voltage across 1k resistor. Take a picture of the waveform using a smartphone and paste it below the table. </li>
+              <li>Now set coupling to AC, Voltage Scale: 50mV, Time Scale: 10ms, measure the frequency of the signal using cursors or automatic measurements. </li>
+              <li>Take picture of waveform on the scope using a smartphone and paste it below the table.</li>
+            </ol>
+            <div class="table-wrap">
+              <table class="write-table">
+                <thead>
+                  <tr>
+                    <th>Coupling</th>
+                    <th>Vertical Scale</th>
+                    <th>Horizontal Scale</th>
+                    <th>Period</th>
+                    <th>Frequency</th>
+                    <th>Observation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>DC</td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                  </tr>
+                  <tr>
+                    <td>AC</td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="snapshot-space">
+              Paste or attach the snapshot here
+            </div>
+            </div>
+            <div class="question-list">
+              <div class="question">
+                <label>Why was AC coupling helpful?</label>
+                <div class="answer-space"></div>
+              </div>
+            </div>
+          </article>
+          <article class="task card">
+            <div class="task-head">
+              <div>
+                <h3>Task 4: Capture a Sound Event</h3>
+                <p>Use an electret microphone and edge triggering to capture a short clap or finger snap.</p>
+              </div>
+            </div>
+            <figure class="circuit-figure">
+              <img src="assets/lab-03/microphone-trigger.png" alt="Microphone bias circuit connected to an oscilloscope">
+              <figcaption>Microphone sensing circuit.</figcaption>
+            </figure>
+            <ol class="task-steps">
+              <li>Identify the microphone ground terminal and construct the circuit with correct polarity.</li>
+              <li>Set the source to a constant 10 V and enable the oscilloscope channel bandwidth limit if available.</li>
+              <li>Adjust the display so the silent level and the largest sound response are both visible.</li>
+              <li>Select an edge trigger and place its threshold slightly below the expected peak.</li>
+              <li>Use Normal mode to capture one clap or snap.</li>
+              <li>Repeat using rising and falling slopes and compare the captured events.</li>
+            </ol>
+            <div class="table-wrap">
+              <table class="write-table">
+                <thead>
+                  <tr>
+                    <th>Trigger Mode</th>
+                    <th>Slope</th>
+                    <th>Threshold</th>
+                    <th>Peak</th>
+                    <th>Event Width</th>
+                    <th>Observation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Auto</td>
+                    <td>Rising</td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                  </tr>
+                  <tr>
+                    <td>Normal</td>
+                    <td>Rising</td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                  </tr>
+                  <tr>
+                    <td>Normal</td>
+                    <td>Falling</td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+          <article class="task card">
+            <div class="task-head">
+              <div>
+                <h3>Task 5: Observe an Infrared Remote Signal</h3>
+                <p>Detect the optical pulses produced by a remote control and measure their timing.</p>
+              </div>
+            </div>
+            <figure class="circuit-figure">
+              <img src="assets/lab-03/ir-detector.png" alt="Infrared phototransistor detector with speaker and oscilloscope">
+              <figcaption>Infrared remote-control detector.</figcaption>
+            </figure>
+            <ol class="task-steps">
+              <li>Construct the detector with the phototransistor polarity shown.</li>
+              <li>Aim the remote directly toward the phototransistor and hold one button.</li>
+              <li>Start with a wide time view so that several bursts are visible.</li>
+              <li>Use triggering and cursors to measure the burst duration and pause.</li>
+              <li>Zoom in and measure the slower pattern inside one burst.</li>
+              <li>Zoom further to estimate the higher modulation frequency.</li>
+              <li>Repeat with another remote button and compare the patterns.</li>
+            </ol>
+            <div class="table-wrap">
+              <table class="write-table">
+                <thead>
+                  <tr>
+                    <th>Remote Button</th>
+                    <th>Burst Duration</th>
+                    <th>Pause</th>
+                    <th>Pattern Frequency</th>
+                    <th>Modulation Frequency</th>
+                    <th>Observation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                  </tr>
+                  <tr>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+        <section id="review">
+          <div class="section-title">
+            <span class="scribble">04</span>
+            <div>
+              <h2>Review and Deliverables</h2>
+              <p>Be ready to explain the measurements, not only report them.</p>
+            </div>
+          </div>
+          <article class="content-card card">
+            <div class="question-list">
+              <div class="question">
+                <label>1. Why must an oscilloscope ground clip be connected to circuit ground?</label>
+                <div class="answer-space"></div>
+              </div>
+              <div class="question">
+                <label>2. Explain the difference between DC coupling and AC coupling.</label>
+                <div class="answer-space"></div>
+              </div>
+              <div class="question">
+                <label>3. Explain the difference between Auto and Normal trigger modes.</label>
+                <div class="answer-space"></div>
+              </div>
+              <div class="question">
+                <label>4. What changed when a different remote-control button was pressed?</label>
+                <div class="answer-space"></div>
+              </div>
+            </div>
+            <p class="source-note">Submit the completed observation tables, calculations and written explanations, and demonstrate the three working sensor circuits.</p>
+          </article>
+        </section>
+      </main>
+      <nav class="page-pager" aria-label="Previous and next manual pages"><a href="lab-02.html">← Lab 2<small>Ohm’s Law, Power and Equivalent Resistance</small></a><a href="lab-04.html">Lab 4 →<small>Buttons, Potentiometers, Lamps and Joysticks</small></a></nav>
+      <footer>
+        <p>Electric Circuits Laboratory</p>
+        <p>Department of Electrical Engineering · University of Engineering and Technology (UET), Lahore</p>
+        <p>Website developed by <strong>Rehan Naeem</strong></p>
+      </footer>
+    </div>
+    <script>
 (() => {
+  const tableLabel = document.querySelector('.lab-switcher-label');
+  const tableNav = document.querySelector('.lab-switcher');
+  if (tableLabel) tableLabel.textContent = 'Electric Circuits · Table of Contents';
+  if (tableNav) tableNav.setAttribute('aria-label', 'Electric circuits lab table of contents');
   const storageKey = 'ee100l-navigation-titles-v1';
   const links = [...document.querySelectorAll('.lab-tab[href]')];
   const activeLink = document.querySelector('.lab-tab[aria-current="page"]');
@@ -98,7 +542,6 @@
     }));
   }
 })();
-</script>
-  
-</body>
+    </script>
+  </body>
 </html>
