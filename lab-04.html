@@ -128,8 +128,8 @@
           <article class="task card">
             <div class="task-head">
               <div>
-                <h3>Task 1: Identify and Place the Pushbutton</h3>
-                <p>Determine the internal terminal connections before assembling the button circuit.</p>
+                <h3>Task 1: Identify and Operate the Pushbutton</h3>
+                <p>Determine the terminals that are internally connected to each other on button press before assembling the button circuit.</p>
               </div>
             </div>
             <figure class="circuit-figure">
@@ -138,32 +138,32 @@
             </figure>
             <ol class="task-steps">
               <li>Keep the circuit unpowered.</li>
-              <li>Use the multimeter continuity function to test every useful terminal pair.</li>
+              <li>Use the multimeter continuity function to test every useful push button terminal pair.</li>
               <li>Mark the two internally connected pairs.</li>
-              <li>Insert the button without bending its terminals.</li>
+              <li>Insert the button without bending its terminals onto the bredboard.</li>
               <li>Assemble the shown circuit but keep the supply output disabled.</li>
-              <li>Predict the output voltage for the released and pressed states.</li>
+              <li>Note down the actual and expected output voltage across the push button for the released and pressed states using voltmeter.</li>
             </ol>
             <div class="table-wrap">
               <table class="write-table">
                 <thead>
                   <tr>
                     <th>Button State</th>
-                    <th>Continuity</th>
-                    <th>Predicted Output</th>
+                    
+                    <th>Actual Output Voltage across the pushbutton</th>
                     <th>Reason</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td>Released</td>
-                    <td class="write-cell"></td>
+                    
                     <td class="write-cell"></td>
                     <td class="write-cell"></td>
                   </tr>
                   <tr>
                     <td>Pressed</td>
-                    <td class="write-cell"></td>
+                    
                     <td class="write-cell"></td>
                     <td class="write-cell"></td>
                   </tr>
@@ -184,11 +184,9 @@
             </figure>
             <p>Using a 10 V source, choose R<sub>1</sub>, R<sub>2</sub> and R<sub>3</sub> so that the output is 6 V with the button released, 5 V with the button pressed, and total resistor power is less than 5 mW in either state.</p>
             <ol class="task-steps">
-              <li>Derive the released-state divider equation.</li>
-              <li>Replace the lower branch by R<sub>2</sub> ∥ R<sub>3</sub> for the pressed-state equation.</li>
+              <li>Calculate total power consumed by resistors and voltage v (see figure) in both press and de-press states.</li>
               <li>Select available standard resistor values.</li>
-              <li>Calculate source current and total resistor power in both states.</li>
-              <li>Construct the circuit and verify both output voltages.</li>
+              <li>Construct the circuit and verify both output voltage and power.</li>
             </ol>
             <div class="table-wrap">
               <table class="write-table">
@@ -220,25 +218,25 @@
                     <td class="write-cell"></td>
                   </tr>
                   <tr>
-                    <td>Released output</td>
+                    <td>Released state output voltage</td>
                     <td class="write-cell"></td>
                     <td class="write-cell"></td>
                     <td class="write-cell"></td>
                   </tr>
                   <tr>
-                    <td>Pressed output</td>
+                    <td>Pressed state output voltage</td>
                     <td class="write-cell"></td>
                     <td class="write-cell"></td>
                     <td class="write-cell"></td>
                   </tr>
                   <tr>
-                    <td>Released power</td>
+                    <td>Released state total power</td>
                     <td class="write-cell"></td>
                     <td class="write-cell"></td>
                     <td class="write-cell"></td>
                   </tr>
                   <tr>
-                    <td>Pressed power</td>
+                    <td>Pressed state total power</td>
                     <td class="write-cell"></td>
                     <td class="write-cell"></td>
                     <td class="write-cell"></td>
@@ -260,11 +258,10 @@
               <figcaption>Unloaded potentiometer voltage divider.</figcaption>
             </figure>
             <ol class="task-steps">
-              <li>Measure the resistance between the two end terminals.</li>
-              <li>Measure from the wiper to each end terminal at several shaft positions.</li>
-              <li>Confirm that the two measured parts add to approximately the total resistance.</li>
-              <li>Connect 10 V across the end terminals with the output disabled during wiring.</li>
-              <li>Measure the wiper voltage for each shaft position.</li>
+              <li>Keep the power supply off. Set &alpha; = 0, note down the lower and upper pot resistances.</li>
+              <li>Turn the supply ON and measure Vout.</li>
+              <li>Repeat above two steps for different &alpha; values.</li>
+              
             </ol>
             <div class="table-wrap">
               <table class="write-table">
