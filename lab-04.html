@@ -332,22 +332,29 @@
               <figcaption>Loaded potentiometer circuit.</figcaption>
             </figure>
             <ol class="task-steps">
-              <li>Measure the lamp resistance while it is disconnected and cool.</li>
+              <li>Measure the lamp resistance while it is disconnected and cool. <p style="color: red;">R<sub>cool</sub> = _____</p></li>
               <li>Connect the lamp between the potentiometer wiper and ground. Insert a push button in between wiper and the lamp to protect the pot.</li>
-              <li>Apply the specified supply voltage and increase the shaft position gradually.</li>
-              <li>Press the push button and record the lamp voltage and observed brightness. Keeping the push button pressed for long time could damage the pot. So be careful.</li>
-              <li>Calculate the effective lower-branch resistance using the measured cold resistance as a first approximation.</li>
-              <li>Explain why the measured response differs from the unloaded relationship.</li>
+              <li>Apply the specified supply voltage and increase the shaft position gradually. </li>
+              <li>Press the push button and record the lamp voltage and observed brightness. Keeping the push button pressed for long time could damage the pot. So be careful. Fill the table below. Repeat for different &alpha; values.</li>
+              <li>Use circuit theory along with modeling the light bulb as a resistor to estimate, to within 0.1 volts, the voltage across the bulb, for the values of &alpha;
+                  given in the table below. Don't use a calculator. Use the resistance (Rcool) you measured earlier for the bulb. Then find the value of &alpha; such that the bulb voltage is 
+                  (one-half of its maximum value). Hint: Draw the circuit with approximate resistor values, and look for a combination you can simplify/approximate.</li>
+              <li>At what value of &alpha; the bulb voltage is 5v?</li>
+              <li>Use four values of &alpha; to plot the graph below. </li>
+              <li>Now turn on your circuit with &alpha; equal to one. In this state our bulb is effectively the only resistance in the circuit. 
+                  Measure voltage and current being supplied to the bulb. Based on these two values, compute the effective resistance of the bulb.
+                  <p style="color: red;">V<sub>supply</sub> = ____     I<sub>supply</sub> = ____           R<sub>eff</sub> = ____</p>
+                </li>
+              
             </ol>
             <div class="table-wrap">
               <table class="write-table">
                 <thead>
                   <tr>
                     <th>α</th>
-                    <th>Unloaded Prediction</th>
-                    <th>Loaded Prediction</th>
                     <th>Measured Lamp Voltage</th>
                     <th>Brightness</th>
+                    <th>Calculated Lamp Voltage</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -356,32 +363,17 @@
                     <td class="write-cell"></td>
                     <td class="write-cell"></td>
                     <td class="write-cell"></td>
-                    <td class="write-cell"></td>
                   </tr>
-                  <tr>
-                    <td>0.25</td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                  </tr>
+                  
                   <tr>
                     <td>0.50</td>
                     <td class="write-cell"></td>
                     <td class="write-cell"></td>
                     <td class="write-cell"></td>
-                    <td class="write-cell"></td>
                   </tr>
-                  <tr>
-                    <td>0.75</td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                  </tr>
+                  
                   <tr>
                     <td>1</td>
-                    <td class="write-cell"></td>
                     <td class="write-cell"></td>
                     <td class="write-cell"></td>
                     <td class="write-cell"></td>
@@ -389,8 +381,7 @@
                 </tbody>
               </table>
             </div>
-            <div class="blank-graph" role="img" aria-label="Blank graph grid"></div>
-            <p class="graph-caption">Plot the recorded relationship.</p>
+            <img src="assets/lab-04/plot.png" alt="Pushbutton circuit with a pull-up resistor">
             <div class="calculation-space"><strong>Loading calculation:</strong></div>
           </article>
           <article class="task card">
