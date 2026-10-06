@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow, noarchive">
+    <title>Q7M4 Node</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&amp;family=Patrick+Hand&amp;display=swap"
+      rel="stylesheet">
+
+    <style>
+      :root {
+        --ink: #16213b;
+        --blue: #174d86;
+        --sky: #dff2ff;
+        --yellow: #ffcf4a;
+        --red: #ee6068;
+        --green: #3fab78;
+        --paper: #fffdf7;
+        --line: #1f2942;
+        --muted: #60708c;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        padding: 24px;
+        color: var(--ink);
+        font-family: "Nunito", system-ui, sans-serif;
+        background-color: #f6fbff;
+        background-image: radial-gradient(#b8d8ed 1.15px, transparent 1.15px);
+        background-size: 24px 24px;
+      }
+
+      button,
+      input,
+      select {
+        font: inherit;
+      }
+
+      .page {
+        width: min(900px, 100%);
+        margin: 0 auto;
+      }
+
+      .top-strip {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 20px;
+        padding: 12px 16px;
+        border: 3px solid var(--line);
+        border-radius: 17px;
+        background: var(--blue);
+        box-shadow: 4px 5px 0 var(--yellow);
+        color: #ffffff;
+      }
+
+      .top-strip strong {
+        font-size: 0.92rem;
+        letter-spacing: 0.08em;
+      }
+
+      .top-strip span {
+        font-size: 0.78rem;
+        font-weight: 800;
+        opacity: 0.82;
+      }
+
+      .card {
+        padding: clamp(20px, 4vw, 34px);
+        border: 3px solid var(--line);
+        border-radius: 24px;
+        background: var(--paper);
+        box-shadow: 0 10px 0 rgba(22, 33, 59, 0.1);
+      }
+
+      .card + .card {
+        margin-top: 22px;
+      }
+
+      .module-label {
+        display: inline-block;
+        margin: 0 0 8px;
+        padding: 5px 10px;
+        border: 2px solid var(--line);
+        border-radius: 999px;
+        background: var(--yellow);
+        font-size: 0.76rem;
+        font-weight: 900;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        color: var(--blue);
+        font: 900 clamp(2.2rem, 7vw, 4rem) / 0.95 "Patrick Hand", cursive;
+      }
+
+      .module-title {
+        margin: 0;
+        color: var(--blue);
+        font: 900 clamp(2rem, 6vw, 3.2rem) / 1 "Patrick Hand", cursive;
+      }
+
+      .intro {
+        max-width: 700px;
+        margin: 13px 0 22px;
+        color: var(--muted);
+        font-weight: 800;
+        line-height: 1.55;
+      }
+
+      .fixed-condition {
+        margin-bottom: 18px;
+        padding: 12px 14px;
+        border-left: 7px solid var(--yellow);
+        border-radius: 10px;
+        background: #fff8d9;
+        font-weight: 900;
+      }
+
+      .input-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .field {
+        display: block;
+        padding: 14px;
+        border: 2px solid #aebbd0;
+        border-radius: 13px;
+        background: #ffffff;
+        color: var(--blue);
+        font-weight: 900;
+      }
+
+      .field input,
+      .field select {
+        width: 100%;
+        height: 46px;
+        margin-top: 8px;
+        padding: 8px 10px;
+        border: 2px solid #aebbd0;
+        border-radius: 9px;
+        color: var(--ink);
+        font-weight: 800;
+      }
+
+      .field input:focus,
+      .field select:focus {
+        border-color: var(--line);
+        outline: 3px solid rgba(255, 207, 74, 0.5);
+      }
+
+      .current-entry {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 94px;
+        gap: 8px;
+      }
+
+      .current-entry select {
+        padding: 8px;
+      }
+
+      .actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .button {
+        min-height: 44px;
+        padding: 9px 16px;
+        border: 2px solid var(--line);
+        border-radius: 11px;
+        background: var(--yellow);
+        color: var(--ink);
+        font-weight: 900;
+        cursor: pointer;
+      }
+
+      .button.secondary {
+        background: #ffffff;
+      }
+
+      .error {
+        min-height: 24px;
+        margin: 12px 0 0;
+        color: #b4232d;
+        font-weight: 900;
+      }
+
+      .results {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 4px;
+      }
+
+      .result {
+        min-height: 105px;
+        padding: 14px;
+        border: 2px solid var(--line);
+        border-radius: 13px;
+        background: var(--sky);
+      }
+
+      .result span {
+        display: block;
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 900;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .result output {
+        display: block;
+        margin-top: 10px;
+        color: var(--blue);
+        font-size: 1.35rem;
+        font-weight: 900;
+      }
+
+      .verification {
+        margin-top: 14px;
+        padding: 13px 15px;
+        border: 2px solid var(--green);
+        border-radius: 12px;
+        background: #dff7ea;
+        color: #17643f;
+        font-weight: 900;
+      }
+
+      .verification.waiting {
+        border-color: #aebbd0;
+        background: #ffffff;
+        color: var(--muted);
+      }
+
+      .future-slot {
+        margin-top: 20px;
+        padding: 15px;
+        border: 2px dashed #aebbd0;
+        border-radius: 13px;
+        color: var(--muted);
+        font-size: 0.88rem;
+        font-weight: 800;
+        text-align: center;
+      }
+
+      @media (max-width: 650px) {
+        body {
+          padding: 14px;
+        }
+
+        .top-strip {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .input-grid,
+        .results {
+          grid-template-columns: 1fr;
+        }
+
+        .actions {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="page">
+      <div class="top-strip">
+        <strong>Q7M4 NODE</strong>
+        <span>Internal analysis workspace</span>
+      </div>
+
+      <section class="card" aria-labelledby="module-a-heading">
+        <p class="module-label">Module A</p>
+        <h1 id="module-a-heading">Loaded-node evaluator</h1>
+
+        <p class="intro">
+          Enter the measured cold resistance and total potentiometer resistance.
+          The required normalized position is calculated automatically.
+        </p>
+
+        <div class="fixed-condition">
+          Fixed condition: 10 V source and 5 V required across the load.
+        </div>
+
+        <div class="input-grid">
+          <label class="field" for="rcool-input">
+            Cold resistance, R<sub>cool</sub>
+            <input
+              id="rcool-input"
+              type="number"
+              min="0"
+              step="any"
+              inputmode="decimal"
+              placeholder="Enter ohms">
+          </label>
+
+          <label class="field" for="rp-input">
+            Potentiometer resistance, R<sub>P</sub>
+            <input
+              id="rp-input"
+              type="number"
+              min="0"
+              step="any"
+              inputmode="decimal"
+              placeholder="Enter ohms">
+          </label>
+        </div>
+
+        <div class="actions">
+          <button class="button" id="calculate-button" type="button">
+            Calculate
+          </button>
+
+          <button class="button secondary" id="reset-button" type="button">
+            Reset
+          </button>
+        </div>
+
+        <p class="error" id="error-message" role="alert" aria-live="polite"></p>
+
+        <div class="results">
+          <div class="result">
+            <span>Normalized position</span>
+            <output id="alpha-result">—</output>
+          </div>
+
+          <div class="result">
+            <span>Position percentage</span>
+            <output id="percentage-result">—</output>
+          </div>
+
+          <div class="result">
+            <span>Wiper-to-lower resistance</span>
+            <output id="lower-resistance-result">—</output>
+          </div>
+        </div>
+
+        <div
+          class="verification waiting"
+          id="verification-message"
+          aria-live="polite">
+          Enter both resistance values to calculate the required position.
+        </div>
+
+      </section>
+
+      <section class="card" aria-labelledby="module-b-heading">
+        <p class="module-label">Module B</p>
+        <h2 class="module-title" id="module-b-heading">
+          Operating-value evaluator
+        </h2>
+
+        <p class="intro">
+          At a potentiometer position of one, the full potentiometer resistance
+          remains in parallel with the bulb. Enter the power-supply readings and
+          potentiometer resistance to calculate the bulb current and effective
+          bulb resistance.
+        </p>
+
+        <div class="input-grid">
+          <label class="field" for="bulb-voltage-input">
+            Supply voltage
+            <input
+              id="bulb-voltage-input"
+              type="number"
+              min="0"
+              step="any"
+              inputmode="decimal"
+              placeholder="Enter volts">
+          </label>
+
+          <label class="field" for="bulb-current-input">
+            Total supply current
+            <span class="current-entry">
+              <input
+                id="bulb-current-input"
+                type="number"
+                min="0"
+                step="any"
+                inputmode="decimal"
+                placeholder="Enter current">
+
+              <select id="bulb-current-unit" aria-label="Current unit">
+                <option value="A">A</option>
+                <option value="mA">mA</option>
+              </select>
+            </span>
+          </label>
+
+          <label class="field" for="bulb-rp-input">
+            Potentiometer resistance, R<sub>P</sub>
+            <input
+              id="bulb-rp-input"
+              type="number"
+              min="0"
+              step="any"
+              inputmode="decimal"
+              placeholder="Enter ohms">
+          </label>
+        </div>
+
+        <div class="actions">
+          <button class="button" id="bulb-calculate-button" type="button">
+            Calculate
+          </button>
+
+          <button
+            class="button secondary"
+            id="bulb-reset-button"
+            type="button">
+            Reset
+          </button>
+        </div>
+
+        <p
+          class="error"
+          id="bulb-error-message"
+          role="alert"
+          aria-live="polite">
+        </p>
+
+        <div class="results">
+          <div class="result">
+            <span>Potentiometer current</span>
+            <output id="pot-current-result">—</output>
+          </div>
+
+          <div class="result">
+            <span>Bulb current</span>
+            <output id="bulb-current-result">—</output>
+          </div>
+
+          <div class="result">
+            <span>Effective bulb resistance</span>
+            <output id="bulb-resistance-result">—</output>
+          </div>
+        </div>
+
+        <div
+          class="verification waiting"
+          id="bulb-verification-message"
+          aria-live="polite">
+          Enter the voltage, total current, and potentiometer resistance.
+        </div>
+
+        <div class="future-slot">
+          Reserved for additional calculation modules.
+        </div>
+      </section>
+    </main>
+
+    <script>
+      (() => {
+        const rcoolInput = document.getElementById('rcool-input');
+        const rpInput = document.getElementById('rp-input');
+        const calculateButton = document.getElementById('calculate-button');
+        const resetButton = document.getElementById('reset-button');
+        const errorMessage = document.getElementById('error-message');
+        const alphaResult = document.getElementById('alpha-result');
+        const percentageResult = document.getElementById('percentage-result');
+        const lowerResistanceResult = document.getElementById('lower-resistance-result');
+        const verificationMessage = document.getElementById('verification-message');
+
+        const formatNumber = (value, digits = 6) => {
+          return Number(value.toPrecision(digits)).toString();
+        };
+
+        const clearResults = () => {
+          alphaResult.textContent = '—';
+          percentageResult.textContent = '—';
+          lowerResistanceResult.textContent = '—';
+          verificationMessage.classList.add('waiting');
+          verificationMessage.textContent =
+            'Enter both resistance values to calculate the required position.';
+        };
+
+        const calculate = () => {
+          const rcool = Number(rcoolInput.value);
+          const rp = Number(rpInput.value);
+
+          if (rcoolInput.value.trim() === '' || rpInput.value.trim() === '') {
+            errorMessage.textContent = 'Enter both resistance values.';
+            clearResults();
+            return;
+          }
+
+          if (
+            !Number.isFinite(rcool) ||
+            !Number.isFinite(rp) ||
+            rcool <= 0 ||
+            rp <= 0
+          ) {
+            errorMessage.textContent =
+              'Both resistance values must be positive numbers.';
+            clearResults();
+            return;
+          }
+
+          const alpha =
+            (rp - (2 * rcool) + Math.sqrt(Math.pow(rp, 2) + (4 * Math.pow(rcool, 2)))) /
+            (2 * rp);
+
+          if (!Number.isFinite(alpha) || alpha <= 0 || alpha > 1) {
+            errorMessage.textContent =
+              'The entered values did not produce a valid physical position.';
+            clearResults();
+            return;
+          }
+
+          const lowerResistance = alpha * rp;
+          const upperResistance = (1 - alpha) * rp;
+          const loadedLowerResistance =
+            (lowerResistance * rcool) /
+            (lowerResistance + rcool);
+          const calculatedVoltage =
+            10 * loadedLowerResistance /
+            (upperResistance + loadedLowerResistance);
+
+          alphaResult.textContent = formatNumber(alpha);
+          percentageResult.textContent = `${formatNumber(alpha * 100, 5)}%`;
+          lowerResistanceResult.textContent = `${formatNumber(lowerResistance)} Ω`;
+          errorMessage.textContent = '';
+          verificationMessage.classList.remove('waiting');
+          verificationMessage.textContent =
+            `Check: the calculated load voltage is ${formatNumber(calculatedVoltage)} V.`;
+        };
+
+        const reset = () => {
+          rcoolInput.value = '';
+          rpInput.value = '';
+          errorMessage.textContent = '';
+          clearResults();
+          rcoolInput.focus();
+        };
+
+        calculateButton.addEventListener('click', calculate);
+        resetButton.addEventListener('click', reset);
+
+        [rcoolInput, rpInput].forEach(input => {
+          input.addEventListener('keydown', event => {
+            if (event.key === 'Enter') {
+              calculate();
+            }
+          });
+        });
+
+        clearResults();
+      })();
+
+      (() => {
+        const voltageInput = document.getElementById('bulb-voltage-input');
+        const totalCurrentInput = document.getElementById('bulb-current-input');
+        const currentUnit = document.getElementById('bulb-current-unit');
+        const rpInput = document.getElementById('bulb-rp-input');
+        const calculateButton = document.getElementById('bulb-calculate-button');
+        const resetButton = document.getElementById('bulb-reset-button');
+        const errorMessage = document.getElementById('bulb-error-message');
+        const potCurrentResult = document.getElementById('pot-current-result');
+        const bulbCurrentResult = document.getElementById('bulb-current-result');
+        const bulbResistanceResult = document.getElementById('bulb-resistance-result');
+        const verificationMessage = document.getElementById('bulb-verification-message');
+
+        const formatNumber = (value, digits = 6) => {
+          return Number(value.toPrecision(digits)).toString();
+        };
+
+        const formatCurrent = currentAmps => {
+          if (currentAmps < 1) {
+            return `${formatNumber(currentAmps * 1000)} mA`;
+          }
+
+          return `${formatNumber(currentAmps)} A`;
+        };
+
+        const clearResults = () => {
+          potCurrentResult.textContent = '—';
+          bulbCurrentResult.textContent = '—';
+          bulbResistanceResult.textContent = '—';
+          verificationMessage.classList.add('waiting');
+          verificationMessage.textContent =
+            'Enter the voltage, total current, and potentiometer resistance.';
+        };
+
+        const calculate = () => {
+          const voltage = Number(voltageInput.value);
+          const enteredTotalCurrent = Number(totalCurrentInput.value);
+          const rp = Number(rpInput.value);
+
+          if (
+            voltageInput.value.trim() === '' ||
+            totalCurrentInput.value.trim() === '' ||
+            rpInput.value.trim() === ''
+          ) {
+            errorMessage.textContent =
+              'Enter the voltage, total current, and potentiometer resistance.';
+            clearResults();
+            return;
+          }
+
+          if (
+            !Number.isFinite(voltage) ||
+            !Number.isFinite(enteredTotalCurrent) ||
+            !Number.isFinite(rp) ||
+            voltage <= 0 ||
+            enteredTotalCurrent <= 0 ||
+            rp <= 0
+          ) {
+            errorMessage.textContent =
+              'All entered values must be positive numbers.';
+            clearResults();
+            return;
+          }
+
+          const totalCurrentAmps =
+            currentUnit.value === 'mA'
+              ? enteredTotalCurrent / 1000
+              : enteredTotalCurrent;
+
+          const potCurrentAmps = voltage / rp;
+          const bulbCurrentAmps = totalCurrentAmps - potCurrentAmps;
+
+          if (bulbCurrentAmps <= 0) {
+            errorMessage.textContent =
+              'The total supply current must be greater than the potentiometer current.';
+            clearResults();
+            return;
+          }
+
+          const bulbResistance = voltage / bulbCurrentAmps;
+
+          potCurrentResult.textContent = formatCurrent(potCurrentAmps);
+          bulbCurrentResult.textContent = formatCurrent(bulbCurrentAmps);
+          bulbResistanceResult.textContent =
+            `${formatNumber(bulbResistance)} Ω`;
+          errorMessage.textContent = '';
+          verificationMessage.classList.remove('waiting');
+          verificationMessage.textContent =
+            'The potentiometer current has been removed from the total supply current.';
+        };
+
+        const reset = () => {
+          voltageInput.value = '';
+          totalCurrentInput.value = '';
+          currentUnit.value = 'A';
+          rpInput.value = '';
+          errorMessage.textContent = '';
+          clearResults();
+          voltageInput.focus();
+        };
+
+        calculateButton.addEventListener('click', calculate);
+        resetButton.addEventListener('click', reset);
+
+        [voltageInput, totalCurrentInput, rpInput].forEach(input => {
+          input.addEventListener('keydown', event => {
+            if (event.key === 'Enter') {
+              calculate();
+            }
+          });
+        });
+
+        clearResults();
+      })();
+    </script>
+  </body>
+</html>
