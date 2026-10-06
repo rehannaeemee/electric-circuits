@@ -612,11 +612,15 @@
             <div class="task-head">
               <div>
                 <h3>Task 5: Lamp Resistance and Power</h3>
-                <p>Determine how the effective filament resistance changes as the lamp heats.</p>
+                <p>In the previous section, we found that the resistance of the bulb in the circuit didn't match the resistance we measured with the multimeter. In reality, the resistance of the bulb changes with temperature. Let's see if we can measure this change and make a little plot showing bulb resistance versus power (as a proxy for temperature). ( While we can't directly measure the resistance of the bulb while powered, we can measure the voltage across it and the current through it to find the resistance. While our power supplies can give a rough reading of current they are very inaccurate in the ~10mA range which is what we need to measure. So instead let's use out multimeter to measure the current through the bulb.
+Go ahead and remove the pot from the circuit, so we can just measure the resistance of the bulb by itself. In order to for the multimeters to measure current, we need to put the meter in series with our circuit (such that the current we would want to measure must be flowing through the meter as well). </p>
               </div>
             </div>
             <figure class="circuit-figure">
-              <img src="assets/lab-04/bulb-measurement.png" alt="Series ammeter circuit for measuring lamp current">
+              <img
+                  src="assets/lab-04/bulb-measurement.png"
+                  alt="Series ammeter circuit for measuring lamp current"
+                  style="width: min(100%, 300px);">
               <figcaption>Series current measurement for the lamp.</figcaption>
             </figure>
             <ol class="task-steps">
@@ -723,8 +727,7 @@
                 </tbody>
               </table>
             </div>
-            <div class="blank-graph" role="img" aria-label="Blank graph grid"></div>
-            <p class="graph-caption">Plot the calculated relationship.</p>
+            <img src="assets/lab-04/plot2.png">
           </article>
           <article class="task card">
             <div class="task-head">
