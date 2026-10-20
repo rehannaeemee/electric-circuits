@@ -1,14 +1,25 @@
 <!doctype html>
 <html lang="en">
+
+  <!--
+  EDITING GUIDE
+  - Change the lab title in the title tag, page heading and active navigation tab.
+  - Edit instructions inside individual li elements.
+  - Edit table headings in th elements and reading spaces in td elements.
+  - Replace each labelled picture placeholder with an external img element.
+  - Page appearance is controlled by the style block in the head.
+  - The final script keeps navigation titles in sync with page headings.
+  Use this readable structure for the remaining lab pages.
+-->
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lab 5 — Simulation and Verification Using Multisim</title>
-    <meta name="description" content="Introductory Multisim laboratory for simulating, measuring and verifying familiar resistor circuits.">
+    <title>Lab 5 — Joystick Measurements and Oscilloscope XY Mode</title>
+    <meta name="description" content="Measure dual-axis joystick outputs and use oscilloscope XY mode to trace movements and draw the letter F.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&amp;family=Patrick+Hand&amp;display=swap" rel="stylesheet">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b4d89'/%3E%3Cpath d='M12 32h9l4-8 7 16 7-16 4 8h9' fill='none' stroke='%23ffcf4a' stroke-width='5' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; viewBox=&#x27;0 0 64 64&#x27;%3E%3Crect width=&#x27;64&#x27; height=&#x27;64&#x27; rx=&#x27;14&#x27; fill=&#x27;%231b4d89&#x27;/%3E%3Cpath d=&#x27;M12 32h9l4-8 7 16 7-16 4 8h9&#x27; fill=&#x27;none&#x27; stroke=&#x27;%23ffcf4a&#x27; stroke-width=&#x27;5&#x27; stroke-linejoin=&#x27;round&#x27; stroke-linecap=&#x27;round&#x27;/%3E%3C/svg%3E">
     <style>
 :root {
   --ink:#16213b;
@@ -1309,93 +1320,56 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+/* Joystick worksheet additions. */
+.manual-sheet p,.content-card p,.task p,.task-steps li { text-align:justify; }
+.task-steps li { margin-bottom:12px; }
+.question-prompt { margin:0 0 10px; font-weight:900; }
+.record-grid { grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); }
+.diagram-placeholder { break-inside:avoid; }
+@media print {
+  .task,.manual-sheet,.content-card { break-inside:auto; }
+  .task + .task { break-before:page; }
+  .question,.record-grid,tr,.snapshot-space { break-inside:avoid; }
+  h2,h3,h4,.section-title,.task-head { break-after:avoid; }
+  .page-pager { display:none!important; }
+  .diagram-placeholder { min-height:180px; }
+  .snapshot-space { min-height:240px; }
+  .blank-graph { print-color-adjust:exact; -webkit-print-color-adjust:exact; }
+}
+    
     </style>
   </head>
   <body>
     <div class="page">
       <div class="institution-bar">
         <img src="uet-icon.png" alt="UET Lahore logo">
-        <div>
-          <strong>Department of Electrical Engineering</strong>
-          <span>University of Engineering and Technology (UET), Lahore</span>
-        </div>
+        <div> <strong>Department of Electrical Engineering</strong> <span>University of Engineering and Technology (UET), Lahore</span> </div>
       </div>
-
       <div class="lab-switcher" aria-label="Electric circuits lab table of contents">
         <span class="lab-switcher-label">Electric Circuits · Table of Contents</span>
         <div class="lab-tabs">
-          <a class="lab-tab" href="index.html">
-            <strong>Background</strong>
-            <small>Theoretical Background</small>
-          </a>
-          <a class="lab-tab" href="lab-01.html">
-            <strong>Lab 1</strong>
-            <small>Laboratory Instruments and Resistance</small>
-          </a>
-          <a class="lab-tab" href="lab-02.html">
-            <strong>Lab 2</strong>
-            <small>Ohm’s Law, Power and Equivalent Resistance</small>
-          </a>
-          <a class="lab-tab" href="lab-03.html">
-            <strong>Lab 3</strong>
-            <small>Sensors and Oscilloscope Measurements</small>
-          </a>
-          <a class="lab-tab" href="lab-04.html">
-            <strong>Lab 4</strong>
-            <small>Buttons, Potentiometers, Lamps and Joysticks</small>
-          </a>
-          <a class="lab-tab active" href="lab-05.html" aria-current="page">
-            <strong>Lab 5</strong>
-            <small>Simulation and Verification Using Multisim</small>
-          </a>
-          <a class="lab-tab" href="lab-06.html">
-            <strong>Lab 6</strong>
-            <small>[Lab title]</small>
-          </a>
-          <a class="lab-tab" href="lab-07.html">
-            <strong>Lab 7</strong>
-            <small>[Lab title]</small>
-          </a>
-          <a class="lab-tab" href="lab-08.html">
-            <strong>Lab 8</strong>
-            <small>[Lab title]</small>
-          </a>
-          <a class="lab-tab" href="lab-09.html">
-            <strong>Lab 9</strong>
-            <small>[Lab title]</small>
-          </a>
-          <a class="lab-tab" href="lab-10.html">
-            <strong>Lab 10</strong>
-            <small>[Lab title]</small>
-          </a>
-          <a class="lab-tab" href="lab-11.html">
-            <strong>Lab 11</strong>
-            <small>[Lab title]</small>
-          </a>
-          <a class="lab-tab" href="lab-12.html">
-            <strong>Lab 12</strong>
-            <small>[Lab title]</small>
-          </a>
-          <a class="lab-tab" href="lab-13.html">
-            <strong>Lab 13</strong>
-            <small>[Lab title]</small>
-          </a>
-          <a class="lab-tab" href="lab-14.html">
-            <strong>Lab 14</strong>
-            <small>[Lab title]</small>
-          </a>
-          <a class="lab-tab" href="lab-15.html">
-            <strong>Lab 15</strong>
-            <small>[Lab title]</small>
-          </a>
+          <a class="lab-tab" href="index.html"> <strong>Background</strong> <small>Theoretical Background</small> </a>
+          <a class="lab-tab" href="lab-01.html"> <strong>Lab 1</strong> <small>Laboratory Instruments and Resistance</small> </a>
+          <a class="lab-tab" href="lab-02.html"> <strong>Lab 2</strong> <small>Ohm’s Law, Power and Equivalent Resistance</small> </a>
+          <a class="lab-tab" href="lab-03.html"> <strong>Lab 3</strong> <small>Sensors and Oscilloscope Measurements</small> </a>
+          <a class="lab-tab" href="lab-04.html"> <strong>Lab 4</strong> <small>Buttons, Potentiometers, Lamps and Joysticks</small> </a>
+          <a class="lab-tab active" href="lab-05.html" aria-current="page"> <strong>Lab 5</strong> <small>Joystick Measurements and Oscilloscope XY Mode</small> </a>
+          <a class="lab-tab" href="lab-06.html"> <strong>Lab 6</strong> <small>[Lab title]</small> </a>
+          <a class="lab-tab" href="lab-07.html"> <strong>Lab 7</strong> <small>[Lab title]</small> </a>
+          <a class="lab-tab" href="lab-08.html"> <strong>Lab 8</strong> <small>[Lab title]</small> </a>
+          <a class="lab-tab" href="lab-09.html"> <strong>Lab 9</strong> <small>[Lab title]</small> </a>
+          <a class="lab-tab" href="lab-10.html"> <strong>Lab 10</strong> <small>[Lab title]</small> </a>
+          <a class="lab-tab" href="lab-11.html"> <strong>Lab 11</strong> <small>[Lab title]</small> </a>
+          <a class="lab-tab" href="lab-12.html"> <strong>Lab 12</strong> <small>[Lab title]</small> </a>
+          <a class="lab-tab" href="lab-13.html"> <strong>Lab 13</strong> <small>[Lab title]</small> </a>
+          <a class="lab-tab" href="lab-14.html"> <strong>Lab 14</strong> <small>[Lab title]</small> </a>
+          <a class="lab-tab" href="lab-15.html"> <strong>Lab 15</strong> <small>[Lab title]</small> </a>
         </div>
       </div>
-
       <div class="topbar">
-        <div class="brand">
-          <span class="brand-mark">05</span>
-          Build · Simulate · Verify
-        </div>
+        <div class="brand"> <span class="brand-mark">05</span> Move · Measure · Trace </div>
+
         <nav aria-label="Page sections">
           <a href="#overview">Overview</a>
           <a href="#concepts">Concepts</a>
@@ -1407,11 +1381,11 @@ footer {
       <header>
         <div>
           <p class="eyebrow">Lab 05</p>
-          <h1 data-page-heading>Simulation and Verification Using Multisim</h1>
-          <p class="intro">Recreate familiar resistor circuits, operate virtual instruments, compare simulation with theory and physical measurements, and observe input and output waveforms.</p>
+          <h1 data-page-heading>Joystick Measurements and Oscilloscope XY Mode</h1>
+          <p class="intro">Explore a dual-axis joystick as two voltage dividers. Measure its X and Y outputs, connect both outputs to an oscilloscope, and use XY mode to draw a shape on the screen.</p>
         </div>
         <div class="header-tools">
-          <div class="badge" aria-label="Lab 05">Multisim<br>Simulation</div>
+          <div class="badge" aria-label="Lab 05">Joystick<br>XY Mode</div>
           <button class="print-button" type="button" onclick="window.print()">Print Worksheet</button>
         </div>
       </header>
@@ -1434,590 +1408,465 @@ footer {
           <div class="write-line"></div>
         </div>
       </section>
-
       <main>
+
+        <!-- ===== LAB OVERVIEW ===== -->
+
         <section id="overview">
           <div class="section-title">
             <span class="scribble">01</span>
             <div>
               <h2>Lab Overview</h2>
-              <p>Recreate familiar circuits, simulate their operation and compare results.</p>
+              <p>Investigate how joystick movement becomes two electrical signals.</p>
             </div>
           </div>
 
-          <div class="overview">
-            <article class="content-card card">
-              <h3>Learning Outcomes</h3>
-              <ol>
-                <li>Create, wire and save a circuit in Multisim.</li>
-                <li>Place a reference ground and operate the simulation controls.</li>
-                <li>Use virtual instruments to measure voltage, current and power.</li>
-                <li>Compare calculated, physical and simulated circuit values.</li>
-                <li>Use a function generator and two-channel oscilloscope.</li>
-                <li>Investigate the effect of changing a component value.</li>
-                <li>Identify and correct common simulation errors.</li>
-              </ol>
-            </article>
-
-            <article class="content-card card">
-              <h3>Required Resources</h3>
-              <ul class="apparatus">
-                <li>Computer with NI Multisim installed</li>
-                <li>Completed Lab 02 worksheet</li>
-                <li>Lab 02 resistor values and physical readings</li>
-                <li>Calculator</li>
-                <li>Folder for saving Multisim files and screenshots</li>
-              </ul>
-            </article>
-          </div>
+          <article class="content-card card">
+            <h3>Learning Outcomes</h3>
+            <ol>
+              <li>Identify the power, ground and two analog output pins of a dual-axis joystick.</li>
+              <li>Explain the operation of the joystick using two potentiometer voltage dividers.</li>
+              <li>Measure output voltages at the centre and the four end positions.</li>
+              <li>Relate changes in the two voltages to motion on an oscilloscope XY display.</li>
+              <li>Use display persistence to trace a shape and draw the letter F.</li>
+            </ol>
+            <h3>Equipment</h3>
+            <p>HW-504 dual-axis joystick module, breadboard, male–female jumper wires, regulated DC power supply, digital multimeter, and a two-channel oscilloscope with two probes.</p>
+            <h3>Important Messages</h3>
+            <ul>
+              <li>For a module whose supply pin is labelled +5V, use a regulated 5 V supply. Confirm the actual module pin labels before connecting power.</li>
+              <li>Switch off the supply while changing connections. Connect supply negative, joystick GND and both oscilloscope ground clips to the same ground point.</li>
+              <li>Connect probe tips to the output pins. Connect both probe ground clips only to GND.</li>
+              <li>Keep the module orientation fixed throughout the measurements. Leave the SW pin unconnected in this lab.</li>
+            </ul>
+          </article>
         </section>
+
+        <!-- ===== NECESSARY CONCEPTS ===== -->
 
         <section id="concepts">
           <div class="section-title">
             <span class="scribble">02</span>
             <div>
               <h2>Necessary Concepts</h2>
-              <p>Understand the simulation workflow before beginning the tasks.</p>
+              <p>Connect potentiometer operation with voltage measurements and screen position.</p>
             </div>
           </div>
 
           <article class="manual-sheet card">
-            <h3>Circuit Simulation</h3>
-            <p>Multisim represents electrical components using mathematical models and predicts circuit behaviour before a physical circuit is assembled. A simulation is useful for checking calculations, observing signals and testing changes quickly. Simulated results may differ from physical readings because virtual components can be ideal while real components have tolerance, temperature effects, wiring resistance and instrument limitations.</p>
-
-            <h4>Basic Multisim Workflow</h4>
-            <ol>
-              <li>Create a new design and save it with a meaningful filename.</li>
-              <li>Place the required sources, resistors, ground and instruments.</li>
-              <li>Open each component and enter the required value.</li>
-              <li>Arrange the schematic neatly and connect the components with wires.</li>
-              <li>Check all junctions and instrument connections.</li>
-              <li>Run the simulation and observe the readings.</li>
-              <li>Stop the simulation before changing the circuit structure.</li>
-              <li>Save the completed design and capture the required screenshots.</li>
-            </ol>
-
-            <h4>Ground Reference</h4>
-            <p>A SPICE simulation requires a reference node identified as ground or node zero. The ground establishes the zero-voltage reference used for circuit calculations and oscilloscope measurements. A missing or incorrectly connected ground may prevent the circuit from simulating correctly.</p>
-
-            <h4>Virtual Measurements</h4>
-            <p>Connect a voltmeter or oscilloscope channel across the two points whose voltage is required. Insert an ammeter in series with the branch whose current is required. The sign of a reading depends on the selected terminal polarity. Avoid connecting an ammeter directly across a source.</p>
-
-            <h4>Function Generator and Oscilloscope</h4>
-            <p>The function generator supplies a selected waveform, amplitude, frequency and offset. The oscilloscope displays voltage against time. Connect Channel A to the circuit input and Channel B to the selected output node, with both channel reference terminals connected to circuit ground. Adjust the voltage scale and time scale until both traces are clearly visible.</p>
-
-            <h4>Common Problems</h4>
-            <ul>
-              <li>Missing ground reference</li>
-              <li>Open or overlapping wires that are not electrically connected</li>
-              <li>Incorrect component value or unit prefix</li>
-              <li>Ammeter connected in parallel</li>
-              <li>Voltmeter connected in series</li>
-              <li>Oscilloscope reference connected to the wrong node</li>
-              <li>Simulation left running while the circuit is being modified</li>
-            </ul>
-
-            <p class="caution"><strong>Important:</strong> Simulation does not replace safe laboratory practice. Confirm component ratings and instrument connections before constructing the same circuit physically.</p>
+            <h3>Two Potentiometers in One Joystick</h3>
+            <p>A dual-axis joystick contains two potentiometers. Moving the stick along one axis changes one potentiometer’s wiper position; moving it along the other axis changes the second. Each potentiometer is connected between the supply and ground, and its wiper provides an analog voltage.</p>
+            <p>For an unloaded divider, the output voltage equals the supply voltage multiplied by the resistance from the wiper to ground, divided by the total potentiometer resistance. The output therefore varies with stick position. At the spring-return centre it is usually near half the supply, but the measured value need not be exact.</p>
+            <h3>Joystick Pins</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Pin label</th>
+                    <th scope="col">Function</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">GND</th>
+                    <td>Common ground reference</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">+5V / VCC</th>
+                    <td>Supply input; follow the label and rating of the actual module</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">VRx</th>
+                    <td>Wiper output of the X-axis potentiometer</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">VRy</th>
+                    <td>Wiper output of the Y-axis potentiometer</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">SW</th>
+                    <td>Push switch output; unused in this lab</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Read the printed labels on the board rather than assuming a pin order from a photograph. Output polarity depends on module construction and orientation; determine from your measurements which physical movement increases each voltage.</p>
+            <h3>Oscilloscope XY Mode</h3>
+            <p>In XY mode, one input controls horizontal position and the other controls vertical position. For the oscilloscope used here, connect CH1 to VRx for X and CH2 to VRy for Y; confirm the X and Y channel assignment on the available instrument. A stationary stick produces a stationary point. Changing one output moves the point along one screen axis; changing both can produce a diagonal or curved trace.</p>
+            <p>Use DC coupling on both channels to retain the position information. Infinite persistence keeps earlier points visible, allowing the movement path to remain on the display. The screen records voltage coordinates; the displayed direction may differ from the physical stick direction.</p>
           </article>
         </section>
+
+        <!-- ===== PRACTICAL TASKS AND WORKSHEETS ===== -->
 
         <section id="tasks">
           <div class="section-title">
             <span class="scribble">03</span>
             <div>
               <h2>Practical Tasks and Worksheets</h2>
-              <p>Use the same circuit arrangements and resistor values used in Lab 02.</p>
+              <p>Complete the activities in order and record your own measurements.</p>
             </div>
           </div>
 
+          <!-- ===== TASK 1 ===== -->
+
           <article class="task card">
             <div class="task-head">
               <div>
-                <h3>Task 1: Simulate the Ohm’s Law Circuit</h3>
-                <p>Recreate the first Lab 02 circuit and compare calculated, physical and simulated results.</p>
+                <h3>Task 1: Connect the Joystick and Identify Its Positions</h3>
+                <p>Prepare the module for voltage measurements.</p>
               </div>
             </div>
+            <img src="assets/lab-05/joystick.png">
+            <!-- Replace this placeholder with an external image and descriptive alt text. -->
 
-            <div class="diagram-placeholder" role="img" aria-label="Placeholder for the Lab 02 Ohm's law circuit diagram">
-              <div>
-                <strong>Circuit Diagram Placeholder</strong>
-                <span>Insert the Lab 02 Ohm’s law circuit diagram here.</span>
-              </div>
-            </div>
-
+            <!-- PICTURE PLACEHOLDER: joystick-photo
+  Replace the following div with, for example:
+  <figure class="circuit-figure">
+    <img src="assets/lab-05/joystick-photo.png" alt="Describe the joystick picture">
+    <figcaption>Describe the picture here.</figcaption>
+  </figure>
+-->
+            
             <ol class="task-steps">
-              <li>Create a new Multisim design and save it.</li>
-              <li>Place the DC source, resistor, ground and virtual multimeter instruments.</li>
-              <li>Use the same resistor value and source settings used in Lab 02.</li>
-              <li>Connect one multimeter across the resistor for voltage measurement.</li>
-              <li>Connect another multimeter in series with the resistor for current measurement.</li>
-              <li>Run the simulation and record the readings.</li>
-              <li>Calculate the current and power for every source setting.</li>
-              <li>Compare the calculated, physical and simulated values.</li>
-              <li>Capture a screenshot showing the complete circuit and instrument readings.</li>
+              <li>Identify GND, the supply input, VRx and VRy on the actual joystick module.</li>
+              <li>With the supply switched off, connect GND to supply negative and the +5V pin to the positive output using the breadboard and male–female jumpers.</li>
+              <li>Set the supply to 5 V for the +5V-labelled module. Have the wiring checked, then turn on the supply.</li>
+              <li>Measure the voltage between the supply input and GND using the multimeter in DC voltage mode.</li>
+              <li>Keep the pin-header side facing the same direction throughout the lab. Label the released centre as position 0, the two horizontal ends as 1 and 2, and the two vertical ends as 3 and 4. Use the instructor’s position diagram when provided.</li>
+              <li>Mark the physical direction assigned to each numbered end position in the table below.</li>
             </ol>
 
-            <p class="scope-note">Record voltage in volts, current in milliamperes and power in milliwatts.</p>
+            <!-- Replace this placeholder with an external image and descriptive alt text. -->
 
+            <!-- PICTURE PLACEHOLDER: joystick-wiring
+  Replace the following div with, for example:
+  <figure class="circuit-figure">
+    <img src="assets/lab-05/joystick-wiring.png" alt="Describe the joystick picture">
+    <figcaption>Describe the picture here.</figcaption>
+  </figure>
+-->
+            
+
+            <!-- Replace this placeholder with an external image and descriptive alt text. -->
+
+            <!-- PICTURE PLACEHOLDER: joystick-positions
+  Replace the following div with, for example:
+  <figure class="circuit-figure">
+    <img src="assets/lab-05/joystick-positions.png" alt="Describe the joystick picture">
+    <figcaption>Describe the picture here.</figcaption>
+  </figure>
+-->
+            
             <div class="table-wrap">
-              <table class="write-table">
+              <table>
                 <thead>
                   <tr>
-                    <th>Trial</th>
-                    <th>Source Voltage</th>
-                    <th>Calculated Current</th>
-                    <th>Physical Current</th>
-                    <th>Simulated Current</th>
-                    <th>Calculated Power</th>
-                    <th>Simulated Power</th>
+                    <th scope="col">Position</th>
+                    <th scope="col">Stick position</th>
+                    <th scope="col">Physical direction on your module</th>
+                    
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>1</td>
+                    <th scope="row">0</th>
+                    <td>Centre / released</td>
                     <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
+                    
                   </tr>
                   <tr>
-                    <td>2</td>
+                    <th scope="row">1</th>
+                    <td>First horizontal end</td>
                     <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
+                    
                   </tr>
                   <tr>
-                    <td>3</td>
+                    <th scope="row">2</th>
+                    <td>Opposite horizontal end</td>
                     <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
+                    
                   </tr>
                   <tr>
-                    <td>4</td>
+                    <th scope="row">3</th>
+                    <td>First vertical end</td>
                     <td class="write-cell"></td>
+                    
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>Opposite vertical end</td>
                     <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
+                    
                   </tr>
                 </tbody>
               </table>
             </div>
-
-            <div class="calculation-space">
-              <strong>Sample calculations:</strong>
-            </div>
-
-            <div class="snapshot-space">
-              Paste the Multisim circuit and instrument screenshot here.
-            </div>
+            
           </article>
 
-          <article class="task card">
-            <div class="task-head">
-              <div>
-                <h3>Task 2: Simulate the Series-Parallel Power Network</h3>
-                <p>Measure the voltage, current and power of every resistor and verify the total circuit power.</p>
-              </div>
-            </div>
-
-            <div class="diagram-placeholder" role="img" aria-label="Placeholder for the Lab 02 series-parallel power circuit diagram">
-              <div>
-                <strong>Circuit Diagram Placeholder</strong>
-                <span>Insert the Lab 02 series-parallel power network here.</span>
-              </div>
-            </div>
-
-            <ol class="task-steps">
-              <li>Open a new Multisim design and save it.</li>
-              <li>Recreate the Lab 02 series-parallel network.</li>
-              <li>Enter the same resistor values selected during the physical experiment.</li>
-              <li>Set the DC source to 5 V and connect the ground reference.</li>
-              <li>Measure the voltage across and current through each resistor.</li>
-              <li>Calculate the power of every resistor using P = VI.</li>
-              <li>Compare each calculated power with the selected resistor power rating.</li>
-              <li>Measure the voltage and current entering the complete circuit.</li>
-              <li>Calculate the input power and the sum of all resistor powers.</li>
-              <li>Compare the supplied and consumed power.</li>
-              <li>Capture a screenshot showing the complete simulated circuit.</li>
-            </ol>
-
-            <p class="scope-note">Record resistance in ohms, voltage in volts, current in milliamperes and power in milliwatts.</p>
-
-            <div class="table-wrap">
-              <table class="write-table">
-                <thead>
-                  <tr>
-                    <th>Resistor</th>
-                    <th>Resistance</th>
-                    <th>Voltage</th>
-                    <th>Current</th>
-                    <th>Power</th>
-                    <th>Power Rating</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>R1</td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                  </tr>
-                  <tr>
-                    <td>R2</td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                  </tr>
-                  <tr>
-                    <td>R3</td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                  </tr>
-                  <tr>
-                    <td>R4</td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div class="record-grid">
-              <div class="record-box">
-                Input Voltage
-                <div class="write-line"></div>
-              </div>
-              <div class="record-box">
-                Input Current
-                <div class="write-line"></div>
-              </div>
-              <div class="record-box">
-                Input Power
-                <div class="write-line"></div>
-              </div>
-              <div class="record-box">
-                Total Resistor Power
-                <div class="write-line"></div>
-              </div>
-            </div>
-
-            <div class="calculation-space">
-              <strong>Power calculations and power-rating check:</strong>
-            </div>
-
-            <div class="snapshot-space">
-              Paste the complete series-parallel circuit screenshot here.
-            </div>
-          </article>
+          <!-- ===== TASK 2 ===== -->
 
           <article class="task card">
             <div class="task-head">
               <div>
-                <h3>Task 3: Equivalent Resistance and Oscilloscope Measurements</h3>
-                <p>Use the Lab 02 resistor network for DC verification and two-channel waveform measurements.</p>
+                <h3>Task 2: Measure the Joystick Output Voltages</h3>
+                <p>Measure each output relative to the same ground reference.</p>
               </div>
             </div>
-
-            <div class="diagram-placeholder" role="img" aria-label="Placeholder for the selected Lab 02 resistor network and oscilloscope connections">
-              <div>
-                <strong>Circuit Diagram Placeholder</strong>
-                <span>Insert the selected Lab 02 network with function-generator and oscilloscope connections here.</span>
-              </div>
-            </div>
-
-            <h4 class="subtask-title">Part A: DC Equivalent Resistance</h4>
-
+            <h4 class="subtask-title">Part A: X Output</h4>
             <ol class="task-steps">
-              <li>Calculate the equivalent resistance of the selected network manually.</li>
-              <li>Construct the same network in Multisim using the Lab 02 resistor values.</li>
-              <li>Apply a DC source and connect the ground reference.</li>
-              <li>Measure the input voltage and total input current.</li>
-              <li>Determine the simulated equivalent resistance from R<sub>eq</sub> = V<sub>in</sub>/I<sub>in</sub>.</li>
-              <li>Compare the calculated, physical and simulated equivalent resistance.</li>
+              <li>Connect the multimeter black lead to GND and the red lead to VRx. Select DC voltage measurement.</li>
+              <li>Release the joystick to position 0 and record the centre voltage.</li>
+              <li>Move the stick to position 2, hold it there and record the voltage.</li>
+              <li>Move the stick to position 1, hold it there and record the voltage. Release it to the centre.</li>
             </ol>
-
-            <p class="scope-note">Record equivalent resistance in ohms.</p>
-
+            <h4 class="subtask-title">Part B: Y Output</h4>
+            <ol class="task-steps">
+              <li>Move the red lead from VRx to VRy. Keep the black lead connected to GND.</li>
+              <li>Record the voltage at position 0, then at positions 3 and 4, holding the stick steady at each end.</li>
+              <li>Complete the table by measuring the other output at each numbered position as well. Keep the supply and module orientation unchanged.</li>
+            </ol>
+            <p>Record all voltage readings in volts.</p>
             <div class="table-wrap">
-              <table class="write-table">
+              <table>
                 <thead>
                   <tr>
-                    <th>Method</th>
-                    <th>Equivalent Resistance</th>
-                    <th>Difference</th>
-                    <th>Observation</th>
+                    <th scope="col">Position</th>
+                    <th scope="col">Stick position</th>
+                    <th scope="col">VRx</th>
+                    <th scope="col">VRy</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Manual calculation</td>
-                    <td class="write-cell"></td>
-                    <td>—</td>
-                    <td class="write-cell"></td>
-                  </tr>
-                  <tr>
-                    <td>Physical measurement</td>
-                    <td class="write-cell"></td>
+                    <th scope="row">0</th>
+                    <td>Centre / released</td>
                     <td class="write-cell"></td>
                     <td class="write-cell"></td>
                   </tr>
                   <tr>
-                    <td>Multisim simulation</td>
+                    <th scope="row">1</th>
+                    <td>First horizontal end</td>
                     <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Opposite horizontal end</td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>First vertical end</td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>Opposite vertical end</td>
                     <td class="write-cell"></td>
                     <td class="write-cell"></td>
                   </tr>
                 </tbody>
               </table>
             </div>
-
-            <h4 class="subtask-title">Part B: Function Generator and Oscilloscope</h4>
-
-            <ol class="task-steps">
-              <li>Stop the simulation and replace the DC source with the Multisim function generator.</li>
-              <li>Select a sine wave, set the frequency to 1 kHz, amplitude to 5 V and offset to 0 V.</li>
-              <li>Connect oscilloscope Channel A across the circuit input.</li>
-              <li>Connect oscilloscope Channel B across the selected output resistor.</li>
-              <li>Connect both oscilloscope reference terminals to circuit ground.</li>
-              <li>Run the simulation and adjust the voltage and time scales until both traces are clearly visible.</li>
-              <li>Measure the peak-to-peak voltage, period and frequency of both signals.</li>
-              <li>Calculate the voltage ratio V<sub>out</sub>/V<sub>in</sub>.</li>
-              <li>Compare the simulated voltage ratio with the theoretical voltage-divider ratio.</li>
-              <li>Capture a screenshot showing both oscilloscope traces.</li>
-            </ol>
-
-            <p class="scope-note">Record voltage scales in V/div, time scales in s/div, voltages in volts, period in seconds and frequency in hertz.</p>
-
-            <div class="table-wrap">
-              <table class="write-table">
-                <thead>
-                  <tr>
-                    <th>Signal</th>
-                    <th>Voltage Scale</th>
-                    <th>Time Scale</th>
-                    <th>Peak-to-Peak Voltage</th>
-                    <th>Period</th>
-                    <th>Frequency</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Input</td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                  </tr>
-                  <tr>
-                    <td>Output</td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div class="table-wrap" style="margin-top: 14px;">
-              <table class="write-table">
-                <thead>
-                  <tr>
-                    <th>Quantity</th>
-                    <th>Calculated Value</th>
-                    <th>Simulated Value</th>
-                    <th>Difference</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Voltage ratio</td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                  </tr>
-                  <tr>
-                    <td>Frequency</td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div class="calculation-space">
-              <strong>Equivalent-resistance, frequency and voltage-ratio calculations:</strong>
-            </div>
-
-            <div class="snapshot-space">
-              Paste a screenshot showing both oscilloscope traces here.
-            </div>
-          </article>
-
-          <article class="task card">
-            <div class="task-head">
-              <div>
-                <h3>Task 4: Component Variation and Troubleshooting</h3>
-                <p>Predict the effect of a component change and diagnose a common simulation error.</p>
-              </div>
-            </div>
-
-            <div class="diagram-placeholder" role="img" aria-label="Placeholder for the modified Lab 02 circuit diagram">
-              <div>
-                <strong>Circuit Diagram Placeholder</strong>
-                <span>Insert the modified Lab 02 circuit or identify the resistor to be changed.</span>
-              </div>
-            </div>
-
-            <h4 class="subtask-title">Part A: Change a Resistor</h4>
-
-            <ol class="task-steps">
-              <li>Select one resistor in the circuit from Task 3.</li>
-              <li>Record its original value and choose a different standard value.</li>
-              <li>Before running the simulation, predict the change in equivalent resistance, total current, total power and output voltage.</li>
-              <li>Change the resistor value and run the simulation.</li>
-              <li>Measure the new values and compare them with the predictions.</li>
-              <li>Use the oscilloscope to observe the change in output amplitude.</li>
-            </ol>
-
-            <div class="table-wrap">
-              <table class="write-table">
-                <thead>
-                  <tr>
-                    <th>Quantity</th>
-                    <th>Original Value</th>
-                    <th>Predicted Change</th>
-                    <th>Modified Value</th>
-                    <th>Observation</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Equivalent resistance</td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                  </tr>
-                  <tr>
-                    <td>Total current</td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                  </tr>
-                  <tr>
-                    <td>Total power</td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                  </tr>
-                  <tr>
-                    <td>Output voltage</td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                    <td class="write-cell"></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h4 class="subtask-title">Part B: Troubleshooting</h4>
-
-            <ol class="task-steps">
-              <li>Stop the simulation and temporarily remove the ground connection.</li>
-              <li>Run the simulation and record the displayed warning or observed behaviour.</li>
-              <li>Restore the ground connection and confirm that the circuit simulates correctly.</li>
-              <li>Describe why the reference ground is required.</li>
-            </ol>
-
             <div class="question-list">
               <div class="question">
-                <label>Warning or behaviour observed when the ground was removed</label>
+                <p class="question-prompt">Which movement increases VRx, and which movement decreases it?</p>
                 <div class="answer-space"></div>
               </div>
               <div class="question">
-                <label>Explanation of how the problem was corrected</label>
+                <p class="question-prompt">Which movement increases VRy, and which movement decreases it?</p>
+                <div class="answer-space"></div>
+              </div>
+              <div class="question">
+                <p class="question-prompt">Compare the two centre voltages with half the measured supply voltage. Describe any difference.</p>
                 <div class="answer-space"></div>
               </div>
             </div>
+          </article>
 
-            <div class="snapshot-space">
-              Paste the final corrected circuit screenshot here.
+          <!-- ===== TASK 3 ===== -->
+
+          <article class="task card">
+            <div class="task-head">
+              <div>
+                <h3>Task 3: Observe Joystick Movement in XY Mode</h3>
+                <p>Compare movement on the display with the voltage readings from Task 2.</p>
+              </div>
+            </div>
+            <ol class="task-steps">
+              <li>Switch off the supply before attaching the oscilloscope probes.</li>
+              <li>Connect the CH1 probe tip to VRx and the CH2 probe tip to VRy. Connect both ground clips to joystick GND.</li>
+              <li>Turn on the supply and oscilloscope. Enable both channels, use DC coupling and match each channel’s probe setting to the probe attenuation.</li>
+              <li>Open the Display menu and select <u>Type: Vector, Format: XY and Persist: Infinite</u> on the lab oscilloscope. On another model, use the equivalent XY and persistence settings.</li>
+              <li>Adjust both voltage scales and position controls so the centre point and full movement range remain visible.</li>
+              <li>Starting at position 0, move to position 2 and observe the direction of the trace. Compare it with the change in VRx measured in Task 2.</li>
+              <li>Clear the previous trace, return to position 0, and repeat for positions 1, 3 and 4. Record the screen direction for each movement.</li>
+              <li>On the oscilloscope shown in the source instructions, press F3 once to refresh the display. Use the corresponding clear or refresh control if the available model differs.</li>
+            </ol>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Setting</th>
+                    <th scope="col">Selection</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">CH1 / X input</th>
+                    <td>VRx relative to GND</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">CH2 / Y input</th>
+                    <td>VRy relative to GND</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Input coupling</th>
+                    <td>DC on both channels</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Display type</th>
+                    <td>Vector</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Display format</th>
+                    <td>XY</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Persistence</th>
+                    <td>Infinite</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Stick movement</th>
+                    <th scope="col">Output mainly changing</th>
+                    <th scope="col">Screen direction observed</th>
+                    <th scope="col">Agreement with Task 2</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">0 → 2</th>
+                    <td>VRx</td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">0 → 1</th>
+                    <td>VRx</td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">0 → 3</th>
+                    <td>VRy</td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">0 → 4</th>
+                    <td>VRy</td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="question-list">
+              <div class="question">
+                <p class="question-prompt">Explain any difference between the physical stick direction and the direction of movement on the display.</p>
+                <div class="answer-space"></div>
+              </div>
+              <div class="question">
+                <p class="question-prompt">Move the stick diagonally. How do the two output voltages and the displayed trace change?</p>
+                <div class="answer-space"></div>
+              </div>
+            </div>
+            <div class="snapshot-space">Attach a photograph of the XY trace here.</div>
+          </article>
+
+          <!-- ===== TASK 4 ===== -->
+
+          <article class="task card">
+            <div class="task-head">
+              <div>
+                <h3>Task 4: Draw the Letter F</h3>
+                <p>Control both voltages to form a recognisable letter on the XY display.</p>
+              </div>
+            </div>
+            <ol class="task-steps">
+              <li>Keep XY mode and infinite persistence enabled. Clear the existing display.</li>
+              <li>Use the directions identified in Task 3 to trace a vertical stroke, a top horizontal stroke and a shorter middle horizontal stroke.</li>
+              <li>Retrace existing strokes when moving between them to limit unwanted connecting lines.</li>
+              <li>Repeat until the letter F is recognisable. Freeze the display and take a photograph.</li>
+            </ol>
+            <img src="assets/lab-05/f.jpg">
+            <div class="question-list">
+              <div class="question">
+                <p class="question-prompt">Describe the stick movements used to draw F and explain why persistence is needed.</p>
+                <div class="answer-space"></div>
+              </div>
             </div>
           </article>
         </section>
+
+        <!-- ===== REVIEW AND DELIVERABLES ===== -->
 
         <section id="review">
           <div class="section-title">
             <span class="scribble">04</span>
             <div>
               <h2>Review</h2>
-              <p>Explain the simulation procedure and interpret the results.</p>
+              <p>Use your observations to explain joystick operation.</p>
             </div>
           </div>
 
           <article class="content-card card">
             <div class="question-list">
               <div class="question">
-                <label>1. Why is a ground reference required in Multisim?</label>
+                <p class="question-prompt">1. Why does a dual-axis joystick require two potentiometers?</p>
                 <div class="answer-space"></div>
               </div>
               <div class="question">
-                <label>2. Why must current be measured by inserting the meter in series?</label>
+                <p class="question-prompt">2. Why are the output voltages usually near half the supply when the stick is released?</p>
                 <div class="answer-space"></div>
               </div>
               <div class="question">
-                <label>3. Why can physical and simulated readings be different?</label>
+                <p class="question-prompt">3. What controls horizontal and vertical position in XY mode?</p>
                 <div class="answer-space"></div>
               </div>
               <div class="question">
-                <label>4. How did changing the selected resistor affect the output waveform?</label>
+                <p class="question-prompt">4. What would change on the display if the CH1 and CH2 signal connections were exchanged?</p>
                 <div class="answer-space"></div>
               </div>
               <div class="question">
-                <label>5. What is the relationship between waveform period and frequency?</label>
+                <p class="question-prompt">5. What happens to a drawn shape when persistence is cleared?</p>
                 <div class="answer-space"></div>
               </div>
             </div>
+            <h3>Deliverables</h3>
+            <ul>
+              <li>Completed position map, supply reading and output-voltage table.</li>
+              <li>Completed XY movement table and written explanations.</li>
+              <li>Photographs of the XY trace and the letter F.</li>
+              <li>Answers to the review questions.</li>
+            </ul>
           </article>
         </section>
       </main>
 
       <nav class="page-pager" aria-label="Previous and next lab pages">
-        <a href="lab-04.html">
-          ← Lab 4
-          <small>Buttons, Potentiometers, Lamps and Joysticks</small>
-        </a>
-        <a href="lab-06.html">
-          Lab 6 →
-          <small>[Lab title]</small>
-        </a>
+        <a href="lab-04.html"> ← Lab 4 <small>Buttons, Potentiometers, Lamps and Joysticks</small> </a>
+        <a href="lab-06.html"> Lab 6 → <small>[Lab title]</small> </a>
       </nav>
 
       <footer>
@@ -2026,7 +1875,6 @@ footer {
         <p>Website developed by <strong>Rehan Naeem</strong></p>
       </footer>
     </div>
-
     <script>
 (() => {
   const storageKey = 'ee100l-navigation-titles-v1';
@@ -2088,6 +1936,7 @@ footer {
     }));
   }
 })();
+    
     
     </script>
   </body>
