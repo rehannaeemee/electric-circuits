@@ -1,43 +1,2110 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lab 6 — [Lab title]</title>
-  <meta name="description" content="Placeholder page for Lab 6 of the EE-100L Laboratory Manual.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&family=Patrick+Hand&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b4d89'/%3E%3Cpath d='M12 32h9l4-8 7 16 7-16 4 8h9' fill='none' stroke='%23ffcf4a' stroke-width='5' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
-  <style>
-    :root{--ink:#16213b;--blue:#174d86;--sky:#dff2ff;--yellow:#ffcf4a;--red:#ee6068;--green:#3fab78;--paper:#fffdf7;--line:#1f2942;--muted:#60708c;--shadow:0 10px 0 rgba(22,33,59,.1)}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:"Nunito",system-ui,sans-serif;background-color:#f6fbff;background-image:radial-gradient(#b8d8ed 1.15px,transparent 1.15px);background-size:24px 24px}button,input,select,textarea{font:inherit}button,a{touch-action:manipulation}.page{width:min(1220px,calc(100% - 28px));margin:auto;padding:22px 0 44px}
-    .lab-switcher{margin-bottom:12px;padding:11px 12px;background:var(--blue);border:3px solid var(--line);border-radius:18px;box-shadow:4px 5px 0 var(--yellow);color:#fff}.lab-switcher-label{display:block;margin:0 0 8px 3px;font-size:.76rem;font-weight:900;letter-spacing:.09em;text-transform:uppercase}.lab-tabs{display:flex;gap:8px;overflow-x:auto;padding:1px 1px 7px;scrollbar-width:thin}.lab-tab{display:inline-flex;flex-direction:column;align-items:flex-start;justify-content:center;flex:0 0 205px;min-height:67px;padding:8px 11px;border:2px solid rgba(255,255,255,.62);border-radius:11px;color:#fff;font-weight:900;text-decoration:none}.lab-tab strong{font-size:.86rem;line-height:1}.lab-tab small{display:block;margin-top:5px;font-size:.7rem;line-height:1.2;font-weight:800;white-space:normal;text-align:left}.lab-tab.active{background:var(--yellow);border-color:var(--line);color:var(--ink);box-shadow:2px 2px 0 #fff}.lab-tab.active small{color:#39445c}.lab-tab.future{opacity:.86;cursor:not-allowed}.topbar{position:sticky;top:10px;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:24px;padding:10px 13px;background:rgba(255,253,247,.95);border:3px solid var(--line);border-radius:18px;box-shadow:4px 5px 0 rgba(22,33,59,.12);backdrop-filter:blur(12px)}.brand{display:flex;align-items:center;gap:10px;font-weight:900;color:var(--blue);white-space:nowrap}.brand-mark{display:grid;place-items:center;width:38px;height:38px;border:2px solid var(--line);border-radius:12px;background:var(--yellow);font:900 1.35rem "Patrick Hand",cursive;transform:rotate(-3deg)}nav{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}nav::-webkit-scrollbar{display:none}nav a,.code-link{display:inline-flex;align-items:center;min-height:38px;padding:7px 11px;border:2px solid transparent;border-radius:12px;color:var(--ink);font-size:.9rem;font-weight:900;text-decoration:none;white-space:nowrap}nav a:hover,nav a:focus-visible{border-color:var(--line);background:var(--sky)}.code-link{background:var(--blue);color:#fff;border-color:var(--line)}
-    header{display:grid;grid-template-columns:1fr auto;gap:22px;align-items:end;margin:12px 0 26px}.eyebrow{display:inline-flex;align-items:center;gap:8px;margin:0 0 7px;font-weight:900;color:var(--blue);text-transform:uppercase;letter-spacing:.08em;font-size:.88rem}.eyebrow:before{content:"";width:34px;height:5px;background:var(--yellow);border:2px solid var(--line);border-radius:10px;transform:rotate(-2deg)}h1{font:900 clamp(2.65rem,6.5vw,5.6rem)/.9 "Patrick Hand",cursive;margin:0;color:var(--blue);text-shadow:3px 3px 0 #fff,5px 5px 0 var(--yellow)}.intro{max-width:740px;margin:15px 0 0;font-size:1.05rem;line-height:1.55;font-weight:700}.badge{background:var(--yellow);border:3px solid var(--line);border-radius:50%;width:132px;aspect-ratio:1;display:grid;place-items:center;text-align:center;font:900 1.08rem/1.1 "Patrick Hand",cursive;transform:rotate(5deg);box-shadow:5px 6px 0 var(--line)}
-    .card{background:var(--paper);border:3px solid var(--line);border-radius:24px;box-shadow:var(--shadow)}.student-card{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:18px;margin-bottom:24px}.field label{display:block;margin:0 0 6px;font-size:.82rem;font-weight:900;color:var(--blue);text-transform:uppercase;letter-spacing:.04em}.field input{width:100%;height:43px;padding:8px 11px;background:#fff;border:2px solid #aebbd0;border-radius:10px;color:var(--ink);font-weight:800}.field input:focus{outline:3px solid rgba(255,207,74,.5);border-color:var(--line)}
-    .section-title{display:flex;align-items:center;gap:12px;margin:34px 0 14px}.section-title .scribble{display:grid;place-items:center;flex:0 0 44px;height:44px;border:3px solid var(--line);border-radius:14px;background:var(--yellow);font:900 1.35rem "Patrick Hand",cursive;transform:rotate(-3deg)}.section-title h2{margin:0;font:900 clamp(2rem,4vw,3rem)/1 "Patrick Hand",cursive;color:var(--blue)}.section-title p{margin:4px 0 0;color:var(--muted);font-weight:700}.overview{display:grid;grid-template-columns:1.25fr .75fr;gap:18px}.overview .card,.content-card{padding:20px 22px}.overview h3,.content-card h3{margin:0 0 9px;font:900 1.7rem "Patrick Hand",cursive;color:var(--blue)}.overview ol,.overview ul,.content-card ol,.content-card ul{margin:0;padding-left:22px;line-height:1.65;font-weight:700}.apparatus,.safety-list{list-style:none;padding:0!important;display:grid;gap:10px}.apparatus li,.safety-list li{display:flex;gap:10px;align-items:flex-start}.apparatus li:before,.safety-list li:before{content:"✓";display:grid;place-items:center;flex:0 0 26px;width:26px;height:26px;border:2px solid var(--line);border-radius:50%;background:var(--green);color:#fff;font-weight:900}.safety-list li:before{content:"!";background:var(--red)}
-    .comic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.comic{position:relative;overflow:hidden;min-height:500px;display:flex;flex-direction:column}.comic:nth-child(1){--accent:#45a7d8;transform:rotate(-.25deg)}.comic:nth-child(2){--accent:#f0aa35;transform:rotate(.25deg)}.comic:nth-child(3){--accent:#ef6d72;transform:rotate(.18deg)}.comic:nth-child(4){--accent:#45ad7b;transform:rotate(-.18deg)}.number{position:absolute;top:14px;left:14px;z-index:2;width:48px;height:48px;border:3px solid var(--line);border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#fff;font:900 1.45rem "Patrick Hand",cursive;box-shadow:3px 3px 0 var(--line)}.art{width:100%;aspect-ratio:16/9;object-fit:cover;border-bottom:3px solid var(--line);background:#eaf6ff}.copy{padding:18px 22px 22px;display:flex;flex-direction:column;flex:1}.copy h3{font:900 clamp(1.55rem,3vw,2.05rem)/1.08 "Patrick Hand",cursive;margin:0 0 10px;color:var(--blue)}.answer{margin:0;font-size:1rem;line-height:1.55;font-weight:700}.note{display:flex;align-items:flex-start;gap:9px;margin-top:auto;padding-top:15px;font-size:.93rem;line-height:1.35;font-weight:800;color:#33415e}.note span{flex:0 0 auto;background:var(--yellow);border:2px solid var(--line);border-radius:50%;width:28px;height:28px;display:grid;place-items:center}.formula{display:inline-block;margin-top:10px;padding:8px 12px;border:2px dashed var(--line);border-radius:12px;background:#fff;font-weight:900}
-    .reference-card{padding:18px}.band-reference{margin:0 0 18px}.band-reference img{display:block;width:100%;border:3px solid var(--line);border-radius:18px;background:#fff}.band-reference figcaption{margin:9px 4px 0;color:var(--muted);font-size:.9rem;line-height:1.45;font-weight:800;text-align:center}.band-legend{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:14px 0 18px}.band-key{padding:10px;border:2px solid var(--line);border-top-width:9px;border-radius:12px;background:#fff;text-align:center;font-weight:900}.band-key small{display:block;color:var(--muted);font-size:.74rem}.band-key.b1{border-top-color:#8b4e2b}.band-key.b2{border-top-color:#151515}.band-key.b3{border-top-color:#e34545}.band-key.b4{border-top-color:#d7ad2c}.reference-table{min-width:620px}.reference-table .colour-name{text-align:left;font-weight:900}.reference-table .swatch{display:inline-block;vertical-align:middle;width:38px;height:24px;margin-right:10px;border:2px solid var(--line);border-radius:7px}.black{background:#151515}.brown{background:#8b4e2b}.red{background:#e34545}.orange{background:#f28b22}.yellow{background:#ffd744}.green{background:#3c9d55}.blue{background:#3578c8}.violet{background:#8252b5}.gray{background:#9aa1aa}.white{background:#fff}.gold{background:#d7ad2c}.silver{background:#c8ccd2}.none{background:repeating-linear-gradient(45deg,#fff,#fff 6px,#edf0f4 6px,#edf0f4 12px)}
-    .manual-background{scroll-margin-top:92px}.manual-sheet{padding:clamp(20px,4vw,38px)}.manual-sheet h3{margin:0 0 14px;font:900 clamp(2rem,4vw,2.8rem)/1 "Patrick Hand",cursive;color:var(--blue)}.manual-sheet h4{margin:28px 0 10px;font:900 clamp(1.55rem,3vw,2.05rem)/1.1 "Patrick Hand",cursive;color:var(--blue)}.manual-sheet h5{margin:22px 0 8px;font:900 1.2rem/1.2 "Nunito",sans-serif;color:var(--ink)}.manual-sheet p,.manual-sheet li{font-size:1rem;line-height:1.72;font-weight:700;text-align:justify}.manual-sheet ol,.manual-sheet ul{padding-left:24px}.manual-figure-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:20px 0}.manual-figure{margin:0;padding:12px;border:2px solid #aebbd0;border-radius:16px;background:#fff;text-align:center}.manual-figure.wide{grid-column:1/-1}.manual-figure img{display:block;width:100%;height:auto;max-height:430px;object-fit:contain;border-radius:9px}.manual-figure figcaption{margin-top:9px;color:var(--muted);font-size:.88rem;font-weight:900}.caution{margin:18px 0;padding:15px 17px;border:3px solid var(--red);border-radius:15px;background:#fff0f1;font-weight:900;line-height:1.6}.equation{margin:16px auto;width:max-content;max-width:100%;padding:10px 24px;border:2px dashed var(--line);border-radius:12px;background:var(--sky);font-size:1.3rem;font-weight:900}.symbol-list{list-style:none;padding-left:0!important}.symbol-list li{margin:5px 0;text-align:left}
-    .task{scroll-margin-top:90px;padding:20px;margin-bottom:24px}.task-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:13px}.task h3{margin:0;font:900 clamp(1.7rem,3vw,2.25rem)/1.05 "Patrick Hand",cursive;color:var(--blue)}.task p{margin:7px 0 0;max-width:920px;line-height:1.55;font-weight:700}.tag{flex:0 0 auto;padding:6px 10px;border:2px solid var(--line);border-radius:999px;background:var(--yellow);font-size:.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.04em}.table-wrap{overflow-x:auto;border:2px solid var(--line);border-radius:15px;background:#fff}table{width:100%;border-collapse:separate;border-spacing:0;min-width:850px}th{padding:11px 9px;background:linear-gradient(135deg,var(--blue),#208cb6);color:#fff;border-right:1px solid rgba(255,255,255,.28);font-size:.84rem;line-height:1.25;text-align:center}td{padding:8px;border-top:1px solid #cbd5e3;border-right:1px solid #cbd5e3;text-align:center;font-weight:800}th:last-child,td:last-child{border-right:0}tbody tr:nth-child(even){background:#f4f9fd}.row-num{width:44px;color:var(--blue)}.table-input,.table-select{width:100%;min-width:92px;height:40px;padding:6px 8px;border:2px solid #aebbd0;border-radius:9px;background:#fff;color:var(--ink);font-weight:800;text-align:center}.table-input:focus,.table-select:focus,textarea:focus{outline:3px solid rgba(255,207,74,.5);border-color:var(--line)}.calculated{min-width:120px;color:var(--blue);font-size:.91rem}.within{background:#dff7ea!important;border-color:var(--green)!important}.outside{background:#ffe8e9!important;border-color:var(--red)!important}.manual-formula{margin:11px 0 0;color:var(--muted);font-size:.9rem;font-weight:800}.formula-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.formula-card{padding:18px;border:3px solid var(--line);border-radius:18px;background:#fff;box-shadow:4px 5px 0 rgba(22,33,59,.1)}.formula-card h3{margin:0 0 7px;font:900 1.55rem "Patrick Hand",cursive;color:var(--blue)}.formula-card p{margin:0;line-height:1.55;font-weight:800}.question-list{display:grid;gap:13px}.question{padding:15px;border:2px solid #b9c6d8;border-radius:14px;background:#fff}.question label{display:block;margin-bottom:8px;font-weight:900}.question textarea{width:100%;min-height:84px;resize:vertical;padding:10px 12px;border:2px solid #aebbd0;border-radius:10px;color:var(--ink);font-weight:700}
-    .actions{position:sticky;bottom:10px;z-index:15;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:26px;padding:12px 14px;background:rgba(23,77,134,.97);border:3px solid var(--line);border-radius:18px;box-shadow:5px 6px 0 var(--yellow);color:#fff}.save-state{font-weight:900}.action-buttons{display:flex;gap:9px}.btn{min-height:42px;padding:8px 14px;border:2px solid var(--line);border-radius:11px;background:var(--yellow);color:var(--ink);font-weight:900;cursor:pointer}.btn.secondary{background:#fff}.btn:hover{transform:translateY(-1px)}footer{margin-top:28px;text-align:center;font-weight:800;color:var(--muted)}
-    @media (max-width:900px){.topbar{align-items:flex-start}.brand{display:none}.student-card{grid-template-columns:repeat(2,1fr)}.overview{grid-template-columns:1fr}}@media (max-width:700px){.page{padding-top:12px}.topbar{top:5px}.code-link{display:none}header{grid-template-columns:1fr}.badge{display:none}h1{font-size:3.25rem}.student-card{grid-template-columns:1fr}.comic-grid,.formula-grid,.manual-figure-grid{grid-template-columns:1fr}.band-legend{grid-template-columns:repeat(2,1fr)}.comic{min-height:0;transform:none!important}.task{padding:15px}.task-head{flex-direction:column}.actions{align-items:flex-start;flex-direction:column}.action-buttons{width:100%}.btn{flex:1}}@media (prefers-reduced-motion:no-preference){.comic{transition:transform .18s ease,box-shadow .18s ease}.comic:hover{transform:translateY(-4px) rotate(0);box-shadow:0 15px 0 rgba(22,33,59,.13)}}@media print{body{background:#fff}.page{width:100%;padding:0}.lab-switcher,.topbar,.actions,.code-link{display:none!important}.card,.table-wrap{box-shadow:none;break-inside:avoid}.comic-grid{grid-template-columns:repeat(2,1fr)}.task{break-before:page}input,select,textarea{border-color:#444!important;outline:0!important}header{margin-top:0}}
-  
-.lab-tab{opacity:1;cursor:pointer}.lab-tab:hover,.lab-tab:focus-visible{background:rgba(255,255,255,.16);outline:none}.lab-tab.active:hover,.lab-tab.active:focus-visible{background:var(--yellow)}
-.page-pager{display:flex;justify-content:space-between;gap:14px;margin-top:28px}.page-pager a{display:flex;flex-direction:column;min-width:190px;padding:13px 16px;border:3px solid var(--line);border-radius:16px;background:var(--paper);box-shadow:4px 5px 0 rgba(22,33,59,.1);color:var(--blue);font-weight:900;text-decoration:none}.page-pager a:last-child{text-align:right;margin-left:auto}.page-pager small{margin-top:3px;color:var(--muted)}
-.placeholder-card{padding:clamp(26px,6vw,62px);text-align:center}.placeholder-card .placeholder-icon{display:grid;place-items:center;width:86px;height:86px;margin:0 auto 20px;border:3px solid var(--line);border-radius:24px;background:var(--yellow);font:900 2.4rem "Patrick Hand",cursive;transform:rotate(-3deg)}.placeholder-card h2{margin:0;font:900 clamp(2.2rem,5vw,4rem)/1 "Patrick Hand",cursive;color:var(--blue)}.placeholder-card p{max-width:640px;margin:16px auto 0;font-size:1.05rem;line-height:1.65;font-weight:700;color:var(--muted)}
-@media(max-width:700px){.page-pager{flex-direction:column}.page-pager a,.page-pager a:last-child{width:100%;margin:0;text-align:left}}
-</style>
-</head>
-<body>
-  <div class="page">
-    <div class="lab-switcher" aria-label="EE-100L lab table of contents"><span class="lab-switcher-label">EE-100L Lab Manual · Table of Contents</span><div class="lab-tabs"><a class="lab-tab" href="index.html"><strong>Background</strong><small>Topic 1.2 · Theoretical Background</small></a><a class="lab-tab" href="lab-01.html"><strong>Lab 1</strong><small>Laboratory Instruments and Resistance</small></a><a class="lab-tab" href="lab-02.html"><strong>Lab 2</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-03.html"><strong>Lab 3</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-04.html"><strong>Lab 4</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-05.html"><strong>Lab 5</strong><small>[Lab title]</small></a><a class="lab-tab active" href="lab-06.html" aria-current="page"><strong>Lab 6</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-07.html"><strong>Lab 7</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-08.html"><strong>Lab 8</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-09.html"><strong>Lab 9</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-10.html"><strong>Lab 10</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-11.html"><strong>Lab 11</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-12.html"><strong>Lab 12</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-13.html"><strong>Lab 13</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-14.html"><strong>Lab 14</strong><small>[Lab title]</small></a><a class="lab-tab" href="lab-15.html"><strong>Lab 15</strong><small>[Lab title]</small></a></div></div>
-    <div class="topbar"><div class="brand"><span class="brand-mark">Ω</span> Resistance Detectives</div><nav aria-label="Page sections"><a href="index.html">Background</a><a href="lab-01.html">Lab 1</a></nav></div>
-    <header><div><p class="eyebrow">Lab 6</p><h1 data-page-heading>[Lab title]</h1></div><div class="badge" aria-label="Lab 6 placeholder">Lab<br>6</div></header><main class="placeholder-card card"><div class="placeholder-icon">06</div><h2>[Lab title]</h2><p>This page is reserved for Lab 6. Add the lab overview, learning outcomes, required equipment, safety notes, visual learning guide, tasks and observation tables, calculations, and discussion questions here.</p></main>
-    <nav class="page-pager" aria-label="Previous and next manual pages"><a href="lab-05.html">← Lab 5<small>[Lab title]</small></a><a href="lab-07.html">Lab 7 →<small>[Lab title]</small></a></nav>
-    <footer><p>EE-100L · Electric Circuits Laboratory Manual</p><p>Website developed by <strong>Rehan Naeem</strong></p></footer>
-  </div>
-  <script>
+
+  <!--
+    EDITING GUIDE
+    Edit the title and headings as normal HTML text.
+    Each step, list item, table row and table cell is on a separate line.
+    External images are in assets/lab-06; no image data is embedded here.
+    Tutorial and download links are labelled in the relevant step.
+    Blank worksheet spaces are intended for the completed report.
+    The final script keeps navigation titles in sync with page headings.
+  -->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lab 6 — Gamepad Assembly and Testing</title>
+    <meta name="description" content="Build, program, measure, configure and test a USB gamepad with an Arduino-Pro-Micro, five pushbuttons and one joystick.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&amp;family=Patrick+Hand&amp;display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; viewBox=&#x27;0 0 64 64&#x27;%3E%3Crect width=&#x27;64&#x27; height=&#x27;64&#x27; rx=&#x27;14&#x27; fill=&#x27;%231b4d89&#x27;/%3E%3Cpath d=&#x27;M12 32h9l4-8 7 16 7-16 4 8h9&#x27; fill=&#x27;none&#x27; stroke=&#x27;%23ffcf4a&#x27; stroke-width=&#x27;5&#x27; stroke-linejoin=&#x27;round&#x27; stroke-linecap=&#x27;round&#x27;/%3E%3C/svg%3E">
+    <style>
+:root {
+  --ink:#16213b;
+  --blue:#174d86;
+  --sky:#dff2ff;
+  --yellow:#ffcf4a;
+  --red:#ee6068;
+  --green:#3fab78;
+  --paper:#fffdf7;
+  --line:#1f2942;
+  --muted:#60708c;
+  --shadow:0 10px 0 rgba(22,33,59,.1);
+}
+
+* {
+  box-sizing:border-box;
+}
+
+html {
+  scroll-behavior:smooth;
+}
+
+body {
+  margin:0;
+  color:var(--ink);
+  font-family:"Nunito",system-ui,sans-serif;
+  background-color:#f6fbff;
+  background-image:radial-gradient(#b8d8ed 1.15px,transparent 1.15px);
+  background-size:24px 24px;
+}
+
+button,input,select,textarea {
+  font:inherit;
+}
+
+button,a {
+  touch-action:manipulation;
+}
+
+.page {
+  width:min(1220px,calc(100% - 28px));
+  margin:auto;
+  padding:22px 0 44px;
+}
+
+.lab-switcher {
+  margin-bottom:12px;
+  padding:11px 12px;
+  background:var(--blue);
+  border:3px solid var(--line);
+  border-radius:18px;
+  box-shadow:4px 5px 0 var(--yellow);
+  color:#fff;
+}
+
+.lab-switcher-label {
+  display:block;
+  margin:0 0 8px 3px;
+  font-size:.76rem;
+  font-weight:900;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+}
+
+.lab-tabs {
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding:1px 1px 7px;
+  scrollbar-width:thin;
+}
+
+.lab-tab {
+  display:inline-flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center;
+  flex:0 0 205px;
+  min-height:67px;
+  padding:8px 11px;
+  border:2px solid rgba(255,255,255,.62);
+  border-radius:11px;
+  color:#fff;
+  font-weight:900;
+  text-decoration:none;
+}
+
+.lab-tab strong {
+  font-size:.86rem;
+  line-height:1;
+}
+
+.lab-tab small {
+  display:block;
+  margin-top:5px;
+  font-size:.7rem;
+  line-height:1.2;
+  font-weight:800;
+  white-space:normal;
+  text-align:left;
+}
+
+.lab-tab.active {
+  background:var(--yellow);
+  border-color:var(--line);
+  color:var(--ink);
+  box-shadow:2px 2px 0 #fff;
+}
+
+.lab-tab.active small {
+  color:#39445c;
+}
+
+.lab-tab.future {
+  opacity:.86;
+  cursor:not-allowed;
+}
+
+.topbar {
+  position:sticky;
+  top:10px;
+  z-index:20;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  margin-bottom:24px;
+  padding:10px 13px;
+  background:rgba(255,253,247,.95);
+  border:3px solid var(--line);
+  border-radius:18px;
+  box-shadow:4px 5px 0 rgba(22,33,59,.12);
+  backdrop-filter:blur(12px);
+}
+
+.brand {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:900;
+  color:var(--blue);
+  white-space:nowrap;
+}
+
+.brand-mark {
+  display:grid;
+  place-items:center;
+  width:38px;
+  height:38px;
+  border:2px solid var(--line);
+  border-radius:12px;
+  background:var(--yellow);
+  font:900 1.35rem "Patrick Hand",cursive;
+  transform:rotate(-3deg);
+}
+
+nav {
+  display:flex;
+  gap:6px;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+
+nav::-webkit-scrollbar {
+  display:none;
+}
+
+nav a,.code-link {
+  display:inline-flex;
+  align-items:center;
+  min-height:38px;
+  padding:7px 11px;
+  border:2px solid transparent;
+  border-radius:12px;
+  color:var(--ink);
+  font-size:.9rem;
+  font-weight:900;
+  text-decoration:none;
+  white-space:nowrap;
+}
+
+nav a:hover,nav a:focus-visible {
+  border-color:var(--line);
+  background:var(--sky);
+}
+
+.code-link {
+  background:var(--blue);
+  color:#fff;
+  border-color:var(--line);
+}
+
+header {
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:22px;
+  align-items:end;
+  margin:12px 0 26px;
+}
+
+.eyebrow {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin:0 0 7px;
+  font-weight:900;
+  color:var(--blue);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-size:.88rem;
+}
+
+.eyebrow:before {
+  content:"";
+  width:34px;
+  height:5px;
+  background:var(--yellow);
+  border:2px solid var(--line);
+  border-radius:10px;
+  transform:rotate(-2deg);
+}
+
+h1 {
+  font:900 clamp(2.65rem,6.5vw,5.6rem)/.9 "Patrick Hand",cursive;
+  margin:0;
+  color:var(--blue);
+  text-shadow:3px 3px 0 #fff,5px 5px 0 var(--yellow);
+}
+
+.intro {
+  max-width:740px;
+  margin:15px 0 0;
+  font-size:1.05rem;
+  line-height:1.55;
+  font-weight:700;
+}
+
+.badge {
+  background:var(--yellow);
+  border:3px solid var(--line);
+  border-radius:50%;
+  width:132px;
+  aspect-ratio:1;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  font:900 1.08rem/1.1 "Patrick Hand",cursive;
+  transform:rotate(5deg);
+  box-shadow:5px 6px 0 var(--line);
+}
+
+.card {
+  background:var(--paper);
+  border:3px solid var(--line);
+  border-radius:24px;
+  box-shadow:var(--shadow);
+}
+
+.student-card {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  padding:18px;
+  margin-bottom:24px;
+}
+
+.field label {
+  display:block;
+  margin:0 0 6px;
+  font-size:.82rem;
+  font-weight:900;
+  color:var(--blue);
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.field input {
+  width:100%;
+  height:43px;
+  padding:8px 11px;
+  background:#fff;
+  border:2px solid #aebbd0;
+  border-radius:10px;
+  color:var(--ink);
+  font-weight:800;
+}
+
+.field input:focus {
+  outline:3px solid rgba(255,207,74,.5);
+  border-color:var(--line);
+}
+
+.section-title {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:34px 0 14px;
+}
+
+.section-title .scribble {
+  display:grid;
+  place-items:center;
+  flex:0 0 44px;
+  height:44px;
+  border:3px solid var(--line);
+  border-radius:14px;
+  background:var(--yellow);
+  font:900 1.35rem "Patrick Hand",cursive;
+  transform:rotate(-3deg);
+}
+
+.section-title h2 {
+  margin:0;
+  font:900 clamp(2rem,4vw,3rem)/1 "Patrick Hand",cursive;
+  color:var(--blue);
+}
+
+.section-title p {
+  margin:4px 0 0;
+  color:var(--muted);
+  font-weight:700;
+}
+
+.overview {
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  gap:18px;
+}
+
+.overview .card,.content-card {
+  padding:20px 22px;
+}
+
+.overview h3,.content-card h3 {
+  margin:0 0 9px;
+  font:900 1.7rem "Patrick Hand",cursive;
+  color:var(--blue);
+}
+
+.overview ol,.overview ul,.content-card ol,.content-card ul {
+  margin:0;
+  padding-left:22px;
+  line-height:1.65;
+  font-weight:700;
+}
+
+.apparatus,.safety-list {
+  list-style:none;
+  padding:0!important;
+  display:grid;
+  gap:10px;
+}
+
+.apparatus li,.safety-list li {
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+}
+
+.apparatus li:before,.safety-list li:before {
+  content:"✓";
+  display:grid;
+  place-items:center;
+  flex:0 0 26px;
+  width:26px;
+  height:26px;
+  border:2px solid var(--line);
+  border-radius:50%;
+  background:var(--green);
+  color:#fff;
+  font-weight:900;
+}
+
+.safety-list li:before {
+  content:"!";
+  background:var(--red);
+}
+
+.comic-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:22px;
+}
+
+.comic {
+  position:relative;
+  overflow:hidden;
+  min-height:500px;
+  display:flex;
+  flex-direction:column;
+}
+
+.comic:nth-child(1) {
+  --accent:#45a7d8;
+  transform:rotate(-.25deg);
+}
+
+.comic:nth-child(2) {
+  --accent:#f0aa35;
+  transform:rotate(.25deg);
+}
+
+.comic:nth-child(3) {
+  --accent:#ef6d72;
+  transform:rotate(.18deg);
+}
+
+.comic:nth-child(4) {
+  --accent:#45ad7b;
+  transform:rotate(-.18deg);
+}
+
+.number {
+  position:absolute;
+  top:14px;
+  left:14px;
+  z-index:2;
+  width:48px;
+  height:48px;
+  border:3px solid var(--line);
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:var(--accent);
+  color:#fff;
+  font:900 1.45rem "Patrick Hand",cursive;
+  box-shadow:3px 3px 0 var(--line);
+}
+
+.art {
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  border-bottom:3px solid var(--line);
+  background:#eaf6ff;
+}
+
+.copy {
+  padding:18px 22px 22px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
+
+.copy h3 {
+  font:900 clamp(1.55rem,3vw,2.05rem)/1.08 "Patrick Hand",cursive;
+  margin:0 0 10px;
+  color:var(--blue);
+}
+
+.answer {
+  margin:0;
+  font-size:1rem;
+  line-height:1.55;
+  font-weight:700;
+}
+
+.note {
+  display:flex;
+  align-items:flex-start;
+  gap:9px;
+  margin-top:auto;
+  padding-top:15px;
+  font-size:.93rem;
+  line-height:1.35;
+  font-weight:800;
+  color:#33415e;
+}
+
+.note span {
+  flex:0 0 auto;
+  background:var(--yellow);
+  border:2px solid var(--line);
+  border-radius:50%;
+  width:28px;
+  height:28px;
+  display:grid;
+  place-items:center;
+}
+
+.formula {
+  display:inline-block;
+  margin-top:10px;
+  padding:8px 12px;
+  border:2px dashed var(--line);
+  border-radius:12px;
+  background:#fff;
+  font-weight:900;
+}
+
+.reference-card {
+  padding:18px;
+}
+
+.band-reference {
+  margin:0 0 18px;
+}
+
+.band-reference img {
+  display:block;
+  width:100%;
+  border:3px solid var(--line);
+  border-radius:18px;
+  background:#fff;
+}
+
+.band-reference figcaption {
+  margin:9px 4px 0;
+  color:var(--muted);
+  font-size:.9rem;
+  line-height:1.45;
+  font-weight:800;
+  text-align:center;
+}
+
+.band-legend {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:9px;
+  margin:14px 0 18px;
+}
+
+.band-key {
+  padding:10px;
+  border:2px solid var(--line);
+  border-top-width:9px;
+  border-radius:12px;
+  background:#fff;
+  text-align:center;
+  font-weight:900;
+}
+
+.band-key small {
+  display:block;
+  color:var(--muted);
+  font-size:.74rem;
+}
+
+.band-key.b1 {
+  border-top-color:#8b4e2b;
+}
+
+.band-key.b2 {
+  border-top-color:#151515;
+}
+
+.band-key.b3 {
+  border-top-color:#e34545;
+}
+
+.band-key.b4 {
+  border-top-color:#d7ad2c;
+}
+
+.reference-table {
+  min-width:620px;
+}
+
+.reference-table .colour-name {
+  text-align:left;
+  font-weight:900;
+}
+
+.reference-table .swatch {
+  display:inline-block;
+  vertical-align:middle;
+  width:38px;
+  height:24px;
+  margin-right:10px;
+  border:2px solid var(--line);
+  border-radius:7px;
+}
+
+.black {
+  background:#151515;
+}
+
+.brown {
+  background:#8b4e2b;
+}
+
+.red {
+  background:#e34545;
+}
+
+.orange {
+  background:#f28b22;
+}
+
+.yellow {
+  background:#ffd744;
+}
+
+.green {
+  background:#3c9d55;
+}
+
+.blue {
+  background:#3578c8;
+}
+
+.violet {
+  background:#8252b5;
+}
+
+.gray {
+  background:#9aa1aa;
+}
+
+.white {
+  background:#fff;
+}
+
+.gold {
+  background:#d7ad2c;
+}
+
+.silver {
+  background:#c8ccd2;
+}
+
+.none {
+  background:repeating-linear-gradient(45deg,#fff,#fff 6px,#edf0f4 6px,#edf0f4 12px);
+}
+
+.manual-background {
+  scroll-margin-top:92px;
+}
+
+.manual-sheet {
+  padding:clamp(20px,4vw,38px);
+}
+
+.manual-sheet h3 {
+  margin:0 0 14px;
+  font:900 clamp(2rem,4vw,2.8rem)/1 "Patrick Hand",cursive;
+  color:var(--blue);
+}
+
+.manual-sheet h4 {
+  margin:28px 0 10px;
+  font:900 clamp(1.55rem,3vw,2.05rem)/1.1 "Patrick Hand",cursive;
+  color:var(--blue);
+}
+
+.manual-sheet h5 {
+  margin:22px 0 8px;
+  font:900 1.2rem/1.2 "Nunito",sans-serif;
+  color:var(--ink);
+}
+
+.manual-sheet p,.manual-sheet li {
+  font-size:1rem;
+  line-height:1.72;
+  font-weight:700;
+  text-align:justify;
+}
+
+.manual-sheet ol,.manual-sheet ul {
+  padding-left:24px;
+}
+
+.manual-figure-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+  margin:20px 0;
+}
+
+.manual-figure {
+  margin:0;
+  padding:12px;
+  border:2px solid #aebbd0;
+  border-radius:16px;
+  background:#fff;
+  text-align:center;
+}
+
+.manual-figure.wide {
+  grid-column:1/-1;
+}
+
+.manual-figure img {
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:430px;
+  object-fit:contain;
+  border-radius:9px;
+}
+
+.manual-figure figcaption {
+  margin-top:9px;
+  color:var(--muted);
+  font-size:.88rem;
+  font-weight:900;
+}
+
+.caution {
+  margin:18px 0;
+  padding:15px 17px;
+  border:3px solid var(--red);
+  border-radius:15px;
+  background:#fff0f1;
+  font-weight:900;
+  line-height:1.6;
+}
+
+.equation {
+  margin:16px auto;
+  width:max-content;
+  max-width:100%;
+  padding:10px 24px;
+  border:2px dashed var(--line);
+  border-radius:12px;
+  background:var(--sky);
+  font-size:1.3rem;
+  font-weight:900;
+}
+
+.symbol-list {
+  list-style:none;
+  padding-left:0!important;
+}
+
+.symbol-list li {
+  margin:5px 0;
+  text-align:left;
+}
+
+.task {
+  scroll-margin-top:90px;
+  padding:20px;
+  margin-bottom:24px;
+}
+
+.task-head {
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:18px;
+  margin-bottom:13px;
+}
+
+.task h3 {
+  margin:0;
+  font:900 clamp(1.7rem,3vw,2.25rem)/1.05 "Patrick Hand",cursive;
+  color:var(--blue);
+}
+
+.task p {
+  margin:7px 0 0;
+  max-width:920px;
+  line-height:1.55;
+  font-weight:700;
+}
+
+.tag {
+  flex:0 0 auto;
+  padding:6px 10px;
+  border:2px solid var(--line);
+  border-radius:999px;
+  background:var(--yellow);
+  font-size:.78rem;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.table-wrap {
+  overflow-x:auto;
+  border:2px solid var(--line);
+  border-radius:15px;
+  background:#fff;
+}
+
+table {
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+  min-width:850px;
+}
+
+th {
+  padding:11px 9px;
+  background:linear-gradient(135deg,var(--blue),#208cb6);
+  color:#fff;
+  border-right:1px solid rgba(255,255,255,.28);
+  font-size:.84rem;
+  line-height:1.25;
+  text-align:center;
+}
+
+td {
+  padding:8px;
+  border-top:1px solid #cbd5e3;
+  border-right:1px solid #cbd5e3;
+  text-align:center;
+  font-weight:800;
+}
+
+th:last-child,td:last-child {
+  border-right:0;
+}
+
+tbody tr:nth-child(even) {
+  background:#f4f9fd;
+}
+
+.row-num {
+  width:44px;
+  color:var(--blue);
+}
+
+.table-input,.table-select {
+  width:100%;
+  min-width:92px;
+  height:40px;
+  padding:6px 8px;
+  border:2px solid #aebbd0;
+  border-radius:9px;
+  background:#fff;
+  color:var(--ink);
+  font-weight:800;
+  text-align:center;
+}
+
+.table-input:focus,.table-select:focus,textarea:focus {
+  outline:3px solid rgba(255,207,74,.5);
+  border-color:var(--line);
+}
+
+.calculated {
+  min-width:120px;
+  color:var(--blue);
+  font-size:.91rem;
+}
+
+.within {
+  background:#dff7ea!important;
+  border-color:var(--green)!important;
+}
+
+.outside {
+  background:#ffe8e9!important;
+  border-color:var(--red)!important;
+}
+
+.manual-formula {
+  margin:11px 0 0;
+  color:var(--muted);
+  font-size:.9rem;
+  font-weight:800;
+}
+
+.formula-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+
+.formula-card {
+  padding:18px;
+  border:3px solid var(--line);
+  border-radius:18px;
+  background:#fff;
+  box-shadow:4px 5px 0 rgba(22,33,59,.1);
+}
+
+.formula-card h3 {
+  margin:0 0 7px;
+  font:900 1.55rem "Patrick Hand",cursive;
+  color:var(--blue);
+}
+
+.formula-card p {
+  margin:0;
+  line-height:1.55;
+  font-weight:800;
+}
+
+.question-list {
+  display:grid;
+  gap:13px;
+}
+
+.question {
+  padding:15px;
+  border:2px solid #b9c6d8;
+  border-radius:14px;
+  background:#fff;
+}
+
+.question label {
+  display:block;
+  margin-bottom:8px;
+  font-weight:900;
+}
+
+.question textarea {
+  width:100%;
+  min-height:84px;
+  resize:vertical;
+  padding:10px 12px;
+  border:2px solid #aebbd0;
+  border-radius:10px;
+  color:var(--ink);
+  font-weight:700;
+}
+
+.actions {
+  position:sticky;
+  bottom:10px;
+  z-index:15;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-top:26px;
+  padding:12px 14px;
+  background:rgba(23,77,134,.97);
+  border:3px solid var(--line);
+  border-radius:18px;
+  box-shadow:5px 6px 0 var(--yellow);
+  color:#fff;
+}
+
+.save-state {
+  font-weight:900;
+}
+
+.action-buttons {
+  display:flex;
+  gap:9px;
+}
+
+.btn {
+  min-height:42px;
+  padding:8px 14px;
+  border:2px solid var(--line);
+  border-radius:11px;
+  background:var(--yellow);
+  color:var(--ink);
+  font-weight:900;
+  cursor:pointer;
+}
+
+.btn.secondary {
+  background:#fff;
+}
+
+.btn:hover {
+  transform:translateY(-1px);
+}
+
+footer {
+  margin-top:28px;
+  text-align:center;
+  font-weight:800;
+  color:var(--muted);
+}
+
+@media (max-width:900px) {
+  .topbar {
+    align-items:flex-start;
+  }
+  .brand {
+    display:none;
+  }
+  .student-card {
+    grid-template-columns:repeat(2,1fr);
+  }
+  .overview {
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width:700px) {
+  .page {
+    padding-top:12px;
+  }
+  .topbar {
+    top:5px;
+  }
+  .code-link {
+    display:none;
+  }
+  header {
+    grid-template-columns:1fr;
+  }
+  .badge {
+    display:none;
+  }
+  h1 {
+    font-size:3.25rem;
+  }
+  .student-card {
+    grid-template-columns:1fr;
+  }
+  .comic-grid,.formula-grid,.manual-figure-grid {
+    grid-template-columns:1fr;
+  }
+  .band-legend {
+    grid-template-columns:repeat(2,1fr);
+  }
+  .comic {
+    min-height:0;
+    transform:none!important;
+  }
+  .task {
+    padding:15px;
+  }
+  .task-head {
+    flex-direction:column;
+  }
+  .actions {
+    align-items:flex-start;
+    flex-direction:column;
+  }
+  .action-buttons {
+    width:100%;
+  }
+  .btn {
+    flex:1;
+  }
+}
+
+@media (prefers-reduced-motion:no-preference) {
+  .comic {
+    transition:transform .18s ease,box-shadow .18s ease;
+  }
+  .comic:hover {
+    transform:translateY(-4px) rotate(0);
+    box-shadow:0 15px 0 rgba(22,33,59,.13);
+  }
+}
+
+@media print {
+  body {
+    background:#fff;
+  }
+  .page {
+    width:100%;
+    padding:0;
+  }
+  .lab-switcher,.topbar,.actions,.code-link {
+    display:none!important;
+  }
+  .card,.table-wrap {
+    box-shadow:none;
+    break-inside:avoid;
+  }
+  .comic-grid {
+    grid-template-columns:repeat(2,1fr);
+  }
+  .task {
+    break-before:page;
+  }
+  input,select,textarea {
+    border-color:#444!important;
+    outline:0!important;
+  }
+  header {
+    margin-top:0;
+  }
+}
+
+.lab-tab {
+  opacity:1;
+  cursor:pointer;
+}
+
+.lab-tab:hover,.lab-tab:focus-visible {
+  background:rgba(255,255,255,.16);
+  outline:none;
+}
+
+.lab-tab.active:hover,.lab-tab.active:focus-visible {
+  background:var(--yellow);
+}
+
+.page-pager {
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  margin-top:28px;
+}
+
+.page-pager a {
+  display:flex;
+  flex-direction:column;
+  min-width:190px;
+  padding:13px 16px;
+  border:3px solid var(--line);
+  border-radius:16px;
+  background:var(--paper);
+  box-shadow:4px 5px 0 rgba(22,33,59,.1);
+  color:var(--blue);
+  font-weight:900;
+  text-decoration:none;
+}
+
+.page-pager a:last-child {
+  text-align:right;
+  margin-left:auto;
+}
+
+.page-pager small {
+  margin-top:3px;
+  color:var(--muted);
+}
+
+.placeholder-card {
+  padding:clamp(26px,6vw,62px);
+  text-align:center;
+}
+
+.placeholder-card .placeholder-icon {
+  display:grid;
+  place-items:center;
+  width:86px;
+  height:86px;
+  margin:0 auto 20px;
+  border:3px solid var(--line);
+  border-radius:24px;
+  background:var(--yellow);
+  font:900 2.4rem "Patrick Hand",cursive;
+  transform:rotate(-3deg);
+}
+
+.placeholder-card h2 {
+  margin:0;
+  font:900 clamp(2.2rem,5vw,4rem)/1 "Patrick Hand",cursive;
+  color:var(--blue);
+}
+
+.placeholder-card p {
+  max-width:640px;
+  margin:16px auto 0;
+  font-size:1.05rem;
+  line-height:1.65;
+  font-weight:700;
+  color:var(--muted);
+}
+
+@media(max-width:700px) {
+  .page-pager {
+    flex-direction:column;
+  }
+  .page-pager a,.page-pager a:last-child {
+    width:100%;
+    margin:0;
+    text-align:left;
+  }
+}
+
+/* ===== LAB 06 PAGE AND WORKSHEET STYLES ===== */
+.institution-bar {
+  margin-bottom:16px;
+  padding:15px 18px;
+  border:3px solid var(--line);
+  border-radius:18px;
+  background:var(--paper);
+}
+
+.institution-bar strong,.institution-bar span {
+  display:block;
+}
+
+.institution-bar strong {
+  color:var(--blue);
+  font-size:1.02rem;
+}
+
+.institution-bar span {
+  margin-top:3px;
+  color:var(--muted);
+  font-size:.9rem;
+  font-weight:800;
+}
+
+.header-tools {
+  display:grid;
+  gap:14px;
+  justify-items:center;
+}
+
+.print-button {
+  padding:10px 15px;
+  min-height:44px;
+  border:3px solid var(--line);
+  border-radius:12px;
+  color:white;
+  background:var(--blue);
+  font-weight:900;
+  cursor:pointer;
+  box-shadow:3px 4px 0 var(--yellow);
+}
+
+.identity-fields {
+  display:grid;
+  grid-template-columns:2fr 1.3fr 1fr 1fr;
+  gap:16px;
+  padding:18px;
+}
+
+.identity-field span,.record-field span {
+  display:block;
+  color:var(--blue);
+  font-weight:900;
+  font-size:.84rem;
+}
+
+.write-line {
+  min-height:36px;
+  border-bottom:1.5px solid #67768a;
+}
+
+.content-card {
+  margin-bottom:20px;
+}
+
+.content-card h3:not(:first-child),.manual-sheet h3:not(:first-child) {
+  margin-top:26px;
+}
+
+.content-card p,.content-card li,.task p,.task li {
+  line-height:1.7;
+  font-weight:700;
+  text-align:justify;
+}
+
+.manual-sheet h3 {
+  font-size:1.8rem;
+  line-height:1.15;
+}
+
+.task h4 {
+  margin:26px 0 12px;
+  color:var(--blue);
+  font:900 1.5rem "Patrick Hand",cursive;
+}
+
+.task-steps {
+  margin:18px 0;
+  padding-left:25px;
+}
+
+.task-steps li {
+  margin-bottom:14px;
+  padding-left:4px;
+}
+
+.resource-list {
+  padding-left:25px;
+  line-height:1.8;
+}
+
+main a {
+  color:var(--blue);
+  text-decoration-thickness:1px;
+  text-underline-offset:3px;
+  overflow-wrap:anywhere;
+}
+
+main a:hover,main a:focus-visible {
+  color:#08719b;
+}
+
+.circuit-figure,.component-figure {
+  margin:22px 0;
+  padding:14px;
+  border:1.5px solid #b9c7d8;
+  border-radius:16px;
+  background:white;
+}
+
+.circuit-figure img {
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+.component-figure {
+  max-width:370px;
+  margin:24px auto;
+}
+
+.component-figure img {
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+figcaption {
+  margin-top:10px;
+  color:var(--muted);
+  font-weight:800;
+  font-size:.88rem;
+  line-height:1.55;
+  text-align:center;
+}
+
+.table-wrap {
+  margin:20px 0;
+  border:0;
+  border-radius:0;
+  background:white;
+}
+
+.worksheet-table {
+  min-width:540px;
+  border-collapse:collapse;
+  border:1.5px solid #93a4b8;
+}
+
+.worksheet-table caption {
+  text-align:left;
+  font-weight:900;
+  color:var(--blue);
+  padding:0 0 10px;
+}
+
+.worksheet-table th,.worksheet-table td {
+  border:1px solid #b7c4d4;
+  padding:12px;
+  line-height:1.45;
+}
+
+.worksheet-table thead th {
+  background:var(--blue);
+  color:white;
+  font-size:.88rem;
+}
+
+.worksheet-table tbody th {
+  background:white;
+  color:var(--ink);
+  font-size:.9rem;
+  text-align:left;
+  font-weight:800;
+}
+
+.worksheet-table tbody tr {
+  background:white;
+}
+
+.worksheet-table tbody td {
+  font-size:.9rem;
+}
+
+.write-cell {
+  height:52px;
+  min-width:110px;
+  background:white;
+}
+
+.record-field {
+  max-width:420px;
+  margin:20px 0;
+}
+
+.reference-note,.units-note {
+  color:var(--muted);
+  font-size:.92rem;
+}
+
+.response-block {
+  margin-top:22px;
+}
+
+.response-label {
+  margin:0 0 10px!important;
+  color:var(--blue);
+  font-weight:900!important;
+}
+
+.answer-space {
+  min-height:110px;
+  border:1.5px solid #b8c5d5;
+  border-radius:12px;
+  background:repeating-linear-gradient(to bottom,#fff 0,#fff 31px,#dbe3ec 32px);
+}
+
+.photo-space {
+  min-height:230px;
+  border:2px dashed #9fafc2;
+  border-radius:14px;
+  background:white;
+}
+
+.video-field {
+  max-width:none;
+}
+
+.deliverables-list li {
+  margin-bottom:14px;
+}
+
+.acknowledgment {
+  color:var(--muted);
+  line-height:1.6;
+  font-weight:700;
+}
+
+section {
+  scroll-margin-top:100px;
+}
+
+@media(max-width:700px) {
+  .identity-fields {
+    grid-template-columns:1fr 1fr;
+  }
+  .task {
+    padding:17px;
+  }
+  .circuit-figure {
+    padding:6px;
+    margin-inline:0;
+  }
+}
+
+@media(max-width:450px) {
+  .identity-fields {
+    grid-template-columns:1fr;
+  }
+  .content-card {
+    padding:18px;
+  }
+}
+
+@media print {
+  @page {
+    size:A4;
+    margin:14mm;
+  }
+  body {
+    background:white;
+    font-size:10pt;
+  }
+  .page {
+    width:100%;
+  }
+  .topbar,.lab-switcher,.page-pager,.print-button,.badge {
+    display:none!important;
+  }
+  header {
+    display:block;
+    margin:16px 0;
+  }
+  h1 {
+    font-size:32pt;
+    line-height:1.05;
+    text-shadow:none;
+  }
+  .intro {
+    font-size:10.5pt;
+  }
+  .card,.task,.manual-sheet,.table-wrap {
+    break-inside:auto;
+    box-shadow:none;
+  }
+  .task {
+    break-before:auto;
+  }
+  #step-2,#step-3,#step-4,#step-5,#deliverables {
+    break-before:page;
+  }
+  .section-title,h2,h3,h4,.task-head,.response-label {
+    break-after:avoid;
+  }
+  .circuit-figure,.component-figure,.response-block,tr {
+    break-inside:avoid;
+  }
+  .identity-fields {
+    grid-template-columns:2fr 1.3fr 1fr 1fr;
+  }
+  .table-wrap {
+    overflow:visible;
+  }
+  .worksheet-table {
+    min-width:0;
+    table-layout:fixed;
+  }
+  .worksheet-table th,.worksheet-table td {
+    font-size:9pt;
+    padding:8px;
+  }
+  .worksheet-table thead th {
+    background:white;
+    color:black;
+  }
+  .write-cell {
+    height:35px;
+    min-width:0;
+  }
+  .photo-space {
+    min-height:150px;
+  }
+  .component-figure {
+    max-width:220px;
+  }
+}
+
+    
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="institution-bar">
+        <strong>Department of Electrical Engineering</strong>
+        <span>University of Engineering and Technology (UET), Lahore</span>
+      </div>
+
+      <!-- ===== WEBSITE LAB NAVIGATION ===== -->
+      <div class="lab-switcher" aria-label="Electric Circuits lab table of contents">
+        <span class="lab-switcher-label">Electric Circuits · Table of Contents</span>
+        <div class="lab-tabs">
+          <a class="lab-tab" href="index.html">
+            <strong>Background</strong>
+            <small>Theoretical Background</small>
+          </a>
+          <a class="lab-tab" href="lab-01.html">
+            <strong>Lab 1</strong>
+            <small>Laboratory Instruments and Resistance</small>
+          </a>
+          <a class="lab-tab" href="lab-02.html">
+            <strong>Lab 2</strong>
+            <small>[Lab title]</small>
+          </a>
+          <a class="lab-tab" href="lab-03.html">
+            <strong>Lab 3</strong>
+            <small>[Lab title]</small>
+          </a>
+          <a class="lab-tab" href="lab-04.html">
+            <strong>Lab 4</strong>
+            <small>[Lab title]</small>
+          </a>
+          <a class="lab-tab" href="lab-05.html">
+            <strong>Lab 5</strong>
+            <small>Joystick Measurements and Oscilloscope XY Mode</small>
+          </a>
+          <a class="lab-tab active" href="lab-06.html" aria-current="page">
+            <strong>Lab 6</strong>
+            <small>Gamepad Assembly and Testing</small>
+          </a>
+          <a class="lab-tab" href="lab-07.html">
+            <strong>Lab 7</strong>
+            <small>[Lab title]</small>
+          </a>
+          <a class="lab-tab" href="lab-08.html">
+            <strong>Lab 8</strong>
+            <small>[Lab title]</small>
+          </a>
+          <a class="lab-tab" href="lab-09.html">
+            <strong>Lab 9</strong>
+            <small>[Lab title]</small>
+          </a>
+          <a class="lab-tab" href="lab-10.html">
+            <strong>Lab 10</strong>
+            <small>[Lab title]</small>
+          </a>
+          <a class="lab-tab" href="lab-11.html">
+            <strong>Lab 11</strong>
+            <small>[Lab title]</small>
+          </a>
+          <a class="lab-tab" href="lab-12.html">
+            <strong>Lab 12</strong>
+            <small>[Lab title]</small>
+          </a>
+          <a class="lab-tab" href="lab-13.html">
+            <strong>Lab 13</strong>
+            <small>[Lab title]</small>
+          </a>
+          <a class="lab-tab" href="lab-14.html">
+            <strong>Lab 14</strong>
+            <small>[Lab title]</small>
+          </a>
+          <a class="lab-tab" href="lab-15.html">
+            <strong>Lab 15</strong>
+            <small>[Lab title]</small>
+          </a>
+        </div>
+      </div>
+      <div class="topbar">
+        <div class="brand">
+          <span class="brand-mark">06</span>
+          Build · Connect · Play
+        </div>
+        <nav aria-label="Page sections">
+          <a href="#overview">Overview</a>
+          <a href="#concepts">Concepts</a>
+          <a href="#tasks">Tasks</a>
+          <a href="#deliverables">Deliverables</a>
+        </nav>
+      </div>
+
+      <header>
+        <div>
+          <p class="eyebrow">Lab 06</p>
+          <h1 data-page-heading>Gamepad Assembly and Testing</h1>
+          <p class="intro">Build a USB gamepad using five pushbuttons, a joystick and an Arduino-Pro-Micro. Upload the supplied firmware, measure the inputs and configure the controls for a computer game.</p>
+        </div>
+        <div class="header-tools">
+          <div class="badge" aria-label="USB gamepad project">
+            Build a
+            <br>
+            Gamepad
+          </div>
+          <button class="print-button" type="button" onclick="window.print()">Print Worksheet</button>
+        </div>
+      </header>
+
+      <section class="identity-fields card" aria-label="Student information">
+        <div class="identity-field">
+          <span>Student Name</span>
+          <div class="write-line"></div>
+        </div>
+        <div class="identity-field">
+          <span>Registration Number</span>
+          <div class="write-line"></div>
+        </div>
+        <div class="identity-field">
+          <span>Section</span>
+          <div class="write-line"></div>
+        </div>
+        <div class="identity-field">
+          <span>Date</span>
+          <div class="write-line"></div>
+        </div>
+      </section>
+      <main>
+
+        <!-- ===== LAB OVERVIEW ===== -->
+
+        <section id="overview" aria-labelledby="overview-title">
+          <div class="section-title">
+            <span class="scribble" aria-hidden="true">01</span>
+            <div>
+              <h2 id="overview-title">Lab Overview</h2>
+              <p>Assemble a gamepad that connects pushbuttons and a joystick to a computer.</p>
+            </div>
+          </div>
+
+          <article class="content-card card">
+            <h3>Goal</h3>
+            <p>Build an interface circuit that allows a player to control a computer game. Use an Arduino-Pro-Micro to read five pushbuttons and the Right Joystick, then send their inputs to the computer over USB.</p>
+            <p>In this lab, you will build a gamepad for Counter Strike. The pushbuttons can be assigned to actions such as jumping and shooting, while the joystick provides directional inputs. You will apply the pushbutton and joystick measurements practised in the earlier labs.</p>
+            <h3>Learning Outcomes</h3>
+            <ol>
+              <li>Assemble a circuit from a schematic and check its connections.</li>
+              <li>Mount the microcontroller in removable female header connectors.</li>
+              <li>Upload the supplied firmware and test the electrical inputs.</li>
+              <li>Configure the gamepad controls and demonstrate their operation in a game.</li>
+            </ol>
+            <h3>Equipment and Components</h3>
+            <ul>
+              <li>Five external pushbuttons, labelled S1–S5 in the circuit diagram</li>
+              <li>One Right Joystick module, labelled KY-032, including its built-in SW push switch</li>
+              <li>Arduino-Pro-Micro microcontroller and a USB data cable</li>
+              <li>Veroboard, female header connectors, and male/female jumper wires</li>
+              <li>Digital multimeter and suitable soldering equipment</li>
+              <li>Computer with the programming software, supplied firmware and libraries, and the game</li>
+            </ul>
+          </article>
+
+          <article class="content-card card">
+            <h3>Important Messages</h3>
+            <ul>
+              <li>Follow the circuit diagram in Step 1: use S1–S5 and the Right Joystick only. Its SW pin provides an additional push-switch input.</li>
+              <li>Do not solder the microcontroller directly to the Veroboard. Solder female header connectors to the Veroboard and insert the microcontroller into them.</li>
+              <li>Disconnect USB power before changing wiring or soldering. Check for shorts and poor solder joints before reconnecting.</li>
+              <li>The joystick supply pin retains its printed +5V label in the diagram and is connected to the microcontroller VCC. Confirm the voltage of the actual board before powering the circuit.</li>
+              <li>The reference readings in Step 3 correspond to the 3.3 V setup. Use the measured VCC when interpreting your readings.</li>
+            </ul>
+          </article>
+        </section>
+
+        <!-- ===== NECESSARY CONCEPTS ===== -->
+
+        <section id="concepts" aria-labelledby="concepts-title">
+          <div class="section-title">
+            <span class="scribble" aria-hidden="true">02</span>
+            <div>
+              <h2 id="concepts-title">Necessary Concepts</h2>
+              <p>Understand the signals before building and testing the gamepad.</p>
+            </div>
+          </div>
+
+          <article class="manual-sheet card">
+            <h3>Pushbutton Inputs</h3>
+            <p>Each external pushbutton connects its microcontroller input to GND when pressed. With the input pull-up enabled in the firmware, the released input is near VCC and the pressed input is near 0 V. The microcontroller uses these two states to identify a button press.</p>
+            <h3>Joystick Inputs</h3>
+            <p>The joystick contains two potentiometers. VRx and VRy provide position-dependent voltages to analog inputs A0 and A1. At the released centre position, each voltage is normally close to half the supply voltage. The joystick’s built-in push switch is connected through SW to digital input D2.</p>
+            <h3>Microcontroller and USB Interface</h3>
+            <p>The Arduino-Pro-Micro reads the button states and joystick positions. The supplied firmware sends these inputs to the computer over USB so that the configured controls can produce actions in the game.</p>
+            <h3>Firmware and Control Mapping</h3>
+            <p>Uploading firmware, also called burning the code, places the supplied program in the microcontroller. Configuring the gamepad is a separate step: it assigns a game action to each available control. The firmware pin assignments must match the circuit diagram.</p>
+            <h3>Voltage Reference</h3>
+            <p>Pro Micro boards are available in 3.3 V and 5 V versions. Identify the board used in the lab and measure VCC relative to GND. A released button input should be near that voltage, and the joystick centre should be near half of it. The nominal readings of 3.3 V and 1.6 V below apply to the 3.3 V setup.</p>
+            <p class="reference-note">Board reference: <a href="https://learn.sparkfun.com/tutorials/pro-micro--fio-v3-hookup-guide/hardware-overview-pro-micro" target="_blank" rel="noopener noreferrer">SparkFun Pro Micro hardware overview</a>. Pushbutton reference: <a href="https://docs.arduino.cc/tutorials/generic/digital-input-pullup/" target="_blank" rel="noopener noreferrer">Arduino digital input pull-up example</a>.</p>
+          </article>
+        </section>
+
+        <!-- ===== PRACTICAL TASKS AND WORKSHEETS ===== -->
+
+        <section id="tasks" aria-labelledby="tasks-title">
+          <div class="section-title">
+            <span class="scribble" aria-hidden="true">03</span>
+            <div>
+              <h2 id="tasks-title">Practical Tasks and Worksheets</h2>
+              <p>Complete the five steps in sequence and record the measurements and observations.</p>
+            </div>
+          </div>
+
+          <!-- ===== STEP 1: CIRCUIT PATCHING ===== -->
+
+          <article class="task card" id="step-1">
+            <div class="task-head">
+              <div>
+                <h3>Step 1 — Circuit Patching</h3>
+                <p>Assemble five external pushbuttons and the Right Joystick according to the circuit diagram.</p>
+              </div>
+            </div>
+
+            <!-- Circuit image: replace the file at assets/lab-06/gamepad-circuit.png to update it. -->
+            <figure class="circuit-figure">
+              <a href="assets/lab-06/gamepad-circuit.png" target="_blank" rel="noopener">
+                <img src="assets/lab-06/gamepad-circuit.png" width="4080" height="2400" alt="Gamepad circuit: S1 to D3, S2 to D4, S3 to D5, S4 to D6, S5 to D7; Right Joystick VRx to A0, VRy to A1, SW to D2, +5V to VCC, and common GND.">
+              </a>
+              <figcaption>Gamepad circuit. Open the image to inspect the full-resolution pin labels. Component drawings show schematic connections, not physical board pin positions.</figcaption>
+            </figure>
+            <ol class="task-steps">
+              <li>Keep the circuit disconnected from the computer while assembling it.</li>
+              <li>Plan the positions of the pushbuttons and joystick on the Veroboard so that they are comfortable to operate.</li>
+              <li>Solder female header connectors to the Veroboard for the Arduino-Pro-Micro. Insert the microcontroller into the headers rather than soldering it directly to the Veroboard.</li>
+              <li>Connect S1–S5 to digital pins D3–D7 respectively, with the other terminal of each pushbutton connected to GND.</li>
+              <li>Connect the Right Joystick VRx to A0, VRy to A1 and SW to D2. Connect its supply pin, labelled +5V, to VCC and its GND pin to the common GND.</li>
+              <li>Use the multimeter continuity function on the unpowered circuit to check the connections. Inspect for solder bridges, loose joints and unintended shorts between VCC and GND.</li>
+            </ol>
+            <h4>Connection Checklist</h4>
+            <div class="table-wrap">
+              <table class="worksheet-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Component or terminal</th>
+                    <th scope="col">Arduino-Pro-Micro pin</th>
+                    <th scope="col">Other switch terminal</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">S1</th>
+                    <td>D3</td>
+                    <td>GND</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">S2</th>
+                    <td>D4</td>
+                    <td>GND</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">S3</th>
+                    <td>D5</td>
+                    <td>GND</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">S4</th>
+                    <td>D6</td>
+                    <td>GND</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">S5</th>
+                    <td>D7</td>
+                    <td>GND</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Right Joystick VRx</th>
+                    <td>A0</td>
+                    <td>—</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Right Joystick VRy</th>
+                    <td>A1</td>
+                    <td>—</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Right Joystick SW</th>
+                    <td>D2</td>
+                    <td>—</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Right Joystick +5V</th>
+                    <td>VCC</td>
+                    <td>—</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Right Joystick GND</th>
+                    <td>GND</td>
+                    <td>—</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <figure class="component-figure">
+              <img src="assets/lab-06/female-header.png" width="500" height="338" alt="Female header connector used as a removable socket for the microcontroller.">
+              <figcaption>Female header connector for mounting the microcontroller.</figcaption>
+            </figure>
+          </article>
+
+          <!-- ===== STEP 2: CODE BURNING ===== -->
+
+          <article class="task card" id="step-2">
+            <div class="task-head">
+              <div>
+                <h3>Step 2 — Code Burning</h3>
+                <p>Upload the supplied firmware to the microcontroller.</p>
+              </div>
+            </div>
+            <p>The firmware reads the pushbuttons and joystick and sends their inputs to the computer. Follow the supplied programming tutorials and use the linked library files and firmware.</p>
+            <ul class="resource-list">
+              <li><a href="https://youtu.be/n5eMusTHcWM" target="_blank" rel="noopener noreferrer">Programming tutorial 1</a></li>
+              <li><a href="https://youtu.be/N_JaPF1oJ7E" target="_blank" rel="noopener noreferrer">Programming tutorial 2</a></li>
+              <li><a href="https://pern-my.sharepoint.com/:f:/g/personal/rehan_naeem_uet_edu_pk/EqywPALjVGZBkne85JN7a38BoViU2kuMHmb9PCaltmt_Iw?e=3USsg2" target="_blank" rel="noopener noreferrer">Download the library files</a></li>
+              <li><a href="https://pern-my.sharepoint.com/:t:/g/personal/rehan_naeem_uet_edu_pk/EST18VnMstxHpL9wUc1RB60BaiXqoEamD-5L2HGYrQDEsQ?e=0jQbLK" target="_blank" rel="noopener noreferrer">Download the firmware</a></li>
+            </ul>
+            <ol class="task-steps">
+              <li>Follow the programming tutorials to prepare the software and install the supplied libraries.</li>
+              <li>Open the supplied firmware and confirm that its enabled input assignments match Step 1. Inputs belonging to omitted controls must not be used for game actions.</li>
+              <li>Connect the microcontroller using a USB data cable. Select the correct board, voltage/clock variant and port as instructed in the programming tutorial.</li>
+              <li>Compile and upload the firmware. Check the messages to confirm that the upload completed successfully.</li>
+            </ol>
+            <div class="response-block">
+              <p id="upload-status" class="response-label">Record the selected board/variant and port, and the final upload status.</p>
+              <div class="answer-space" role="group" aria-labelledby="upload-status"></div>
+            </div>
+          </article>
+
+          <!-- ===== STEP 3: HARDWARE TESTING ===== -->
+
+          <article class="task card" id="step-3">
+            <div class="task-head">
+              <div>
+                <h3>Step 3 — Hardware Testing</h3>
+                <p>Measure the electrical inputs before configuring the game.</p>
+              </div>
+            </div>
+            <ol class="task-steps">
+              <li>Connect the assembled gamepad to the computer with the USB cable and confirm that the microcontroller is powered.</li>
+              <li>Set the multimeter to DC voltage mode. Connect its black lead to the common GND and measure VCC using the red lead.</li>
+              <li>Measure the voltage at each pushbutton signal terminal when the button is released and when it is pressed. Include the joystick SW input.</li>
+              <li>Release the joystick to its centre position. Measure VRx and VRy relative to GND.</li>
+              <li>Compare the measurements with the expected levels. If a reading is inconsistent, disconnect USB power and check the connections and soldering before retesting.</li>
+            </ol>
+            <p><strong>Reference readings for the 3.3 V setup:</strong> a released button input is approximately 3.3 V, a pressed input is near 0 V, and the joystick centre voltage is approximately 1.6 V. For another VCC, expect the released input near VCC and each centre output near VCC/2.</p>
+            <div class="record-field">
+              <span>Measured VCC in volts</span>
+              <div class="write-line"></div>
+            </div>
+            <p class="units-note">Record all voltage readings below in volts.</p>
+            <div class="table-wrap">
+              <table class="worksheet-table">
+                <caption>Table 1 — Pushbutton Voltages</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Pushbutton input</th>
+                    <th scope="col">Microcontroller pin</th>
+                    <th scope="col">Released voltage</th>
+                    <th scope="col">Pressed voltage</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">S1</th>
+                    <td>D3</td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">S2</th>
+                    <td>D4</td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">S3</th>
+                    <td>D5</td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">S4</th>
+                    <td>D6</td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">S5</th>
+                    <td>D7</td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Right Joystick SW</th>
+                    <td>D2</td>
+                    <td class="write-cell"></td>
+                    <td class="write-cell"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table-wrap">
+              <table class="worksheet-table">
+                <caption>Table 2 — Joystick Centre Voltages</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Joystick output</th>
+                    <th scope="col">Microcontroller pin</th>
+                    <th scope="col">Voltage at centre</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">VRx</th>
+                    <td>A0</td>
+                    <td class="write-cell"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">VRy</th>
+                    <td>A1</td>
+                    <td class="write-cell"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="response-block">
+              <p id="hardware-observations" class="response-label">Describe any incorrect reading and how the wiring or soldering was corrected. If all readings were correct, record that observation.</p>
+              <div class="answer-space" role="group" aria-labelledby="hardware-observations"></div>
+            </div>
+          </article>
+
+          <!-- ===== STEP 4: CONFIGURING THE GAMEPAD ===== -->
+
+          <article class="task card" id="step-4">
+            <div class="task-head">
+              <div>
+                <h3>Step 4 — Configuring the Gamepad</h3>
+                <p>Assign game actions to the available controls.</p>
+              </div>
+            </div>
+            <p>Configure the controller by following the <a href="https://youtu.be/kI9azoacH-Y" target="_blank" rel="noopener noreferrer">gamepad configuration video</a>. Configuration determines which input performs an action such as jumping, shooting or moving in a selected direction.</p>
+            <ol class="task-steps">
+              <li>Follow the video to open the relevant configuration software and identify the connected gamepad.</li>
+              <li>Operate each pushbutton and move the joystick to identify its corresponding input.</li>
+              <li>Assign the required actions to the buttons and joystick axes. Use two of the external pushbuttons for jumping and shooting.</li>
+              <li>Record the selected assignments below and save the configuration.</li>
+            </ol>
+            <div class="table-wrap">
+              <table class="worksheet-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Control</th>
+                    <th scope="col">Game action or mapping</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">S1</th>
+                    <td class="write-cell"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">S2</th>
+                    <td class="write-cell"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">S3</th>
+                    <td class="write-cell"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">S4</th>
+                    <td class="write-cell"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">S5</th>
+                    <td class="write-cell"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Right Joystick SW</th>
+                    <td class="write-cell"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Right Joystick X axis</th>
+                    <td class="write-cell"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Right Joystick Y axis</th>
+                    <td class="write-cell"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <!-- ===== STEP 5: TESTING THE GAMEPAD ===== -->
+
+          <article class="task card" id="step-5">
+            <div class="task-head">
+              <div>
+                <h3>Step 5 — Testing the Gamepad</h3>
+                <p>Demonstrate that the assembled circuit controls the game.</p>
+              </div>
+            </div>
+            <ol class="task-steps">
+              <li>Install and open Counter Strike using the <a href="https://pern-my.sharepoint.com/:u:/g/personal/rehan_naeem_uet_edu_pk/EaGBwLaI2hBClHoC6zIAajYB87M57_N2VtfzriGzecDnPQ?e=JwEV3u" target="_blank" rel="noopener noreferrer">game download supplied for the lab</a>.</li>
+              <li>Load the saved gamepad configuration and begin a test session.</li>
+              <li>Test the joystick in all four directions and test each configured button, including the jumping and shooting controls.</li>
+              <li>If an action is missing or assigned incorrectly, check the electrical readings and control mapping, then repeat the test.</li>
+              <li>Capture the gamepad and game screen in working condition for the report and demonstration video.</li>
+            </ol>
+            <div class="response-block">
+              <p id="game-test-observations" class="response-label">Describe the test results and any remaining issues with the controls.</p>
+              <div class="answer-space" role="group" aria-labelledby="game-test-observations"></div>
+            </div>
+          </article>
+        </section>
+
+        <!-- ===== DELIVERABLES ===== -->
+
+        <section id="deliverables" aria-labelledby="deliverables-title">
+          <div class="section-title">
+            <span class="scribble" aria-hidden="true">04</span>
+            <div>
+              <h2 id="deliverables-title">Deliverables</h2>
+              <p>Provide the working circuit, completed report and a short demonstration.</p>
+            </div>
+          </div>
+
+          <article class="content-card card">
+            <ol class="deliverables-list">
+              <li>Submit the assembled, working gamepad. Write your roll number on it.</li>
+              <li>Submit the completed lab report in PDF format. Fill in all tables and record your observations in the provided spaces.</li>
+              <li>Include photographs of the top and bottom sides of the Veroboard, along with a photograph showing the circuit and game screen in working condition.</li>
+              <li>Upload a YouTube video or Short of no more than one minute. Clearly show the working circuit and the game. Display your names, roll numbers, department, university name and university logo. Use the upload instructions supplied by the instructor.</li>
+              <li>Include the demonstration video link in the report. See the <a href="https://youtu.be/XVMm4dTX0yE" target="_blank" rel="noopener noreferrer">sample demonstration video</a> for the expected presentation.</li>
+            </ol>
+
+            <!-- Report evidence spaces. Insert students' own photographs when completing the report. -->
+            <div class="response-block">
+              <p id="top-photo" class="response-label">Photograph of the top side of the Veroboard</p>
+              <div class="photo-space" role="group" aria-labelledby="top-photo"></div>
+            </div>
+            <div class="response-block">
+              <p id="bottom-photo" class="response-label">Photograph of the bottom side of the Veroboard</p>
+              <div class="photo-space" role="group" aria-labelledby="bottom-photo"></div>
+            </div>
+            <div class="response-block">
+              <p id="game-photo" class="response-label">Photograph showing the gamepad and game screen in working condition</p>
+              <div class="photo-space" role="group" aria-labelledby="game-photo"></div>
+            </div>
+            <div class="record-field video-field">
+              <span>Demonstration video URL</span>
+              <div class="write-line"></div>
+              <div class="write-line"></div>
+            </div>
+          </article>
+          <p class="acknowledgment"><strong>Acknowledgment:</strong> Special thanks to Mr. M. Ahmed, a session 2021 student, who built and tested the original project.</p>
+        </section>
+      </main>
+      <nav class="page-pager" aria-label="Previous and next lab pages">
+        <a href="lab-05.html">
+          ← Lab 5
+          <small>Joystick Measurements and Oscilloscope XY Mode</small>
+        </a>
+        <a href="lab-07.html">
+          Lab 7 →
+          <small>[Lab title]</small>
+        </a>
+      </nav>
+
+      <footer>
+        <p>Electric Circuits Laboratory</p>
+        <p>Department of Electrical Engineering · University of Engineering and Technology (UET), Lahore</p>
+        <p>Website developed by <strong>Rehan Naeem</strong></p>
+      </footer>
+    </div>
+    <script>
 (() => {
   const storageKey = 'ee100l-navigation-titles-v1';
   const links = [...document.querySelectorAll('.lab-tab[href]')];
@@ -98,7 +2165,7 @@
     }));
   }
 })();
-</script>
-  
-</body>
+    
+    </script>
+  </body>
 </html>

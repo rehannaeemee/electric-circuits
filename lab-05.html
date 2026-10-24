@@ -1476,11 +1476,11 @@ footer {
                     <td>Supply input; follow the label and rating of the actual module</td>
                   </tr>
                   <tr>
-                    <th scope="row">VRx</th>
+                    <th scope="row">V<sub>Rx</sub></th>
                     <td>Wiper output of the X-axis potentiometer</td>
                   </tr>
                   <tr>
-                    <th scope="row">VRy</th>
+                    <th scope="row">V<sub>Ry</sub></th>
                     <td>Wiper output of the Y-axis potentiometer</td>
                   </tr>
                   <tr>
@@ -1492,7 +1492,7 @@ footer {
             </div>
             <p>Read the printed labels on the board rather than assuming a pin order from a photograph. Output polarity depends on module construction and orientation; determine from your measurements which physical movement increases each voltage.</p>
             <h3>Oscilloscope XY Mode</h3>
-            <p>In XY mode, one input controls horizontal position and the other controls vertical position. For the oscilloscope used here, connect CH1 to VRx for X and CH2 to VRy for Y; confirm the X and Y channel assignment on the available instrument. A stationary stick produces a stationary point. Changing one output moves the point along one screen axis; changing both can produce a diagonal or curved trace.</p>
+            <p>In XY mode, one input controls horizontal position and the other controls vertical position. For the oscilloscope used here, connect CH1 to V<sub>Rx</sub> for X and CH2 to V<sub>Ry</sub> for Y; confirm the X and Y channel assignment on the available instrument. A stationary stick produces a stationary point. Changing one output moves the point along one screen axis; changing both can produce a diagonal or curved trace.</p>
             <p>Use DC coupling on both channels to retain the position information. Infinite persistence keeps earlier points visible, allowing the movement path to remain on the display. The screen records voltage coordinates; the displayed direction may differ from the physical stick direction.</p>
           </article>
         </section>
@@ -1529,7 +1529,7 @@ footer {
 -->
             
             <ol class="task-steps">
-              <li>Identify GND, the supply input, VRx and VRy on the actual joystick module.</li>
+              <li>Identify GND, the supply input, V<sub>Rx</sub> and V<sub>Ry</sub> on the actual joystick module.</li>
               <li>With the supply switched off, connect GND to supply negative and the +5V pin to the positive output using the breadboard and male–female jumpers.</li>
               <li>Set the supply to 5 V for the +5V-labelled module. Have the wiring checked, then turn on the supply.</li>
               <li>Measure the voltage between the supply input and GND using the multimeter in DC voltage mode.</li>
@@ -1616,14 +1616,14 @@ footer {
             </div>
             <h4 class="subtask-title">Part A: X Output</h4>
             <ol class="task-steps">
-              <li>Connect the multimeter black lead to GND and the red lead to VRx. Select DC voltage measurement.</li>
+              <li>Connect the multimeter black lead to GND and the red lead to V<sub>Rx</sub>. Select DC voltage measurement.</li>
               <li>Release the joystick to position 0 and record the centre voltage.</li>
               <li>Move the stick to position 2, hold it there and record the voltage.</li>
               <li>Move the stick to position 1, hold it there and record the voltage. Release it to the centre.</li>
             </ol>
             <h4 class="subtask-title">Part B: Y Output</h4>
             <ol class="task-steps">
-              <li>Move the red lead from VRx to VRy. Keep the black lead connected to GND.</li>
+              <li>Move the red lead from V<sub>Rx</sub> to V<sub>Ry</sub>. Keep the black lead connected to GND.</li>
               <li>Record the voltage at position 0, then at positions 3 and 4, holding the stick steady at each end.</li>
               <li>Complete the table by measuring the other output at each numbered position as well. Keep the supply and module orientation unchanged.</li>
             </ol>
@@ -1634,8 +1634,8 @@ footer {
                   <tr>
                     <th scope="col">Position</th>
                     <th scope="col">Stick position</th>
-                    <th scope="col">VRx</th>
-                    <th scope="col">VRy</th>
+                    <th scope="col">V<sub>Rx</sub></th>
+                    <th scope="col">V<sub>Ry</sub></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -1674,11 +1674,11 @@ footer {
             </div>
             <div class="question-list">
               <div class="question">
-                <p class="question-prompt">Which movement increases VRx, and which movement decreases it?</p>
+                <p class="question-prompt">Which movement increases V<sub>Rx</sub>, and which movement decreases it?</p>
                 <div class="answer-space"></div>
               </div>
               <div class="question">
-                <p class="question-prompt">Which movement increases VRy, and which movement decreases it?</p>
+                <p class="question-prompt">Which movement increases V<sub>Ry</sub>, and which movement decreases it?</p>
                 <div class="answer-space"></div>
               </div>
               <div class="question">
@@ -1699,13 +1699,14 @@ footer {
             </div>
             <ol class="task-steps">
               <li>Switch off the supply before attaching the oscilloscope probes.</li>
-              <li>Connect the CH1 probe tip to VRx and the CH2 probe tip to VRy. Connect both ground clips to joystick GND.</li>
+              <li>Connect the <span style="color: red;">CH1 probe tip to V<sub>Rx</sub></span> and the <span style="color: red;">CH2 probe tip to V<sub>Ry</sub>.</span> Connect both ground clips to joystick GND.</li>
               <li>Turn on the supply and oscilloscope. Enable both channels, use DC coupling and match each channel’s probe setting to the probe attenuation.</li>
-              <li>Open the Display menu and select <u>Type: Vector, Format: XY and Persist: Infinite</u> on the lab oscilloscope. On another model, use the equivalent XY and persistence settings.</li>
+              <li>Open the <span style="color: red;">Display menu</span> and select <span style="color: red;">Type: Vector, Format: XY and Persist: Infinite</span> on the lab oscilloscope. On another model, use the equivalent XY and persistence settings.</li>
               <li>Adjust both voltage scales and position controls so the centre point and full movement range remain visible.</li>
-              <li>Starting at position 0, move to position 2 and observe the direction of the trace. Compare it with the change in VRx measured in Task 2.</li>
+              <li>Starting at position 0, move to position 2 and observe the direction of the trace. Compare it with the change in V<sub>Rx</sub> measured in Task 2.</li>
               <li>Clear the previous trace, return to position 0, and repeat for positions 1, 3 and 4. Record the screen direction for each movement.</li>
               <li>On the oscilloscope shown in the source instructions, press F3 once to refresh the display. Use the corresponding clear or refresh control if the available model differs.</li>
+              <li style="color: red;"><b>Challenge:</b> Match the direction of movement of joystick with that of the trace on the scope. Discuss the solution with instructor.</li>
             </ol>
             <div class="table-wrap">
               <table>
@@ -1718,11 +1719,11 @@ footer {
                 <tbody>
                   <tr>
                     <th scope="row">CH1 / X input</th>
-                    <td>VRx relative to GND</td>
+                    <td>V<sub>Rx</sub> relative to GND</td>
                   </tr>
                   <tr>
                     <th scope="row">CH2 / Y input</th>
-                    <td>VRy relative to GND</td>
+                    <td>V<sub>Ry</sub> relative to GND</td>
                   </tr>
                   <tr>
                     <th scope="row">Input coupling</th>
@@ -1756,25 +1757,25 @@ footer {
                 <tbody>
                   <tr>
                     <th scope="row">0 → 2</th>
-                    <td>VRx</td>
+                    <td>V<sub>Rx</sub></td>
                     <td class="write-cell"></td>
                     <td class="write-cell"></td>
                   </tr>
                   <tr>
                     <th scope="row">0 → 1</th>
-                    <td>VRx</td>
+                    <td>V<sub>Rx</sub></td>
                     <td class="write-cell"></td>
                     <td class="write-cell"></td>
                   </tr>
                   <tr>
                     <th scope="row">0 → 3</th>
-                    <td>VRy</td>
+                    <td>V<sub>Ry</sub></td>
                     <td class="write-cell"></td>
                     <td class="write-cell"></td>
                   </tr>
                   <tr>
                     <th scope="row">0 → 4</th>
-                    <td>VRy</td>
+                    <td>V<sub>Ry</sub></td>
                     <td class="write-cell"></td>
                     <td class="write-cell"></td>
                   </tr>
