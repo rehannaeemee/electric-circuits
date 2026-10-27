@@ -1834,12 +1834,12 @@ section {
                 <p>Upload the supplied firmware to the microcontroller.</p>
               </div>
             </div>
-            <p>The firmware reads the pushbuttons and joystick and sends their inputs to the computer. Follow the supplied programming tutorials and use the linked library files and firmware.</p>
+            <p>The firmware reads the pushbuttons and joystick and sends their inputs to the computer. Watch the following two video tutorials and download required files.</p>
             <ul class="resource-list">
-              <li><a href="https://youtu.be/n5eMusTHcWM" target="_blank" rel="noopener noreferrer">Programming tutorial 1</a></li>
-              <li><a href="https://youtu.be/N_JaPF1oJ7E" target="_blank" rel="noopener noreferrer">Programming tutorial 2</a></li>
-              <li><a href="https://pern-my.sharepoint.com/:f:/g/personal/rehan_naeem_uet_edu_pk/EqywPALjVGZBkne85JN7a38BoViU2kuMHmb9PCaltmt_Iw?e=3USsg2" target="_blank" rel="noopener noreferrer">Download the library files</a></li>
-              <li><a href="https://pern-my.sharepoint.com/:t:/g/personal/rehan_naeem_uet_edu_pk/EST18VnMstxHpL9wUc1RB60BaiXqoEamD-5L2HGYrQDEsQ?e=0jQbLK" target="_blank" rel="noopener noreferrer">Download the firmware</a></li>
+              <li><a href="https://youtu.be/n5eMusTHcWM" target="_blank" rel="noopener noreferrer">Video: Arduino download and installation.</a></li>
+              <li><a href="https://youtu.be/N_JaPF1oJ7E" target="_blank" rel="noopener noreferrer">Video: Library setup and code burning.</a></li>
+              <li><a href="https://uetpk-my.sharepoint.com/:f:/g/personal/rehan_naeem_uet_edu_pk/IgD7u4yHfuz_TrY6osDbWspvAd2yW1uqCHVUGFN1LDZDlwE?e=xKXBpV" target="_blank" rel="noopener noreferrer">Download the library files and other codes</a></li>
+              
             </ul>
             <ol class="task-steps">
               <li>Follow the programming tutorials to prepare the software and install the supplied libraries.</li>
@@ -1859,15 +1859,25 @@ section {
             <div class="task-head">
               <div>
                 <h3>Step 3 — Hardware Testing</h3>
-                <p>Measure the electrical inputs before configuring the game.</p>
+                
               </div>
+            </div>
+            <!-- Red warning card -->
+            <div role="note" style="margin:18px 0; padding:18px; border:3px solid #7f1d1d; border-radius:14px; background:#b91c1c; color:#ffffff;">
+              <strong style="font-size:1.15rem;">Warning: Avoid Short Circuits</strong>
+              <p style="margin:10px 0 0; color:#ffffff;">
+                While measuring voltage, ensure that the probe tip touches
+                only the intended microcontroller pin. Do not let it touch
+                adjacent pins or bridge VCC and GND. An accidental short
+                circuit can damage the microcontroller.
+              </p>
             </div>
             <ol class="task-steps">
               <li>Connect the assembled gamepad to the computer with the USB cable and confirm that the microcontroller is powered.</li>
               <li>Set the multimeter to DC voltage mode. Connect its black lead to the common GND and measure VCC using the red lead.</li>
-              <li>Measure the voltage at each pushbutton signal terminal when the button is released and when it is pressed. Include the joystick SW input.</li>
+              <li>Measure the voltage at each pushbutton signal terminal when the button is released and when it is pressed.</li>
               <li>Release the joystick to its centre position. Measure VRx and VRy relative to GND.</li>
-              <li>Compare the measurements with the expected levels. If a reading is inconsistent, disconnect USB power and check the breadboard rows, component leads and jumper-wire connections before retesting.</li>
+              <li>Compare the measurements with the expected levels (lab 04 and 05 readings). If a reading is inconsistent, disconnect USB power and check the breadboard rows, component leads and jumper-wire connections before retesting.</li>
             </ol>
             <p><strong>Reference readings for the 3.3 V setup:</strong> a released button input is approximately 3.3 V, a pressed input is near 0 V, and the joystick centre voltage is approximately 1.6 V. For another VCC, expect the released input near VCC and each centre output near VCC/2.</p>
             <div class="record-field">
@@ -1969,7 +1979,7 @@ section {
             <ol class="task-steps">
               <li>Follow the video to open the relevant configuration software and identify the connected gamepad.</li>
               <li>Operate each pushbutton and move the joystick to identify its corresponding input.</li>
-              <li>Assign the required actions to the buttons and joystick axes. Use two of the external pushbuttons for jumping and shooting.</li>
+              <li>Assign the required actions to the buttons and joystick axes.</li>
               <li>Record the selected assignments below and save the configuration.</li>
             </ol>
             <div class="table-wrap">
@@ -2028,7 +2038,7 @@ section {
               </div>
             </div>
             <ol class="task-steps">
-              <li>Install and open Counter Strike using the <a href="https://pern-my.sharepoint.com/:u:/g/personal/rehan_naeem_uet_edu_pk/EaGBwLaI2hBClHoC6zIAajYB87M57_N2VtfzriGzecDnPQ?e=JwEV3u" target="_blank" rel="noopener noreferrer">game download supplied for the lab</a>.</li>
+              <li>Install and open Counter Strike using the <a href="https://uetpk-my.sharepoint.com/:f:/g/personal/rehan_naeem_uet_edu_pk/IgD7u4yHfuz_TrY6osDbWspvAd2yW1uqCHVUGFN1LDZDlwE?e=pH5vWM" target="_blank" rel="noopener noreferrer">game download supplied for the lab</a>.</li>
               <li>Load the saved gamepad configuration and begin a test session.</li>
               <li>Test the joystick in all four directions and test each configured button, including the jumping and shooting controls.</li>
               <li>If an action is missing or assigned incorrectly, check the electrical readings and control mapping, then repeat the test.</li>
