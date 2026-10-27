@@ -1670,7 +1670,7 @@ section {
             <h3>Learning Outcomes</h3>
             <ol>
               <li>Assemble a circuit from a schematic and check its connections.</li>
-              <li>Mount the microcontroller in removable female header connectors.</li>
+              <li>Assemble the components on a breadboard and connect the microcontroller using jumper wires.</li>
               <li>Upload the supplied firmware and test the electrical inputs.</li>
               <li>Configure the gamepad controls and demonstrate their operation in a game.</li>
             </ol>
@@ -1678,9 +1678,9 @@ section {
             <ul>
               <li>Five external pushbuttons, labelled S1–S5 in the circuit diagram</li>
               <li>One Right Joystick module, labelled KY-032, including its built-in SW push switch</li>
-              <li>Arduino-Pro-Micro microcontroller and a USB data cable</li>
-              <li>Veroboard, female header connectors, and male/female jumper wires</li>
-              <li>Digital multimeter and suitable soldering equipment</li>
+              <li>Arduino-Pro-Micro microcontroller with fitted pin headers and a USB data cable</li>
+              <li>Solderless breadboard and male–male/male–female jumper wires; joystick module with fitted pin headers</li>
+              <li>Digital multimeter</li>
               <li>Computer with the programming software, supplied firmware and libraries, and the game</li>
             </ul>
           </article>
@@ -1689,8 +1689,8 @@ section {
             <h3>Important Messages</h3>
             <ul>
               <li>Follow the circuit diagram in Step 1: use S1–S5 and the Right Joystick only. Its SW pin provides an additional push-switch input.</li>
-              <li>Do not solder the microcontroller directly to the Veroboard. Solder female header connectors to the Veroboard and insert the microcontroller into them.</li>
-              <li>Disconnect USB power before changing wiring or soldering. Check for shorts and poor solder joints before reconnecting.</li>
+              <li>Use a breadboard for assembly. Insert a breadboard-compatible microcontroller across the centre channel so that its two pin rows remain electrically separate. If the board does not fit, place it beside the breadboard and connect it using jumper wires.</li>
+              <li>Disconnect USB power before changing the wiring. Check for loose jumper wires, misplaced component leads and unintended shorts before reconnecting.</li>
               <li>The joystick supply pin retains its printed +5V label in the diagram and is connected to the microcontroller VCC. Confirm the voltage of the actual board before powering the circuit.</li>
               <li>The reference readings in Step 3 correspond to the 3.3 V setup. Use the measured VCC when interpreting your readings.</li>
             </ul>
@@ -1740,7 +1740,7 @@ section {
             <div class="task-head">
               <div>
                 <h3>Step 1 — Circuit Patching</h3>
-                <p>Assemble five external pushbuttons and the Right Joystick according to the circuit diagram.</p>
+                <p>Assemble five external pushbuttons and the Right Joystick on a breadboard according to the circuit diagram.</p>
               </div>
             </div>
 
@@ -1753,11 +1753,11 @@ section {
             </figure>
             <ol class="task-steps">
               <li>Keep the circuit disconnected from the computer while assembling it.</li>
-              <li>Plan the positions of the pushbuttons and joystick on the Veroboard so that they are comfortable to operate.</li>
-              <li>Solder female header connectors to the Veroboard for the Arduino-Pro-Micro. Insert the microcontroller into the headers rather than soldering it directly to the Veroboard.</li>
+              <li>Plan the breadboard layout so that the pushbuttons and joystick are easy to operate and their connections remain visible. Use male–female jumper wires to connect the joystick module to the breadboard.</li>
+              <li>Fit the microcontroller onto the breadboard, or connect it beside the breadboard using jumper wires. Place four-legged pushbuttons across the centre channel and use continuity mode to identify the terminal pairs that connect only when pressed.</li>
               <li>Connect S1–S5 to digital pins D3–D7 respectively, with the other terminal of each pushbutton connected to GND.</li>
               <li>Connect the Right Joystick VRx to A0, VRy to A1 and SW to D2. Connect its supply pin, labelled +5V, to VCC and its GND pin to the common GND.</li>
-              <li>Use the multimeter continuity function on the unpowered circuit to check the connections. Inspect for solder bridges, loose joints and unintended shorts between VCC and GND.</li>
+              <li>Use the multimeter continuity function on the unpowered circuit to check the connections. Check for loose jumpers, incorrectly shared rows and unintended shorts between VCC and GND. If the breadboard power rails are split, link the required sections and connect all ground rails to the common GND.</li>
             </ol>
             <h4>Connection Checklist</h4>
             <div class="table-wrap">
@@ -1823,10 +1823,6 @@ section {
                 </tbody>
               </table>
             </div>
-            <figure class="component-figure">
-              <img src="assets/lab-06/female-header.png" width="500" height="338" alt="Female header connector used as a removable socket for the microcontroller.">
-              <figcaption>Female header connector for mounting the microcontroller.</figcaption>
-            </figure>
           </article>
 
           <!-- ===== STEP 2: CODE BURNING ===== -->
@@ -1871,7 +1867,7 @@ section {
               <li>Set the multimeter to DC voltage mode. Connect its black lead to the common GND and measure VCC using the red lead.</li>
               <li>Measure the voltage at each pushbutton signal terminal when the button is released and when it is pressed. Include the joystick SW input.</li>
               <li>Release the joystick to its centre position. Measure VRx and VRy relative to GND.</li>
-              <li>Compare the measurements with the expected levels. If a reading is inconsistent, disconnect USB power and check the connections and soldering before retesting.</li>
+              <li>Compare the measurements with the expected levels. If a reading is inconsistent, disconnect USB power and check the breadboard rows, component leads and jumper-wire connections before retesting.</li>
             </ol>
             <p><strong>Reference readings for the 3.3 V setup:</strong> a released button input is approximately 3.3 V, a pressed input is near 0 V, and the joystick centre voltage is approximately 1.6 V. For another VCC, expect the released input near VCC and each centre output near VCC/2.</p>
             <div class="record-field">
@@ -1955,7 +1951,7 @@ section {
               </table>
             </div>
             <div class="response-block">
-              <p id="hardware-observations" class="response-label">Describe any incorrect reading and how the wiring or soldering was corrected. If all readings were correct, record that observation.</p>
+              <p id="hardware-observations" class="response-label">Describe any incorrect reading and how the breadboard wiring was corrected. If all readings were correct, record that observation.</p>
               <div class="answer-space" role="group" aria-labelledby="hardware-observations"></div>
             </div>
           </article>
@@ -2058,21 +2054,21 @@ section {
 
           <article class="content-card card">
             <ol class="deliverables-list">
-              <li>Submit the assembled, working gamepad. Write your roll number on it.</li>
+              <li>Submit the assembled, working breadboard gamepad. Attach a label showing your roll number.</li>
               <li>Submit the completed lab report in PDF format. Fill in all tables and record your observations in the provided spaces.</li>
-              <li>Include photographs of the top and bottom sides of the Veroboard, along with a photograph showing the circuit and game screen in working condition.</li>
+              <li>Include an overview photograph of the assembled breadboard circuit and a close-up showing the component and jumper-wire connections. Also include a photograph showing the circuit and game screen in working condition.</li>
               <li>Upload a YouTube video or Short of no more than one minute. Clearly show the working circuit and the game. Display your names, roll numbers, department, university name and university logo. Use the upload instructions supplied by the instructor.</li>
               <li>Include the demonstration video link in the report. See the <a href="https://youtu.be/XVMm4dTX0yE" target="_blank" rel="noopener noreferrer">sample demonstration video</a> for the expected presentation.</li>
             </ol>
 
             <!-- Report evidence spaces. Insert students' own photographs when completing the report. -->
             <div class="response-block">
-              <p id="top-photo" class="response-label">Photograph of the top side of the Veroboard</p>
-              <div class="photo-space" role="group" aria-labelledby="top-photo"></div>
+              <p id="breadboard-photo" class="response-label">Overview photograph of the assembled breadboard circuit</p>
+              <div class="photo-space" role="group" aria-labelledby="breadboard-photo"></div>
             </div>
             <div class="response-block">
-              <p id="bottom-photo" class="response-label">Photograph of the bottom side of the Veroboard</p>
-              <div class="photo-space" role="group" aria-labelledby="bottom-photo"></div>
+              <p id="wiring-photo" class="response-label">Close-up photograph of the component and jumper-wire connections</p>
+              <div class="photo-space" role="group" aria-labelledby="wiring-photo"></div>
             </div>
             <div class="response-block">
               <p id="game-photo" class="response-label">Photograph showing the gamepad and game screen in working condition</p>
