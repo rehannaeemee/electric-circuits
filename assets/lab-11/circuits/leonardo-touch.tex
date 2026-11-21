@@ -1,0 +1,29 @@
+
+\documentclass[border=10pt]{standalone}
+\usepackage[american]{circuitikz}
+\usepackage{xcolor}
+\definecolor{ink}{HTML}{182C43}
+\definecolor{ghost}{HTML}{70839A}
+\pdfmapfile{+cm.map}
+\begin{document}
+\begin{circuitikz}[color=ink,line width=0.9pt,font=\large]
+  \draw[rounded corners=4pt,fill=ink!3] (0,-2.4) rectangle (3,3.0);
+  \node[align=center] at (1.5,1.4) {Arduino\\Leonardo};
+  \node[align=center,font=\normalsize] at (1.3,-0.6) {USB $5\,\mathrm{V}$};
+  \node[left] at (2.9,2.4) {D10};
+  \node[left] at (2.9,0.4) {D0};
+  \node[left] at (2.9,-1.8) {D9};
+  \node[right] at (0.1,-1.8) {GND};
+  \draw (3,2.4) to[R,l={$R_2=100\,\mathrm{k}\Omega$}] (7,2.4)
+    -- (7,0.4) coordinate (sense);
+  \draw (3,0.4) to[short,-*] (sense);
+  \draw (7,2.4) node[circ] {} -- (10,2.4) -- (10,3.1);
+  % A wire loop, not an inductor or a fitted capacitor.
+  \draw (10,3.1) .. controls (8.8,4.4) and (11.2,4.4) .. (10,3.1);
+  \node[above] at (10,4.2) {Touch wire loop};
+  \draw (3,-1.8) to[R,l_={$R_3=330\,\Omega$}] (5.6,-1.8)
+    to[led,l_={LED}] (8.7,-1.8) -- (10.3,-1.8)
+    -- (10.3,-3.1) node[ground] {};
+  \draw (0,-1.8) -- (-0.8,-1.8) -- (-0.8,-3.1) node[ground] {};
+\end{circuitikz}
+\end{document}

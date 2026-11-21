@@ -1,0 +1,20 @@
+
+\documentclass[border=10pt]{standalone}
+\usepackage[american]{circuitikz}
+\usepackage{xcolor}
+\definecolor{ink}{HTML}{182C43}
+\pdfmapfile{+cm.map}
+\begin{document}
+\begin{circuitikz}[color=ink,line width=0.9pt,font=\large]
+  \draw (0,0) to[V,invert,l^={$v_s(t)$}] (0,3)
+    to[R,l={$R_1=100\,\mathrm{k}\Omega$},*-*] (4.5,3)
+    to[C,l={$C_1=100\,\mathrm{nF}$}] (4.5,0) -- (0,0);
+  \draw (2,0) node[circ] {} node[ground] {};
+  \node[above left] at (0,3) {CH1};
+  \node[above right] at (4.5,3) {CH2};
+  \draw[->] (7.5,2.8) -- (7.5,1.0)
+    node[midway,right] {$i_C(t)$};
+  \node[align=center] at (0,-1.0) {Square wave\\$0$ to $5\,\mathrm{V}$, $5\,\mathrm{Hz}$};
+  \node[align=center] at (4.5,-1.0) {Both probe ground clips\\connect to common ground};
+\end{circuitikz}
+\end{document}

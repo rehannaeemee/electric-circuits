@@ -1,0 +1,27 @@
+\documentclass[border=9pt]{standalone}
+\usepackage[american]{circuitikz}
+\pdfmapfile{+cm.map}
+\begin{document}
+\begin{circuitikz}[line width=0.85pt,font=\large]
+\ctikzset{bipoles/length=1.0cm}
+\begin{scope}
+\draw (0,0) to[V,invert,l_={$V_S$}] (0,4) -- (2.2,4)
+ to[R,l={Constant $R_1$}] (2.2,2) to[ldR,l={Photoresistor}] (2.2,0) -- (0,0);
+\node at (1.3,1.75) {$+$};
+\node at (1.3,0.25) {$-$};
+\node at (1.3,1) {$v$};
+\node[font=\bfseries\large] at (1.1,-0.7) {Circuit A};
+\end{scope}
+\node at (5.4,2) {...or...};
+\begin{scope}[xshift=7.2cm]
+\draw (0,0) to[V,invert,l_={$V_S$}] (0,4) -- (2.2,4)
+ to[ldR,l={Photoresistor}] (2.2,2) to[R,l={Constant $R_1$}] (2.2,0) -- (0,0);
+\node at (1.3,1.75) {$+$};
+\node at (1.3,0.25) {$-$};
+\node at (1.3,1) {$v$};
+\node[font=\bfseries\large] at (1.1,-0.7) {Circuit B};
+\end{scope}
+\node[align=center,font=\normalsize] at (5.1,-1.35)
+ {$V_S$: variable DC supply (use the same setting for both circuits)};
+\end{circuitikz}
+\end{document}
